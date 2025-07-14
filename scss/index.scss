@@ -1,0 +1,101 @@
+@import '_setting';
+@import '_header';
+@import '_footer';
+
+
+.home_featured{
+    .container{
+        display: flex;
+        flex-direction: row;
+    }
+}
+.home_collections{
+}
+.home_frame_title{
+    width: 100% !important;
+    border-bottom: 1px solid #E5E5E5;
+    margin: 40px auto;
+    h3{
+        display: inline-block;
+        border-bottom: 8px solid $primary-color;
+    }
+}
+.program_frame{
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    gap: 2%;
+    margin-bottom: 40px;
+
+    .item{
+        width: 32%;
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        
+        .program_photo{
+            width: 100%;
+        }
+        .program_info{
+            display: flex;
+            flex-direction: column;
+            .program_info_name{
+                font-size: 20px;
+            }
+            .program_info_en-name{
+                color: #847C7A;
+                font-size: 16px;
+                line-height: 1.4;
+                letter-spacing: 1px;
+            }
+            .program_info_date{
+                font-size: 18px;
+                line-height: 1;
+                font-weight: 500;
+                letter-spacing: 1px;
+                margin-top: 12px;
+                vertical-align: middle;
+                span{
+                    vertical-align: middle;
+                    margin-right: 8px;
+                    font-size: 20px;
+                }
+            }
+            .program_info_link{}
+        }
+        
+    }
+
+    &.large{
+        width: 49%;
+        &:first-child{
+            margin-right: 2%;
+        }
+        .item{
+            width: 100%;
+        }
+
+    }
+    &.small{
+        // flex-direction: column;
+    }
+
+    &.vertical{
+        .item{
+            width: 100%;
+            flex-direction: row;
+            .program_photo{
+                width: 45%;
+            }
+            .program_info{
+                width: 55%;
+            }
+        }
+    }
+
+    &.horizontal{
+
+    }
+}

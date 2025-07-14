@@ -1,0 +1,114 @@
+@import '_setting';
+@import '_header';
+@import '_footer';
+
+
+form{
+    display: flex;
+    // justify-content: center;
+    flex-wrap: wrap;
+    // gap: 40px;
+    .tab-content{
+        display: none;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        margin-top: -1px;
+        padding: 40px 20px;
+        // background: #fff;
+
+    }
+    
+    #tab-option1:checked ~ .tab-content1,
+    #tab-option2:checked ~ .tab-content2,
+    #tab-option3:checked ~ .tab-content3,
+    #tab-option4:checked ~ .tab-content4,
+    #tab-option5:checked ~ .tab-content5,
+    #tab-option6:checked ~ .tab-content6,
+    #tab-option7:checked ~ .tab-content7,
+    #tab-option8:checked ~ .tab-content8 {
+        display: block;
+    }
+    
+    input[type="radio"]{
+        display: none;
+    }
+    label{
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        display: inline-block;
+        letter-spacing: 1px;
+        position: relative;
+        margin-right: 20px;
+        @media (max-width:800px){
+            font-size: 18px;
+            padding: 6px 8px;
+            margin: 10px 4px 0;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        // &:before{
+        //     content: "";
+        //     width: 100%;
+        //     height: 1px;
+        //     background: #ccc;
+        //     position: absolute;
+        //     left: 50%;
+        //     bottom: 0;
+        //     transform: translateX(-50%);
+        // }
+    
+    }
+    
+    #tab-option1:checked ~ .tab-option1,
+    #tab-option2:checked ~ .tab-option2,
+    #tab-option3:checked ~ .tab-option3,
+    #tab-option4:checked ~ .tab-option4,
+    #tab-option5:checked ~ .tab-option5,
+    #tab-option6:checked ~ .tab-option6,
+    #tab-option7:checked ~ .tab-option7,
+    #tab-option8:checked ~ .tab-option8{
+        position: relative;
+        display: inline-block;
+        a{
+            // color: #fff;
+        }
+        &:after{
+            content: "";
+            width: 100%;
+            height: 8px;
+            background: $primary-color;
+            position: absolute;
+            left: 50%;
+            bottom: 1px;
+            transform: translateX(-50%);
+        }
+
+    }
+}
+
+.policy-frame{
+    background: #f5f5f5;
+    padding: 60px 0;
+    .container{
+        width: 96%;
+        max-width: 960px;
+        margin: 0 auto;
+        .policy_content{
+            h2,h3,h4,h5,h6{
+                margin-top: 40px;
+                &:first-child{
+                    margin-top: 0;
+                }
+            }
+            p{
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 1px;
+                text-align: justify;
+                margin: 20px auto;
+            }
+        }
+    }
+}

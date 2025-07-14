@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>綜觀藝術售票系統</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="Resource-type" content="" />
+	<link rel="icon" href="logo.ico">
+	<!-- <meta property="og:image" content="../img/index/1200x628.jpg"> -->
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/cart.css" />
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="js/slick.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+	<script src="js/wow.min.js"></script>
+
+	<script src="js/imgLiquid-min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+	
+	<header id="header"></header>
+
+	<section>
+		<div class="event_frame">
+            <div class="container">
+                <div class="event_info">
+                    <h4 class="event_info_name">《雙城脈動》薩克斯風音樂會</h4>
+                    <h4 class="event_info_en-name">《Echoes of Two Cities》Saxophone Concert by NIKITA ZIMIN and MATSUSHITA YO</h5>
+                </div>
+            </div>
+        </div>
+        <div class="event_program">
+            <div class="container">
+                <div class="event_editer">
+                    圖文編輯區
+                </div>
+            </div>
+        </div>
+        <div class="event_ticket_zones">
+            <div class="container">
+                <div class="event_title event_ticket_title">
+                    <h3>票區選擇</h3>
+                </div>
+                <div class="price-zones">
+                    <!-- 每個選項都是一組 input + label -->
+                    <input type="radio" id="zone-700" name="price-zone" value="700">
+                    <label for="zone-700">700</label>
+
+                    <input type="radio" id="zone-900" name="price-zone" value="900">
+                    <label for="zone-900">900</label>
+
+                    <!-- 使用 checked 屬性來設定預設選項 -->
+                    <input type="radio" id="zone-1200" name="price-zone" value="1200" checked>
+                    <label for="zone-1200">1200</label>
+
+                    <input type="radio" id="zone-1500" name="price-zone" value="1500">
+                    <label for="zone-1500">1500</label>
+
+                    <input type="radio" id="zone-1800" name="price-zone" value="1800">
+                    <label for="zone-1800">1800</label>
+
+                    <input type="radio" id="zone-2200" name="price-zone" value="2200">
+                    <label for="zone-2200">2200</label>
+
+                    <input type="radio" id="zone-2500" name="price-zone" value="2500">
+                    <label for="zone-2500">2500</label>
+
+                    <input type="radio" id="zone-2800" name="price-zone" value="2800">
+                    <label for="zone-2800">2800</label>
+                </div>
+            </div>
+        </div>
+        <div class="event_ticket_count">
+            <div class="container">
+                <div class="event_title event_ticket_title">
+                    <h3>票種選擇</h3>
+                </div>
+
+                <div class="ticket-list">
+                    <!-- Ticket Item 1 -->
+                    <div class="ticket-item">
+                        <span class="ticket-name">全票</span>
+                        <span class="ticket-price">NT$ 1200 元</span>
+                        <div class="quantity-selector">
+                            <button class="minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">加入購物車</button>
+                    </div>
+                    <!-- Ticket Item 2 -->
+                    <div class="ticket-item">
+                        <span class="ticket-name">兒童票</span>
+                        <span class="ticket-price">NT$ 800 元</span>
+                        <div class="quantity-selector">
+                            <button class="minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">加入購物車</button>
+                    </div>
+                    <!-- Ticket Item 3 -->
+                    <div class="ticket-item">
+                        <span class="ticket-name">學生票</span>
+                        <span class="ticket-price">NT$ 800 元</span>
+                        <div class="quantity-selector">
+                            <button class="minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">加入購物車</button>
+                    </div>
+                    <!-- Ticket Item 4 -->
+                    <div class="ticket-item">
+                        <span class="ticket-name">身障票</span>
+                        <span class="ticket-price">NT$ 800 元</span>
+                        <div class="quantity-selector">
+                            <button class="minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">加入購物車</button>
+                    </div>
+                    <!-- Ticket Item 5 -->
+                    <div class="ticket-item">
+                        <span class="ticket-name">身障陪同票</span>
+                        <span class="ticket-price">NT$ 600 元</span>
+                        <div class="quantity-selector">
+                            <button class="minus">-</button>
+                            <span class="quantity">0</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart-btn">加入購物車</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="container">
+                <button class="cart"><a href="cart.html">我的購物車</a></button>
+                <button class="checkout"><a href="cart-step2.html">前往結帳</a></button>
+            </div>
+        </div>
+	</section>
+
+	<!-- <div class="popup popup_send">
+		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
+	</div> -->
+	
+	<footer id="footer"></footer>
+
+</body>
+<script>
+	$(document).ready(function () {
+		
+		new WOW().init();
+
+		// $(".imgLiquidFill").imgLiquid({fill:true});
+
+		$('#header').load('page/header.html');
+		$('#footer').load('page/footer.html');
+
+		$(window).on("scroll", function() {
+			if ($(window).scrollTop() > 100) {
+				$("#header").addClass("fixed");
+				// $(".logo").fadeIn(200);
+			} else {
+				$("#header").removeClass("fixed");
+				// $(".logo").fadeOut(0);
+			}
+		});
+		
+		document.querySelectorAll('.quantity-selector').forEach(selector => {
+            const minusBtn = selector.querySelector('.minus');
+            const plusBtn = selector.querySelector('.plus');
+            const quantitySpan = selector.querySelector('.quantity');
+
+            minusBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                if (quantity > 0) {
+                    quantity--;
+                    quantitySpan.textContent = quantity;
+                }
+            });
+
+            plusBtn.addEventListener('click', () => {
+                let quantity = parseInt(quantitySpan.textContent);
+                // You can add a max limit if needed, e.g., if (quantity < 10)
+                quantity++;
+                quantitySpan.textContent = quantity;
+            });
+        });
+
+        document.querySelectorAll('.price-zones button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.price-zones button').forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                button.classList.add('active');
+            });
+        });
+	})
+
+
+</script>
+</html>

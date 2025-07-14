@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>綜觀藝術售票系統</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="Resource-type" content="" />
+	<link rel="icon" href="logo.ico">
+	<!-- <meta property="og:image" content="../img/index/1200x628.jpg"> -->
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/cart.css" />
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="js/slick.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+	<script src="js/wow.min.js"></script>
+
+	<script src="js/imgLiquid-min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+	
+	<header id="header"></header>
+
+	<section>
+		<div class="cart_frame">
+            <div class="container">
+                <div class="frame-title">
+                    <h3>我的購物車</h3>
+                </div>
+                <div class="cart_title cart_ticket_title">
+                    <h3>訂購資訊確認</h3>
+                </div>
+                <div class="order_info">
+                    <p></p>
+                    <h4 class="order_info_name"><span>節目名稱</span>《雙城脈動》薩克斯風音樂會</h4>
+                    <div class="order_info_date"><span>節目時間</span>2025/7/13 (日) 14:00</div>
+                    <div class="order_info_location"><span>節目地點</span>國家音樂廳</div>
+                </div>
+            </div>
+        </div>
+        <div class="cart_order">
+            <div class="container">
+                <div class="cart_order_detail">
+                    <div class="group head">
+                        <div class="cart_ticket_zone">票區</div>
+                        <div class="cart_ticket_type">票種</div>
+                        <div class="cart_ticket_price">金額</div>
+                        <div class="cart_ticket_count">張數</div>
+                        <div class="cart_ticket_total-price">小計</div>
+                    </div>
+                    <div class="group">
+                        <div class="cart_ticket_zone">1200 元區</div>
+                        <div class="cart_ticket_type">全票</div>
+                        <div class="cart_ticket_price">1200 元</div>
+                        <div class="cart_ticket_count">1</div>
+                        <div class="cart_ticket_total-price">1200 元</div>
+                    </div>
+                    <div class="group">
+                        <div class="cart_ticket_zone">1200 元區</div>
+                        <div class="cart_ticket_type">學生票</div>
+                        <div class="cart_ticket_price">800 元</div>
+                        <div class="cart_ticket_count">2</div>
+                        <div class="cart_ticket_total-price">1600 元</div>
+                    </div>
+                </div>
+                <div class="cart_order_discount">
+                    使用或輸入折扣碼
+                    <input type="text" name="discount">
+                    <button class="check-discount">使用</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart_order_all">
+            <div class="container">
+                <div class="cart_order_total-price">
+                    <div class="text">訂購金額</div>
+                    <div class="price">2,800</div>
+                </div>
+                <div class="cart_order_all-discount">
+                    <div class="text">折扣金額</div>
+                    <div class="price">- 200</div>
+                </div>
+                <div class="cart_order_final-price">
+                    <div class="text">總計</div>
+                    <div class="price">2,600</div>
+                </div>
+            </div>
+        </div>
+        <div class="cart_order_user-info">
+            <div class="container">
+                <!-- Buyer Information Section -->
+                <div class="form-section open">
+                    <div class="section-header">
+                        <div class="title"><span class="chevron">▾</span>訂購人資料</div>
+                    </div>
+                    <div class="section-content">
+                        <div class="form-grid">
+                        <div class="form-field">
+                            <label for="first-name">名字 <span>*</span></label>
+                            <input type="text" id="first-name" value="">
+                        </div>
+                        <div class="form-field">
+                            <label for="last-name">姓氏 <span>*</span></label>
+                            <input type="text" id="last-name" value="">
+                        </div>
+                        <div class="form-field">
+                            <label for="country">國家/地區 <span>*</span></label>
+                            <select id="country">
+                            <option>台灣</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="phone">聯絡電話 <span>*</span></label>
+                            <div class="phone-input">
+                            <select>
+                                <option>+886</option>
+                            </select>
+                            <input type="text" id="phone" value="">
+                            </div>
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="email">電子郵件信箱 <span>*</span></label>
+                            <input type="email" id="email" value="">
+                        </div>
+                        <div class="form-field full-width">
+                            <label for="address">票卷寄送地址 <span>*</span></label>
+                            <textarea id="address"></textarea>
+                        </div>
+                        </div>
+                        <div class="checkbox-field">
+                        <input type="checkbox" id="update-profile" checked>
+                        <label for="update-profile">同時更新會員資料</label>
+                        </div>
+                        <button type="button" class="continue-btn">繼續</button>
+                    </div>
+                </div>
+            
+                <!-- Payment Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="title"><span class="chevron">▸</span>請選擇付款方式</div>
+                    </div>
+                    <div class="section-content">
+                    <div class="payment-option">
+                        <input type="radio" id="credit-card" name="payment" checked>
+                        <label for="credit-card">信用卡/簽帳金融卡</label>
+                        <span class="recommend-tag">推薦</span>
+                    </div>
+                    <div class="credit-card-info">
+                        <div class="form-grid">
+                            <div class="form-field full-width">
+                                <label for="card-number">信用卡號碼 <span>*</span> </label>
+                                <input type="text" id="card-number" placeholder="0000 0000 0000 0000">
+                            </div>
+                            <div class="form-field">
+                                <label for="expiry-date">有效期限(月/年) <span>*</span></label>
+                                <input type="text" id="expiry-date" placeholder="MM/YY">
+                            </div>
+                            <div class="form-field">
+                                <label for="cvc">背面末3碼 <span>*</span></label>
+                                <input type="text" id="cvc" placeholder="CVC/CVV">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="atm" name="payment">
+                        <label for="atm">ATM轉帳</label>
+                    </div>
+                    <div class="checkbox-field terms-checkbox">
+                        <input type="checkbox" id="terms">
+                        <label for="terms">我同意<a href="#" target="_blank"> 使用條款 </a>與<a href="#" target="_blank"> 退款政策 </a></label>
+                    </div>
+                    </div>
+                </div>
+            
+        
+                <!-- E-invoice Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="title"><span class="chevron">▸</span>電子發票、收據</div>
+                    </div>
+                    <div class="section-content">
+                    <div class="form-grid">
+                        <div class="form-field full-width">
+                            <label for="invoice-type">旅行業代收轉付電子收據</label>
+                            <select id="invoice-type">
+                                <option>寄至訂購人E-mail</option>
+                            </select>
+                        </div>
+                        <div class="form-field full-width invoice-field">
+                            <label for="invoice-email">寄送Email</label>
+                            <input type="email" id="invoice-email" value="" readonly>
+                        </div>
+                    </div>
+                    <div class="checkbox-field">
+                        <input type="checkbox" id="add-buyer-address" checked>
+                        <label for="add-buyer-address">加註買受人地址</label>
+                    </div>
+                    <div class="form-field">
+                        <label for="buyer-address">買受人地址 (非必填)</label>
+                        <input type="text" id="buyer-address" placeholder="請輸入買受人地址">
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="container">
+                <button class="cart"><a href="cart-step2.html">回上一頁</a></button>
+                <button class="checkout"><a href="cart-step4.html">送出訂單</a></button>
+            </div>
+        </div>
+	</section>
+
+	<!-- <div class="popup popup_send">
+		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
+	</div> -->
+	
+	<footer id="footer"></footer>
+
+</body>
+<script>
+	$(document).ready(function () {
+		
+		new WOW().init();
+
+		// $(".imgLiquidFill").imgLiquid({fill:true});
+
+		$('#header').load('page/header.html');
+		$('#footer').load('page/footer.html');
+
+		$(window).on("scroll", function() {
+			if ($(window).scrollTop() > 100) {
+				$("#header").addClass("fixed");
+				// $(".logo").fadeIn(200);
+			} else {
+				$("#header").removeClass("fixed");
+				// $(".logo").fadeOut(0);
+			}
+		});
+		
+
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+            const section = header.parentElement;
+            section.classList.toggle('open');
+            const chevron = header.querySelector('.chevron');
+            if (section.classList.contains('open')) {
+                chevron.innerHTML = '▾';
+            } else {
+                chevron.innerHTML = '▸';
+            }
+            });
+        });
+	})
+
+
+</script>
+</html>

@@ -1,0 +1,80 @@
+footer{
+    background: $primary-color;
+    padding: 40px 0;
+    letter-spacing: 1px;
+    .footer_info_frame{
+        display: flex;
+        justify-content: space-between;
+        .footer_nav{
+            display: flex;
+            ul{
+                width: 120px;
+                li{
+                    a{
+                        color: #fff;
+                        line-height: 2;
+                    }
+                }
+            }
+        }
+        .footer_contact{
+            ul{
+                li{
+                    color: #fff;
+                    line-height: 2.4;
+                    font-size: 14px;
+                    a{
+                        color: #fff;
+                        font-size: 14px;
+                    }
+                    span{
+                        color: #fff;
+                        vertical-align: middle;
+                        margin-right: 4px;
+                        font-size: 20px;
+                    }
+                    .note{
+                        font-size: 12px;
+                        line-height: 1.4;
+                        background: rgba(255,255,255,.8);
+                        // color: #fff;
+                        border-radius: 4px;
+                        display: inline-block;
+                        padding: 0 4px;
+                    }
+                }
+            }
+        }
+    }
+    .footer_brand_frame{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 48px;
+        .footer_logo{
+            a{
+                width: 180px;
+                img{}
+            }
+        }
+
+        .footer_copyright{
+            p{
+                color: #fff;
+                font-size: 12px;
+                line-height: 2;
+                margin: 0;
+            }
+        }
+        .footer_social{
+            display: flex;
+            gap: 12px;
+            .item{
+                a{
+                    width: 30px;
+                    img{}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>綜觀藝術售票系統</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="Resource-type" content="" />
+	<link rel="icon" href="logo.ico">
+	<!-- <meta property="og:image" content="../img/index/1200x628.jpg"> -->
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/member.css" />
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="js/slick.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+	<script src="js/wow.min.js"></script>
+
+	<script src="js/imgLiquid-min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+</head>
+
+<body class="home">
+	
+	<header id="header"></header>
+
+	<section>
+		<div class="member-frame">
+            <div class="container">
+                <div class="frame-title">
+                    <h3>會員專區</h3>
+                </div>
+                <form>
+                        
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option1">
+                    <label for="tab-option1" class="tab-option1">個人資料修改</label>   
+                        
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option2" checked>
+                    <label for="tab-option2" class="tab-option2">修改密碼</label>              
+                        
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option3" checked>
+                    <label for="tab-option3" class="tab-option3">訂單記錄</label>             
+    
+                    <div class="tab-content tab-content1">
+                        <div class="member_content">
+                            <div class="form member-info-form">
+                                <div class="form-group col-3">
+                                    <label for="name">姓名</label>
+                                    <input type="text" id="name" name="name">
+                                </div>
+                                <div class="form-group col-3">
+                                    <label>性別</label>
+                                    <div class="gender-group">
+                                        <input type="radio" id="male" name="gender" value="male">
+                                        <label for="male">男</label>
+                                        <input type="radio" id="female" name="gender" value="female">
+                                        <label for="female">女</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-3">
+                                    <label for="birthdate">生日</label>
+                                    <input type="date" id="birthdate" name="birthdate">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label for="id_number">身份證字號</label>
+                                    <input type="text" id="id_number" name="id_number">
+                                </div>
+                                <div class="form-group col-2">
+                                    <label for="mobile">行動電話</label>
+                                    <input type="text" id="mobile" name="mobile">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">電子郵件</label>
+                                    <input type="email" id="email" name="email">
+                                    <p class="form-text">電子發票會寄至您的信箱，請務必留下正確信箱地址，請勿用yahoo信箱收信。</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">地址</label>
+                                    <div class="address-inputs">
+                                    <select id="city" name="city">
+                                        <option value="">縣市</option>
+                                        <!-- Add cities here -->
+                                    </select>
+                                    <select id="district" name="district">
+                                        <option value="">區域</option>
+                                        <!-- Add districts here -->
+                                    </select>
+                                    <input type="text" id="address_street" name="address_street">
+                                    </div>
+                                </div>
+                                <button type="submit" class="submit-btn">確認修改</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tab-content2">
+                        <div class="member_content">
+                            <div class="form password-form">
+                                <div class="form-group">
+                                    <label for="current-password">舊密碼：</label>
+                                    <input type="password" id="current-password" name="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">新密碼：</label>
+                                    <input type="password" id="new-password" name="new-password">
+                                    <p class="form-text">密碼長度必須至少 10 個字符，且至少包含 1 個數字和 1 個英文字母</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-new-password">新密碼確認：</label>
+                                    <input type="password" id="confirm-new-password" name="confirm-new-password">
+                                </div>
+                                <button type="submit" class="submit-btn">確認修改</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content tab-content3">
+                        <div class="order_content">
+                            <div class="item">
+                                <div class="order_ststus">
+                                    <span class="success">訂購完成</span>
+                                    <span class="processing">處理中</span>
+                                    <span class="refunded">退票完成</span>
+                                </div>
+                                <div class="order_date">
+                                    訂購日期
+                                    <span>2025 / 6/ 30</span>
+                                </div>
+                                <div class="order_info">
+                                    <ul>
+                                        <li>節目名稱<span>《雙城脈動》薩克斯風音樂會</span></li>
+                                        <li>節目時間<span>2025/11/29 (六) 18:30~21:00</span></li>
+                                        <li>節目地點<span>國家音樂廳</span></li>
+                                    </ul>
+                                </div>
+                                <div class="order_price">
+                                    <div class="origin_price">
+                                        <div class="title">訂單金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    <div class="discount_price">
+                                        <div class="title">折扣碼金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="order_ststus">
+                                    <span class="success">訂購完成</span>
+                                    <span class="processing">處理中</span>
+                                    <span class="refunded">退票完成</span>
+                                </div>
+                                <div class="order_date">
+                                    訂購日期
+                                    <span>2025 / 6/ 30</span>
+                                </div>
+                                <div class="order_info">
+                                    <ul>
+                                        <li>節目名稱<span>《雙城脈動》薩克斯風音樂會</span></li>
+                                        <li>節目時間<span>2025/11/29 (六) 18:30~21:00</span></li>
+                                        <li>節目地點<span>國家音樂廳</span></li>
+                                    </ul>
+                                </div>
+                                <div class="order_price">
+                                    <div class="origin_price">
+                                        <div class="title">訂單金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    <div class="discount_price">
+                                        <div class="title">折扣碼金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="order_ststus">
+                                    <!-- 訂單狀態 -->
+                                    <span class="success">訂購完成</span>
+                                    <span class="processing">處理中</span>
+                                    <span class="refunded">退票完成</span>
+                                </div>
+                                <div class="order_date">
+                                    訂購日期
+                                    <span>2025 / 6/ 30</span>
+                                </div>
+                                <div class="order_info">
+                                    <ul>
+                                        <li>節目名稱<span>《雙城脈動》薩克斯風音樂會</span></li>
+                                        <li>節目時間<span>2025/11/29 (六) 18:30~21:00</span></li>
+                                        <li>節目地點<span>國家音樂廳</span></li>
+                                    </ul>
+                                </div>
+                                <div class="order_price">
+                                    <div class="origin_price">
+                                        <div class="title">訂單金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    <div class="discount_price">
+                                        <div class="title">折扣碼金額</div>
+                                        <span>1800</span>元
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+    <div id="message"></div>
+
+	<!-- <div class="popup popup_send">
+		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
+	</div> -->
+	
+	<footer id="footer"></footer>
+
+</body>
+
+<script>
+	$(document).ready(function () {
+		
+		new WOW().init();
+
+		// $(".imgLiquidFill").imgLiquid({fill:true});
+
+		$('#header').load('page/header.html');
+		$('#footer').load('page/footer.html');
+
+		$(window).on("scroll", function() {
+			if ($(window).scrollTop() > 100) {
+				$("#header").addClass("fixed");
+				// $(".logo").fadeIn(200);
+			} else {
+				$("#header").removeClass("fixed");
+				// $(".logo").fadeOut(0);
+			}
+		});
+
+	})
+
+
+    $('.item').on('click', function() {
+        $(this).find('.member_answer').slideToggle(300);
+        $(this).find('.add, .remove').toggle();
+        $(this).siblings().find('.member_answer').slideUp(300);
+        $(this).siblings().find('.add').show();
+        $(this).siblings().find('.remove').hide();
+      });
+
+</script>
+
+
+</html>

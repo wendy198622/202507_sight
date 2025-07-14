@@ -1,0 +1,131 @@
+
+<div class="logo">
+    <a href="index.html">
+        <img src="./img/logo.svg" alt="綜觀藝術">
+        <span>綜觀藝術售票系統</span>
+    </a>
+</div>
+
+
+<nav>
+
+    <button id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav_box">
+        <ul class="nav_primary">
+            <li class="search">
+                <a href="#">
+                    <img src="../img/navicon_search.svg" alt="">
+                    <span>搜尋</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../img/navicon_category.svg" alt="">
+                    <span>節目類別</span>
+                </a>
+                <ul class="nav_secondery">
+                    <li><a href="#">音樂</a</li>
+                    <li><a href="#">戲劇</a</li>
+                    <li><a href="#">舞蹈</a</li>
+                    <li><a href="#">親子</a</li>
+                    <li><a href="#">音樂劇</a</li>
+                    <li><a href="#">展覽</a</li>
+                    <li><a href="#">演唱會</a</li>
+                </ul>
+            </li>
+            <li>
+                <a href="news.html">
+                    <img src="../img/navicon_news.svg" alt="">
+                    <span>最新消息</span>
+                </a>
+            </li>
+            <li>
+                <a href="faq.html">
+                    <img src="../img/navicon_faq.svg" alt="">
+                    <span>常見問題</span>
+                </a>
+            </li>
+            <li>
+                <a href="member.html">
+                    <img src="../img/navicon_service.svg" alt="">
+                    <span>會員服務</span>
+                </a>
+            </li>
+            <li>
+                <a href="cart-step2.html">
+                    <img src="../img/navicon_cart.svg" alt="">
+                    <span>購物車</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="search-mask" id="search-mask">
+    <span class="close-btn" id="close-btn">&times;</span>
+    <div class="search-page">
+        <input type="search" id="search-input" placeholder="請輸入關鍵字...">
+        <button class="submit-search-btn" id="submit-search">搜尋</button>
+    </div>
+</div>
+
+
+<Script>
+    $(document).ready(function () {
+
+        if ($(window).width() > 960) {
+            $('.nav_primary > li').hover(
+                function() {
+                    $(this).find('.nav_secondery').stop(true, true).slideDown(200);
+                },
+                function() {
+                    $(this).find('.nav_secondery').stop(true, true).slideUp(200);
+                }
+            );
+        }
+        
+        $("#menu-toggle").click(function() {
+            $(".nav_box").toggleClass("open");
+        });
+
+    });
+
+    const searchButton = document.querySelector('.search');
+    const searchMask = document.getElementById('search-mask');
+    const closeButton = document.getElementById('close-btn');
+    const submitSearchButton = document.getElementById('submit-search');
+    const searchInput = document.getElementById('search-input');
+    
+    searchButton.addEventListener('click', () => {
+        searchMask.classList.add('active');
+        searchInput.focus();
+    });
+    
+    closeButton.addEventListener('click', () => {
+        searchMask.classList.remove('active');
+    });
+    
+    submitSearchButton.addEventListener('click', () => {
+        const query = searchInput.value;
+        if (query) {
+        alert(`正在搜尋: ${query}`);
+        // You can add your search logic here
+        console.log('Searching for:', query);
+        } else {
+        alert('請輸入搜尋關鍵字');
+        }
+    });
+    
+    // Optional: Close when clicking on the mask background
+    searchMask.addEventListener('click', (event) => {
+        if (event.target === searchMask) {
+        searchMask.classList.remove('active');
+        }
+    });
+    </script>

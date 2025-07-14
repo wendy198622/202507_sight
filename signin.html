@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>綜觀藝術售票系統</title>
+	<meta name="author" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="Resource-type" content="" />
+	<link rel="icon" href="logo.ico">
+	<!-- <meta property="og:image" content="../img/index/1200x628.jpg"> -->
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick.css" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="css/member.css" />
+	<!-- js -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="js/slick.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+	<script src="js/wow.min.js"></script>
+
+	<script src="js/imgLiquid-min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</head>
+
+<body class="home">
+	
+	<header id="header"></header>
+
+	<section>
+		<div class="member-frame">
+            <div class="container">
+                <div class="frame-title">
+                    <h3>會員登入</h3>
+                </div>
+                <form>           
+
+                  <div class="signin_content">
+                      <div class="form login-form">
+                          <div class="form-group">
+                              <label for="email">電子郵件</label>
+                              <input type="email" id="email" name="email">
+                              <!-- <p class="form-text">電子發票會寄至您的信箱，請務必留下正確信箱地址，請勿用yahoo信箱收信。</p> -->
+                          </div>
+                          <div class="form-group">
+                              <label for="password">密碼</label>
+                              <input type="password" id="password" name="password">
+                              <!-- <p class="form-text">密碼長度必須至少 10 個字符，且至少包含 1 個數字和 1 個英文字母</p> -->
+                          </div>
+                          <p class="form-text"><a href="reset-password.html">忘記密碼</a></p>
+                          <button type="submit" class="submit-btn">登入</button>
+                      </div>
+                  </div>
+                </form>
+                <p class="signin-text">
+                  <span>透過社群帳號免費註冊並綁定</span>
+                  </p>
+                <div class="signin_sso">
+                  <a id="google-login-link" class="login-btn google-btn" href="#">
+                    <img src="img/lognin-google-logo.png" alt="Google logo">
+                    <span>Google 註冊</span>
+                  </a>
+                  <a id="line-login-link" class="login-btn line-btn" href="#">
+                    <img src="img/lognin-line-logo.png" alt="LINE logo">
+                    <span>LINE 註冊</span>
+                  </a>
+                </div>
+                <p class="signin-text">
+                    <span>沒有社群帳號？沒關係</span>
+                  </p>
+
+                <a id="signin-login-link" class="login-btn signin-btn" href="register.html">
+                  <span>免費註冊會員 GO</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <div id="message"></div>
+
+	<!-- <div class="popup popup_send">
+		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
+	</div> -->
+	
+	<footer id="footer"></footer>
+
+</body>
+<script>
+  // --- Google 登入連結設定 ---
+  // !!重要!! 請替換成您在 Google Cloud Console 取得的 Client ID
+  const googleClientId = 'YOUR_GOOGLE_CLIENT_ID';
+  // !!重要!! 這必須與您在 Google Cloud Console 設定的重新導向 URI 完全相符
+  const googleRedirectUri = 'http://localhost:3000/auth/google/callback';
+
+  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${googleClientId}&redirect_uri=${encodeURIComponent(googleRedirectUri)}&response_type=code&scope=email%20profile&access_type=offline`;
+  document.getElementById('google-login-link').href = googleAuthUrl;
+
+
+  // --- LINE 登入連結設定 ---
+  // !!重要!! 請替換成您在 LINE Developers Console 取得的 Channel ID
+  const lineChannelId = 'YOUR_LINE_CHANNEL_ID';
+  // !!重要!! 這必須與您在 LINE Developers Console 設定的 Callback URL 完全相符
+  const lineCallbackUri = 'http://localhost:3000/auth/line/callback';
+  // 'state' 參數是為了防止 CSRF 攻擊，建議後端產生一個隨機字串並驗證
+  const lineState = 'RANDOM_STATE_STRING';
+
+  const lineAuthUrl = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${lineChannelId}&redirect_uri=${encodeURIComponent(lineCallbackUri)}&state=${lineState}&scope=profile%20openid%20email`;
+  document.getElementById('line-login-link').href = lineAuthUrl;
+</script>
+
+<script>
+	$(document).ready(function () {
+		
+		new WOW().init();
+
+		// $(".imgLiquidFill").imgLiquid({fill:true});
+
+		$('#header').load('page/header.html');
+		$('#footer').load('page/footer.html');
+
+		$(window).on("scroll", function() {
+			if ($(window).scrollTop() > 100) {
+				$("#header").addClass("fixed");
+				// $(".logo").fadeIn(200);
+			} else {
+				$("#header").removeClass("fixed");
+				// $(".logo").fadeOut(0);
+			}
+		});
+
+	})
+
+
+    $('.item').on('click', function() {
+        $(this).find('.member_answer').slideToggle(300);
+        $(this).find('.add, .remove').toggle();
+        $(this).siblings().find('.member_answer').slideUp(300);
+        $(this).siblings().find('.add').show();
+        $(this).siblings().find('.remove').hide();
+      });
+
+</script>
+
+
+</html>

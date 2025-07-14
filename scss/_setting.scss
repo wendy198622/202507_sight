@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&family=Noto+Serif+Display:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+.material-icons{
+    @font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+      src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+    }
+}
+
+
+//setting
+body{ font-family: "Noto Sans TC", sans-serif;}
+*{ box-sizing: border-box; color: #231815; font-family: "Noto Sans TC", sans-serif;}
+a, a:hover, a:active, a:visited{ text-decoration: none; display: block; transition: all .3s; outline: 0;}
+img{ width: 100%; display: block;}
+
+.pc{ display: block;}
+.mob{ display: none;}
+@media (max-width:1080px){
+    .pc{ display: none;}
+    .mob{ display: block;}
+}
+
+$primary-color:  #231815;
+$secondery-color:  #EC2023;
+
+$_font-sans: "Noto Sans TC", sans-serif;
+$_font-serif: "Noto Serif TC", serif;
+
+input, button, select, textarea{
+  appearance:none;   
+  -moz-appearance:none;   
+  -webkit-appearance:none; 
+  -ms-appearance:none; 
+  border: 0;
+  padding: 10px 20px;
+  position: relative;
+}
+button{
+    cursor: pointer;
+}
+.popup{
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.9);
+//   opacity: 0;
+//   visibility: hidden;
+  display: none;  
+  transition: all .5s;
+  .popup_content{
+      text-align: center;
+    //   background-color: #fff;
+      color: #000000;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      font-weight: 500;
+      &.popup_img{
+        width: 1200px;
+        height: 760px;
+        padding: 50px;
+        @media (max-width: 1280px){
+            width: 720px;
+            height: 560px;
+        }
+        @media (max-width: 800px){
+            width: calc(100% - 40px);
+            height: 50vh;
+        }
+      }
+      &.popup_message{
+          width: 320px;
+          height: 60px;
+          line-height: 60px;
+      }
+      .close{
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          z-index: 10;
+          right: 6px;
+          top: 6px;
+          text-align: center;
+          i{
+              font-size: 32px;
+              line-height: 40px;
+          }
+          &:hover{
+              cursor: pointer;
+          }
+      }
+  }
+  &.is_acted{
+    //   opacity: 1;
+    //   visibility: visible;
+    display: block;
+  }
+}
+.popup_close{
+    position: absolute;
+    z-index: 200;
+    right: 20px;
+    top: 20px;
+    span{
+        color: #fff;
+        font-size: 32px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.container{
+    width: 96%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+h2{
+    font-size: 32px;
+    line-height: 160%;
+    font-weight: 600;
+    letter-spacing: 4px;
+    @media (max-width: 600px){
+        font-size: 28px;
+    }
+}
+h3{
+    font-size: 28px;
+    line-height: 160%;
+    font-weight: 600;
+    letter-spacing: 4px;
+    @media (max-width: 600px){
+        font-size: 24px;
+    }
+}
+h4{
+    font-size: 24px;
+    line-height: 160%;
+    font-weight: 600;
+    letter-spacing: 4px;
+    @media (max-width: 600px){
+        font-size: 20px;
+    }
+}
+h5{
+    font-size: 20px;
+    line-height: 160%;
+    font-weight: 600;
+    letter-spacing: 4px;
+    @media (max-width: 600px){
+        font-size: 18px;
+    }
+}
+h6{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+p{
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.link{
+    background: #EC2023;
+    padding: 0 12px;
+    align-self: flex-start;
+    margin-top: 20px;
+    a{
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 2px;
+        line-height: 2;
+    }
+    &:hover{
+        opacity: .8;
+    }
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet{
+    background: rgba(255,255,255,.8);
+    &.swiper-pagination-bullet-active{
+        background: #fff;
+    }
+}

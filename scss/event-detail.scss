@@ -1,0 +1,182 @@
+@import '_setting';
+@import '_header';
+@import '_footer';
+
+.container{
+    max-width: 1200px;
+}
+.event_frame{
+    padding: 60px 0 20px;
+    .event_info{
+        display: flex;
+        flex-direction: column;
+        .event_info_name{
+            font-size: 20px;
+        }
+        .event_info_en-name{
+            color: #847C7A;
+            font-size: 16px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+    }
+    .event_photo{
+        margin-top: 20px;
+    }
+}
+.event_title{
+    width: 100% !important;
+    border-bottom: 1px solid #E5E5E5;
+    margin: 40px auto;
+    h3{
+        display: inline-block;
+        border-bottom: 6px solid $primary-color;
+        font-size: 22px;
+        line-height: 2;
+    }
+}
+.event_ticket{
+    .event_ticket_detail{
+        .group{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #efefef;
+            margin-top: 6px;
+            padding: 16px 12px;
+
+            > div{
+                width: 100%;
+            }
+            .event_time{
+                width: 25%;
+            }
+            .event_location{
+                width: 25%;
+                span{
+                    vertical-align: middle;
+                }
+            }
+            .event_price{
+                width: calc(50% - 100px);
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 6px;
+                padding: 10px;
+                padding: 12px 8px;
+                .item{
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                    padding: 0px 12px;
+                    &.sold-out{
+                        text-decoration: line-through;
+                    }
+                }
+            }
+            .event_btn{
+                width: 100px;
+                a{
+                    background: $secondery-color;
+                    color: #fff;
+                    padding: 4px;
+                }
+            }
+        }
+        .event_time{}
+        .event_location{}
+        .event_price{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            padding: 10px;
+            padding: 12px 8px;
+            .item{
+                background: #f1f1f1;
+                border-radius: 10px;
+                padding: 0px 12px;
+                &.sold-out{
+                    text-decoration: line-through;
+                }
+            }
+        }
+        .head{
+            background: #f1f1f1;
+            border: 0;
+            margin-top: 0;
+            padding: 8px 12px;
+            .event_price{
+                justify-content: center;
+            }
+            .event_btn{
+                // width: 200px;
+                background: none;
+                a{
+                    // color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.event_program{
+    padding-bottom: 40px;
+    .event_editer{
+        background: #f1f1f1;
+        height: 240px;
+        line-height: 240px;
+        text-align: center;
+    }
+    .event_notice{
+        margin-top: 40px;
+        ul{
+            li{
+                border: 1px solid #f1f1f1;
+                margin-bottom: 20px;
+
+               .notice_topic{
+                    background: #f1f1f1;
+                    padding: 10px 20px;
+                    position: relative;
+                    transition: all 0.3s ease-in-out;
+                    .notice_topic_icons{
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        transition: transform 0.3s ease-in-out;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+               .notice_text{
+                   box-sizing: border-box;
+                    line-height: 1.6;
+                    max-height: 0;
+                    overflow: hidden;
+                    padding: 0 20px; /* 左右留白 */
+                    color: #555;
+                    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+                } 
+                &.active{
+                    .notice_topic {
+                        background: $primary-color;
+                        color: #fff;
+                    }
+                    .notice_topic_icons {
+                        transform: rotate(180deg) translateY(50%); /* 旋轉圖示 */
+                        color: #fff;
+                    }
+                    .notice_text {
+                        padding: 10px 20px; /* 展開時的內距 */
+                    }
+                }
+                
+            }
+        }
+    }
+}
