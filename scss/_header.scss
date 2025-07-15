@@ -109,8 +109,8 @@ header{
                 }
 
                 .nav_secondery{
-                    width: 360px;
-                    // width: auto;
+                    // width: 360px;
+                    width: auto;
                     opacity: 0;
                     visibility: hidden;
                     // opacity: 1;
@@ -125,18 +125,19 @@ header{
                     outline: 1px solid #dddddd;
                     display: flex;
                     flex-wrap: wrap;
-                    justify-content: flex-start;
-                    gap: 8px;
-                    padding: 16px;
+                    justify-content: center;
+                    border-radius: 8px;
+                    // gap: 8px;
+                    // padding: 16px;
                     &:before{
                         content: "";
                         position: absolute;
                         z-index: 2;
-                        top: -10px;
+                        top: -8px;
                         left: 80px;
                         width: 0;
                         height: 0;
-                        border-width: 0 6px 12px 6px;
+                        border-width: 0 6px 8px 6px;
                         border-style: solid;
                         border-color: transparent transparent #fff transparent;
                     }
@@ -144,26 +145,27 @@ header{
                         content: "";
                         position: absolute;
                         z-index: 1;
-                        top: -12px;
+                        top: -9px;
                         left: 80px;
                         width: 0;
                         height: 0;
-                        border-width: 0 6px 12px 6px;
+                        border-width: 0 6px 8px 6px;
                         border-style: solid;
                         border-color: transparent transparent #ddd transparent;
                     }
 
                     li{
-                        // width: 33.3333%;
+                        width: 100%;
                         padding: 0;
                         a{
                             width: 100%;
-                            padding: 4px 18px;
+                            padding: 12px 0;
                             text-align: center;
                             line-height: 1.2;
                             // color: #fff;
                             white-space:nowrap;
                             border-radius: 8px;
+                            overflow: hidden;
                         }
 
                         &:hover{

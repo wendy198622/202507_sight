@@ -424,7 +424,7 @@ header nav .nav_box .nav_primary li a:hover {
 }
 
 header nav .nav_box .nav_primary .nav_secondery {
-  width: 360px;
+  width: auto;
   opacity: 0;
   visibility: hidden;
   border-radius: 0 0 4px 4px;
@@ -440,22 +440,21 @@ header nav .nav_box .nav_primary .nav_secondery {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  gap: 8px;
-  padding: 16px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 8px;
 }
 
 header nav .nav_box .nav_primary .nav_secondery:before {
   content: "";
   position: absolute;
   z-index: 2;
-  top: -10px;
+  top: -8px;
   left: 80px;
   width: 0;
   height: 0;
-  border-width: 0 6px 12px 6px;
+  border-width: 0 6px 8px 6px;
   border-style: solid;
   border-color: transparent transparent #fff transparent;
 }
@@ -464,26 +463,28 @@ header nav .nav_box .nav_primary .nav_secondery:after {
   content: "";
   position: absolute;
   z-index: 1;
-  top: -12px;
+  top: -9px;
   left: 80px;
   width: 0;
   height: 0;
-  border-width: 0 6px 12px 6px;
+  border-width: 0 6px 8px 6px;
   border-style: solid;
   border-color: transparent transparent #ddd transparent;
 }
 
 header nav .nav_box .nav_primary .nav_secondery li {
+  width: 100%;
   padding: 0;
 }
 
 header nav .nav_box .nav_primary .nav_secondery li a {
   width: 100%;
-  padding: 4px 18px;
+  padding: 12px 0;
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 header nav .nav_box .nav_primary .nav_secondery li:hover {

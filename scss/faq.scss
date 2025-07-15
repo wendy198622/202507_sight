@@ -96,6 +96,7 @@ form{
     // background: #f5f5f5;
     padding: 60px 0;
     .container{
+        max-width: 960px;
         .faq_content{
             h2,h3,h4,h5,h6{
                 margin-top: 40px;
@@ -116,7 +117,7 @@ form{
                     margin-top: 0;
                 }
                 .faq_question{
-                    font-size: 20px;
+                    font-size: 18px;
                     line-height: 1.2;
                     letter-spacing: 1px;
                     display: flex;
@@ -125,6 +126,7 @@ form{
                     span{
                         vertical-align: middle;
                         margin-right: 8px;
+                        font-size: 22px;
                         &.add{
                             display: block;
                         }
@@ -134,7 +136,7 @@ form{
                     }
                 }
                 .faq_answer{
-                    font-size: 18px;
+                    font-size: 16px;
                     margin-top: 8px;
                     letter-spacing: 1px;
                     display: none;
