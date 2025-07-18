@@ -1,0 +1,184 @@
+@import '_setting';
+@import '_header';
+@import '_footer';
+
+
+form{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .tab-content{
+        display: none;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        margin-top: -1px;
+        padding: 60px 20px;
+        // background: #fff;
+
+    }
+    
+    #tab-option1:checked ~ .tab-content1,
+    #tab-option2:checked ~ .tab-content2,
+    #tab-option3:checked ~ .tab-content3,
+    #tab-option4:checked ~ .tab-content4,
+    #tab-option5:checked ~ .tab-content5,
+    #tab-option6:checked ~ .tab-content6,
+    #tab-option7:checked ~ .tab-content7,
+    #tab-option8:checked ~ .tab-content8 {
+        display: block;
+    }
+    
+    input[type="radio"]{
+        display: none;
+    }
+    label{
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        display: inline-block;
+        letter-spacing: 1px;
+        position: relative;
+        @media (max-width:800px){
+            font-size: 18px;
+            padding: 6px 8px;
+            margin: 10px 4px 0;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        // &:before{
+        //     content: "";
+        //     width: 100%;
+        //     height: 1px;
+        //     background: #ccc;
+        //     position: absolute;
+        //     left: 50%;
+        //     bottom: 0;
+        //     transform: translateX(-50%);
+        // }
+    
+    }
+    
+    #tab-option1:checked ~ .tab-option1,
+    #tab-option2:checked ~ .tab-option2,
+    #tab-option3:checked ~ .tab-option3,
+    #tab-option4:checked ~ .tab-option4,
+    #tab-option5:checked ~ .tab-option5,
+    #tab-option6:checked ~ .tab-option6,
+    #tab-option7:checked ~ .tab-option7,
+    #tab-option8:checked ~ .tab-option8,
+    #tab-option9:checked ~ .tab-option9,
+    #tab-option10:checked ~ .tab-option10,
+    #tab-option11:checked ~ .tab-option11,
+    #tab-option12:checked ~ .tab-option12{
+        position: relative;
+        display: inline-block;
+        color: #EC2023;
+        a{
+            // color: #fff;
+        }
+        &:after{
+            content: "";
+            width: 100%;
+            height: 8px;
+            background: #EC2023;
+            position: absolute;
+            left: 50%;
+            bottom: 1px;
+            transform: translateX(-50%);
+        }
+
+    }
+}
+
+.event_collections{
+    padding-top: 60px;
+}
+.event_frame_title{
+    width: 100% !important;
+    border-bottom: 1px solid #E5E5E5;
+    margin: 40px auto;
+    h3{
+        display: inline-block;
+        border-bottom: 8px solid $primary-color;
+    }
+}
+.program_frame{
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    gap: 2%;
+    margin-bottom: 40px;
+
+    .item{
+        width: 32%;
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        
+        .program_photo{
+            width: 100%;
+        }
+        .program_info{
+            display: flex;
+            flex-direction: column;
+            .program_info_name{
+                font-size: 20px;
+            }
+            .program_info_en-name{
+                color: #847C7A;
+                font-size: 16px;
+                line-height: 1.4;
+                letter-spacing: 1px;
+            }
+            .program_info_date{
+                font-size: 18px;
+                line-height: 1;
+                font-weight: 500;
+                letter-spacing: 1px;
+                margin-top: 12px;
+                vertical-align: middle;
+                span{
+                    vertical-align: middle;
+                    margin-right: 8px;
+                    font-size: 20px;
+                }
+            }
+            .program_info_link{}
+        }
+        
+    }
+
+    &.large{
+        width: 49%;
+        &:first-child{
+            margin-right: 2%;
+        }
+        .item{
+            width: 100%;
+        }
+
+    }
+    &.small{
+        // flex-direction: column;
+    }
+
+    &.vertical{
+        .item{
+            width: 100%;
+            flex-direction: row;
+            .program_photo{
+                width: 45%;
+            }
+            .program_info{
+                width: 55%;
+            }
+        }
+    }
+
+    &.horizontal{
+
+    }
+}

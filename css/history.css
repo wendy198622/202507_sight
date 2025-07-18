@@ -427,10 +427,11 @@ header nav .nav_box .nav_primary .nav_secondery {
   width: auto;
   opacity: 0;
   visibility: hidden;
-  border-radius: 0 0 4px 4px;
+  border-radius: 8px;
   position: absolute;
   z-index: 100;
   top: 100%;
+  left: 0;
   -webkit-transition: all .3s;
   transition: all .3s;
   background: #fff;
@@ -443,7 +444,6 @@ header nav .nav_box .nav_primary .nav_secondery {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 8px;
 }
 
 header nav .nav_box .nav_primary .nav_secondery:before {
@@ -451,7 +451,7 @@ header nav .nav_box .nav_primary .nav_secondery:before {
   position: absolute;
   z-index: 2;
   top: -8px;
-  left: 80px;
+  left: 100px;
   width: 0;
   height: 0;
   border-width: 0 6px 8px 6px;
@@ -464,7 +464,7 @@ header nav .nav_box .nav_primary .nav_secondery:after {
   position: absolute;
   z-index: 1;
   top: -9px;
-  left: 80px;
+  left: 100px;
   width: 0;
   height: 0;
   border-width: 0 6px 8px 6px;

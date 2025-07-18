@@ -29,7 +29,7 @@
                     <span>節目類別</span>
                 </a>
                 <ul class="nav_secondery">
-                    <li><a href="#">音樂</a></li>
+                    <li><a href="event.html">音樂</a></li>
                     <li><a href="#">戲劇</a></li>
                     <li><a href="#">舞蹈</a></li>
                     <li><a href="#">親子</a></li>
@@ -113,13 +113,16 @@
     
     submitSearchButton.addEventListener('click', () => {
         const query = searchInput.value;
-        if (query) {
-        alert(`正在搜尋: ${query}`);
+        // searchMask.classList.remove('active');
+        window.location.href = `search-result.html?q=${encodeURIComponent(query)}`;
+        
+        // if (query) {
+        // alert(`正在搜尋: ${query}`);
         // You can add your search logic here
-        console.log('Searching for:', query);
-        } else {
-        alert('請輸入搜尋關鍵字');
-        }
+        // console.log('Searching for:', query);
+        // } else {
+        // alert('請輸入搜尋關鍵字');
+        // }
     });
     
     // Optional: Close when clicking on the mask background

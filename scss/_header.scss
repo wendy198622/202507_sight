@@ -115,10 +115,11 @@ header{
                     visibility: hidden;
                     // opacity: 1;
                     // visibility: visible;
-                    border-radius: 0 0 4px 4px;
+                    border-radius: 8px;
                     position: absolute;
                     z-index: 100;
                     top: 100%;
+                    left: 0;
                     // padding: 10px 0;
                     transition: all .3s;
                     background: #fff;
@@ -126,7 +127,6 @@ header{
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    border-radius: 8px;
                     // gap: 8px;
                     // padding: 16px;
                     &:before{
@@ -134,7 +134,7 @@ header{
                         position: absolute;
                         z-index: 2;
                         top: -8px;
-                        left: 80px;
+                        left: 100px;
                         width: 0;
                         height: 0;
                         border-width: 0 6px 8px 6px;
@@ -146,7 +146,7 @@ header{
                         position: absolute;
                         z-index: 1;
                         top: -9px;
-                        left: 80px;
+                        left: 100px;
                         width: 0;
                         height: 0;
                         border-width: 0 6px 8px 6px;
