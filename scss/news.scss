@@ -116,6 +116,10 @@ form{
                     padding: 16px 0;
                     display: flex;
                     gap: 40px;
+                    @media (max-width: 600px){
+                        flex-direction: column;
+                        gap: 12px;
+                    }
                 }
                 .news_date{
                     font-size: 18px;
