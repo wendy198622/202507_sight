@@ -983,7 +983,7 @@ form .tab-content {
   width: 100%;
   border-top: 1px solid #ccc;
   margin-top: -1px;
-  padding: 60px 20px;
+  padding: 60px 10px;
 }
 
 form #tab-option1:checked ~ .tab-content1,
@@ -1002,14 +1002,14 @@ form input[type="radio"] {
 }
 
 form label {
-  min-width: 100px;
-  padding: 20px 0;
+  padding: 20px 12px;
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
   letter-spacing: 1px;
   position: relative;
   text-align: center;
+  margin: 0 10px;
 }
 
 form label:hover {

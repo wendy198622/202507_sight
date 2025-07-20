@@ -971,6 +971,9 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -999,21 +1002,14 @@ form input[type="radio"] {
 }
 
 form label {
-  padding: 20px;
+  padding: 20px 12px;
   font-size: 18px;
   font-weight: 500;
   display: inline-block;
   letter-spacing: 1px;
   position: relative;
-  margin-right: 20px;
-}
-
-@media (max-width: 800px) {
-  form label {
-    font-size: 18px;
-    padding: 6px 8px;
-    margin: 10px 4px 0;
-  }
+  text-align: center;
+  margin: 0 10px;
 }
 
 form label:hover {

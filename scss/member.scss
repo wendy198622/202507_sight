@@ -7,15 +7,12 @@ form{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    // background: #fff;
-    border-radius: 20px;
-    // gap: 40px;
     .tab-content{
         display: none;
         width: 100%;
         border-top: 1px solid #ccc;
         margin-top: -1px;
-        padding: 40px 20px;
+        padding: 60px 10px;
 
     }
     
@@ -33,14 +30,16 @@ form{
     input.nav-tab{
         display: none;
     }
-    label{
-        padding: 20px;
+    > label{
+        // min-width: 80px;
+        padding: 20px 12px;
         font-size: 18px;
         font-weight: 500;
         display: inline-block;
         letter-spacing: 1px;
         position: relative;
-        margin-right: 20px;
+        text-align: center;
+        margin: 0 10px;
         &:hover{
             cursor: pointer;
         }
@@ -120,9 +119,15 @@ form{
                     align-items: center;
                     &.col-2{
                         width: calc((100% - 20px) / 2);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     &.col-3{
                         width: calc((100% - 40px) / 3);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     label {
                         width: 100%;
@@ -170,12 +175,25 @@ form{
                     .address-inputs {
                         display: flex;
                         flex: 1;
+                        @media (max-width: 800px){
+                            flex-direction: column;
+                        }
                         select {
                             width: 100px;
                             margin-right: 10px;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                         input[type="text"] {
                             flex: 1;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                     }
                 }
@@ -245,6 +263,9 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
+                @media (max-width: 460px){
+                    width: 100%;
+                }
             }
         }
         .signin_content{
@@ -278,6 +299,9 @@ form{
                 align-items: flex-start;
                 width: 400px;
                 margin: 0 auto;
+                @media (max-width: 460px){
+                    width: 100%;
+                }
                 .form-group {
                     width: 100%;
                     // margin-bottom: 15px;
@@ -286,9 +310,15 @@ form{
                     align-items: center;
                     &.col-2{
                         width: calc((100% - 20px) / 2);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     &.col-3{
                         width: calc((100% - 40px) / 3);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     label {
                         width: 100%;
@@ -336,12 +366,25 @@ form{
                     .address-inputs {
                         display: flex;
                         flex: 1;
+                        @media (max-width: 800px){
+                            flex-direction: column;
+                        }
                         select {
                             width: 100px;
                             margin-right: 10px;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                         input[type="text"] {
                             flex: 1;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                     }
                 }
@@ -411,6 +454,9 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
+                @media (max-width: 460px){
+                    width: 100%;
+                }
             }
         }
         .reset-psw_content{
@@ -420,6 +466,9 @@ form{
             border-top: 1px solid #ccc;
             width: 400px;
             margin: 0 auto;
+            @media (max-width: 460px){
+                width: 100%;
+            }
             h2,h3,h4,h5,h6{
                 margin-top: 40px;
                 &:first-child{
@@ -451,9 +500,15 @@ form{
                     align-items: center;
                     &.col-2{
                         width: calc((100% - 20px) / 2);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     &.col-3{
                         width: calc((100% - 40px) / 3);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     label {
                         width: 100%;
@@ -501,12 +556,25 @@ form{
                     .address-inputs {
                         display: flex;
                         flex: 1;
+                        @media (max-width: 800px){
+                            flex-direction: column;
+                        }
                         select {
                             width: 100px;
                             margin-right: 10px;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                         input[type="text"] {
                             flex: 1;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                     }
                 }
@@ -576,11 +644,14 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
+                @media (max-width: 460px){
+                    width: 100%;
+                }
             }
         }
         .member_content{
             background: #fff;
-            padding: 40px 20px;
+            padding: 0 20px 40px;
             border-radius: 20px;
             h2,h3,h4,h5,h6{
                 margin-top: 40px;
@@ -608,9 +679,15 @@ form{
                     align-items: center;
                     &.col-2{
                         width: calc((100% - 20px) / 2);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     &.col-3{
                         width: calc((100% - 40px) / 3);
+                        @media (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     label {
                         width: 100%;
@@ -658,12 +735,25 @@ form{
                     .address-inputs {
                         display: flex;
                         flex: 1;
+                        @media (max-width: 800px){
+                            flex-direction: column;
+                        }
                         select {
                             width: 100px;
                             margin-right: 10px;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                         input[type="text"] {
                             flex: 1;
+                            @media (max-width: 800px){
+                                width: 100%;
+                                margin-right: 0;
+                                margin-bottom: 10px;
+                            }
                         }
                     }
                 }
@@ -722,6 +812,9 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
+                @media (max-width: 460px){
+                    width: 100%;
+                }
             }
         }
         .order_content{
@@ -734,6 +827,9 @@ form{
                 padding: 20px 32px;
                 border-radius: 12px;
                 letter-spacing: 1px;
+                @media (max-width: 640px){
+                    padding: 20px;
+                }
                 .order_ststus,
                 .order_date,
                 .order_info{
