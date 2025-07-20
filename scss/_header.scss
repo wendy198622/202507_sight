@@ -26,22 +26,37 @@ header{
     .logo{
         // width: 200px;
         transition: all .3s;
-        @media (max-width: 600px){
-            width: 160px;
-        }
         a{
             display: flex;
             align-items: center;
             gap: 12px;
-            img{ width: 180px;}
+            img{ 
+                width: 180px;
+                @media (max-width: 1200px){
+                    width: 140px;                
+                }
+                @media (max-width: 1080px){
+                    width: 120px;                
+                }
+                @media (max-width: 400px){
+                    width: 100px;                
+                }
+            }
             span{
                 display: inline-block;
                 background: $primary-color;
                 color: #fff;
                 border-radius: 20px;
                 padding: 0 12px;
-                line-height: 1.8;
+                font-size: 15px;
+                line-height: 1.6;
                 letter-spacing: 1px;
+                @media (max-width: 1080px){
+                    font-size: 14px;
+                }
+                @media (max-width: 400px){
+                    font-size: 12px;
+                }
 
             }
         }
@@ -62,44 +77,54 @@ header{
                 display: none;
                 width: 100%;
                 position: fixed;
+                z-index: 99;
                 top: 0;
                 right: 0;
-                background: #000;
+                background: #fff;
                 transition: all .3s;
             }
             .nav_primary{
                 display: flex;
                 position: relative;
+                gap: 32px;
                 @media (max-width: 1200px){
-                    margin-left: 12px;
+                    gap: 16px;                    
                 }
-                li{
+                @media (max-width:960px){
+                    gap: 0;
+                    padding: 20px;
+                }
+                > li{
                     position: relative;
+                    @media (max-width: 960px){
+                        // background: linear-gradient(#fff,#e6e6e6);
+                        border-bottom: 1px dashed #ccc;
+                    }
+                    &:last-child{
+                        border: 0;
+                    }
 
                    a{
                         color: $primary-color;
                         font-size: 16px;
-                        // font-weight: 600;
                         letter-spacing: 2px;
                         line-height: 3;
-                        padding: 0 20px;
                         color: #000;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         @media (max-width: 1200px){
-                            letter-spacing: 1px;
-                            padding: 0 8px;
+                            
                         }
                         @media (max-width:960px){
-                            line-height: 4;
+                            // line-height: 4;
                         }
                         img{
-                            display: inline-block;
                             width: 24px;
-                            vertical-align: middle;
                             margin-right: 4px;
                         }
                         span{
-                            display: inline-block;
-                            vertical-align: middle;
+                            
                         }
                         &:hover{
                             background-color: rgba(255,255,255,.2);
@@ -113,50 +138,60 @@ header{
                     width: auto;
                     opacity: 0;
                     visibility: hidden;
-                    // opacity: 1;
-                    // visibility: visible;
                     border-radius: 8px;
                     position: absolute;
                     z-index: 100;
                     top: 100%;
                     left: 0;
-                    // padding: 10px 0;
                     transition: all .3s;
                     background: #fff;
                     outline: 1px solid #dddddd;
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
-                    // gap: 8px;
-                    // padding: 16px;
+                    @media (max-width:960px){
+                        outline: 0;
+                        padding-bottom: 12px;
+                    }
                     &:before{
                         content: "";
                         position: absolute;
                         z-index: 2;
                         top: -8px;
-                        left: 100px;
+                        left: 50%;
+                        transform: translateX(-50%);
                         width: 0;
                         height: 0;
                         border-width: 0 6px 8px 6px;
                         border-style: solid;
                         border-color: transparent transparent #fff transparent;
+                        @media (max-width:960px){
+                            display: none;
+                        }
                     }
                     &:after{
                         content: "";
                         position: absolute;
                         z-index: 1;
                         top: -9px;
-                        left: 100px;
+                        left: 50%;
+                        transform: translateX(-50%);
                         width: 0;
                         height: 0;
                         border-width: 0 6px 8px 6px;
                         border-style: solid;
                         border-color: transparent transparent #ddd transparent;
+                        @media (max-width:960px){
+                            display: none;
+                        }
                     }
 
                     li{
                         width: 100%;
                         padding: 0;
+                        @media (max-width:960px){
+                            width: auto;
+                        }
                         a{
                             width: 100%;
                             padding: 12px 0;
@@ -198,10 +233,13 @@ header{
                         // text-align: center;
     
                        a{
-                            color: #fff;
+                            // color: #fff;
                             padding: 0 40px;
+                            @media (max-width:960px){
+                                padding: 0;
+                            }
                             span{
-                                color: #fff;
+                                // color: #fff;
                             }
                        }
                     }
@@ -220,15 +258,25 @@ header{
                         // // padding: 10px 0;
                         // transition: all .3s;
                         background: none;
+                        @media (max-width:960px){
+                            display: flex;
+                            gap: 20px;
+                        }
     
                         li{
                             // padding: 0;
                                 padding: 0 40px;
+                                @media (max-width:960px){
+                                    padding: 0;
+                                }
                             a{
                                 // width: 100%;
                                 text-align: left;
                                 // color: #fff;
                                 // white-space:nowrap;
+                                @media (max-width:960px){
+                                    padding: 2px 10px;
+                                }
                             }
     
                             &:hover{
@@ -249,6 +297,7 @@ header{
             background-color: transparent;
             // padding-left: 20px;
             display: none;
+            padding: 10px 0;
             @media (max-width:960px){
                 display: block;
             }
@@ -262,6 +311,10 @@ header{
                 margin: 6px 0;
                 position: relative;
                 transition: all .3s;
+                @media (max-width:960px){
+                    position: relative;
+                    z-index: 100;
+                }
                 @media (max-width:640px){
                     width: 24px;
                     height: 3px;

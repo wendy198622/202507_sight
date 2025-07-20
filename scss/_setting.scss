@@ -185,14 +185,15 @@ p{
 
 .link{
     background: #EC2023;
-    padding: 0 12px;
+    // padding: 0 12px;
     align-self: flex-start;
     margin-top: 20px;
     a{
         color: #fff;
         font-size: 18px;
         letter-spacing: 2px;
-        line-height: 2;
+        line-height: 1.6;
+        padding: 4px 12px;
     }
     &:hover{
         opacity: .8;

@@ -29,13 +29,13 @@
                     <span>節目類別</span>
                 </a>
                 <ul class="nav_secondery">
-                    <li><a href="event.html">音樂</a></li>
-                    <li><a href="#">戲劇</a></li>
-                    <li><a href="#">舞蹈</a></li>
-                    <li><a href="#">親子</a></li>
-                    <li><a href="#">音樂劇</a></li>
-                    <li><a href="#">展覽</a></li>
-                    <li><a href="#">演唱會</a></li>
+                    <li><a href="event.html#tab-option1">音樂</a></li>
+                    <li><a href="event.html#tab-option2">戲劇</a></li>
+                    <li><a href="event.html#tab-option3">舞蹈</a></li>
+                    <li><a href="event.html#tab-option4">親子</a></li>
+                    <li><a href="event.html#tab-option5">音樂劇</a></li>
+                    <li><a href="event.html#tab-option6">展覽</a></li>
+                    <li><a href="event.html#tab-option7">演唱會</a></li>
                 </ul>
             </li>
             <li>
@@ -92,6 +92,7 @@
         
         $("#menu-toggle").click(function() {
             $(".nav_box").toggleClass("open");
+            $(this).toggleClass("active");
         });
 
     });

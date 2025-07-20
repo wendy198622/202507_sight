@@ -12,7 +12,7 @@
 .home_collections{
 }
 .home_frame_title{
-    width: 100% !important;
+    // width: 100% !important;
     border-bottom: 1px solid #E5E5E5;
     margin: 40px auto;
     // text-align: center;
@@ -46,12 +46,24 @@
             flex-direction: column;
             .program_info_name{
                 font-size: 20px;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
             }
             .program_info_en-name{
                 color: #847C7A;
                 font-size: 16px;
                 line-height: 1.4;
                 letter-spacing: 1px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
             }
             .program_info_date{
                 font-size: 18px;
@@ -74,11 +86,26 @@
         .item{
             width: 100%;
             flex-direction: row;
+            @media (max-width:640px){
+                flex-direction: column;
+            }
             .program_photo{
                 width: 25%;
+                @media (max-width:960px){
+                    width: 45%;
+                }
+                @media (max-width:640px){
+                    width: 100%;
+                }
             }
             .program_info{
                 width: 75%;
+                @media (max-width:960px){
+                    width: 55%;
+                }
+                @media (max-width:640px){
+                    width: 100%;
+                }
             }
         }
     }
