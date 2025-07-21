@@ -115,41 +115,53 @@
                     </div>
                     <div class="section-content">
                         <div class="form-grid">
-                        <div class="form-field">
-                            <label for="first-name">名字 <span>*</span></label>
-                            <input type="text" id="first-name" value="">
-                        </div>
-                        <div class="form-field">
-                            <label for="last-name">姓氏 <span>*</span></label>
-                            <input type="text" id="last-name" value="">
-                        </div>
-                        <div class="form-field">
-                            <label for="country">國家/地區 <span>*</span></label>
-                            <select id="country">
-                            <option>台灣</option>
-                            </select>
-                        </div>
-                        <div class="form-field">
-                            <label for="phone">聯絡電話 <span>*</span></label>
-                            <div class="phone-input">
-                            <select>
-                                <option>+886</option>
-                            </select>
-                            <input type="text" id="phone" value="">
+                            <div class="form-field">
+                                <label for="first-name">名字 <span>*</span></label>
+                                <input type="text" id="first-name" value="">
+                            </div>
+                            <div class="form-field">
+                                <label for="last-name">姓氏 <span>*</span></label>
+                                <input type="text" id="last-name" value="">
+                            </div>
+                            <div class="form-field">
+                                <label for="country">國家/地區 <span>*</span></label>
+                                <select id="country">
+                                <option>台灣</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label for="phone">聯絡電話 <span>*</span></label>
+                                <div class="phone-input">
+                                <select>
+                                    <option>+886</option>
+                                </select>
+                                <input type="text" id="phone" value="">
+                                </div>
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="email">電子郵件信箱 <span>*</span></label>
+                                <input type="email" id="email" value="">
+                            </div>
+                            <!-- <div class="form-field full-width">
+                                <label for="address">票卷領取方式 <span>*</span></label>
+                                <textarea id="address"></textarea>
+                            </div> -->
+                            <div class="form-field full-width pickup">
+                                <label>票券領取方式 <span>*</span></label><br>
+                                <input type="radio" id="pickup" name="deliveryMethod" value="pickup" onclick="toggleAddressField()">
+                                <label for="pickup">現場取票</label><br>
+                                <input type="radio" id="delivery" name="deliveryMethod" value="delivery" onclick="toggleAddressField()">
+                                <label for="delivery">郵寄</label><br>
+                            
+                                <div id="addressField" style="display:none;">
+                                    <label for="pickupAddress">自取地址 <span>*</span></label>
+                                    <textarea id="pickupAddress" name="pickupAddress"></textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-field full-width">
-                            <label for="email">電子郵件信箱 <span>*</span></label>
-                            <input type="email" id="email" value="">
-                        </div>
-                        <div class="form-field full-width">
-                            <label for="address">票卷寄送地址 <span>*</span></label>
-                            <textarea id="address"></textarea>
-                        </div>
-                        </div>
                         <div class="checkbox-field">
-                        <input type="checkbox" id="update-profile" checked>
-                        <label for="update-profile">同時更新會員資料</label>
+                            <input type="checkbox" id="update-profile" checked>
+                            <label for="update-profile">同時更新會員資料</label>
                         </div>
                         <button type="button" class="continue-btn">繼續</button>
                     </div>
@@ -274,6 +286,17 @@
         });
 	})
 
+
+    function toggleAddressField() {
+        var deliveryRadio = document.getElementById('delivery');
+        var addressField = document.getElementById('addressField');
+
+        if (deliveryRadio.checked) {
+            addressField.style.display = 'block';
+        } else {
+            addressField.style.display = 'none';
+        }
+    }
 
 </script>
 </html>

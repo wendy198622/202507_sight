@@ -638,6 +638,11 @@
                     &.full-width {
                         grid-column: 1 / -1;
                     }
+                    &.pickup{
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                    }
 
                     label {
                         margin-bottom: 8px;
@@ -674,6 +679,9 @@
                             border-top-left-radius: 0;
                             border-bottom-left-radius: 0;
                         }
+                    }
+                    #addressField{
+                        width: 100%;
                     }
                 }
 

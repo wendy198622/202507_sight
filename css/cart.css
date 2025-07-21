@@ -1857,6 +1857,16 @@ footer .footer_brand_frame .footer_social .item a {
   grid-column: 1 / -1;
 }
 
+.cart_order_user-info .container .form-section .section-content .form-field.pickup {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 8px;
+}
+
 .cart_order_user-info .container .form-section .section-content .form-field label {
   margin-bottom: 8px;
   font-size: 14px;
@@ -1898,6 +1908,10 @@ footer .footer_brand_frame .footer_social .item a {
 .cart_order_user-info .container .form-section .section-content .form-field .phone-input input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.cart_order_user-info .container .form-section .section-content .form-field #addressField {
+  width: 100%;
 }
 
 .cart_order_user-info .container .form-section .section-content .checkbox-field {
