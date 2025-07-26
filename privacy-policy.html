@@ -134,39 +134,18 @@
 					// },
 			},
 		})
-
-		// var mySwiper = new Swiper ('.swiper-container', {
-		// 	slidesPerView: 1,
-      	// 	spaceBetween: 10,
-		// 	autoHeight: true,
-		// 	autoplay: {
-		// 		delay: 5000,  // 設定間隔時間 (毫秒)
-		// 		disableOnInteraction: false, // 使用者操作後仍繼續自動播放
-		// 	},
-		// 	loop: true, // 讓輪播可以無限循環
-		// 	pagination: {
-		// 		el: '.swiper-pagination',
-        // 		clickable: true,
-		// 		type: 'bullets',
-		// 			// 	clickable: true,
-		// 			// renderBullet: function (index, className) {
-		// 			// return '<span class="' + className + '">' + (menu[index]) + '</span>';
-		// 			// },
-		// 	},
-
-		// 	// Navigation arrows
-		// 	navigation: {
-		// 		nextEl: '.swiper-button-next',
-		// 		prevEl: '.swiper-button-prev',
-		// 	},
-		// 	breakpoints: {
-		// 		961: { 
-		// 			slidesPerView: 3, // 只顯示 1 張幻燈片
-		// 			spaceBetween: 30  // 減小間距
-		// 		}
-		// 	}
-		// })
 	})
+	
+	//tab 切換
+	window.addEventListener('DOMContentLoaded', () => {
+		const hash = window.location.hash;
+		if (hash) {
+		const targetTab = document.querySelector(`input[type="radio"]${hash}`);
+		if (targetTab) {
+			targetTab.checked = true;
+		}
+		}
+	});
 
 
 </script>

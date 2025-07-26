@@ -261,6 +261,17 @@
             });
         });
 	})
+	
+	//tab 切換
+	window.addEventListener('DOMContentLoaded', () => {
+		const hash = window.location.hash;
+		if (hash) {
+		const targetTab = document.querySelector(`input[type="radio"]${hash}`);
+		if (targetTab) {
+			targetTab.checked = true;
+		}
+		}
+	});
 
 
 </script>
