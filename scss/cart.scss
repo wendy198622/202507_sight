@@ -37,7 +37,7 @@
 .event_title, .cart_title{
     width: 100% !important;
     border-bottom: 1px solid #E5E5E5;
-    margin: 40px auto 10px;
+    margin: 40px auto 20px;
     h3{
         display: inline-block;
         border-bottom: 6px solid $primary-color;
@@ -82,19 +82,26 @@
             background-color: #d0d0d0;
         }
     }
+    .ticket-number{
+        margin-top: 20px;
+        letter-spacing: 1px;
+        span{}
+    }
 }
 .event_ticket_count{
     .ticket-list{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 15px;
         margin-bottom: 30px;
-        max-width: 800px;
+        max-width: 600px;
         margin: 0 auto;
         .ticket-item{
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             @media (max-width: 480px){
                 display: flex;
@@ -120,7 +127,7 @@
             .quantity-selector{
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-end;
                 gap: 15px;
                 @media (max-width: 480px){
                     // width: 50%;
@@ -151,18 +158,20 @@
                     }
                 }
             }
-            .add-to-cart-btn{
-                background: #686868;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                padding: 8px 12px;
-                font-size: 14px;
-                transition: background-color 0.3s;
-                &:hover {
-                    background: $secondery-color;
-                }
-            }
+        }
+    }
+    .add-to-cart-btn{
+        width: 100%;
+        background: $secondery-color;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        margin: 20px auto 0;
+        &:hover {
+            opacity: .9;
         }
     }
 }
@@ -209,13 +218,14 @@
     .cart_info{
         display: flex;
         flex-direction: column;
+        gap: 8px;
         .cart_info_name,
         .cart_info_date,
         .cart_info_location{
             font-weight: normal;
             font-size: 18px;
             line-height: 2;
-            margin-bottom: 12px;
+            // margin-bottom: 12px;
             letter-spacing: 1px;
             span{
                 display: inline-block;
@@ -253,8 +263,13 @@
         }
     }
 }
-.cart_ticket{
+.cart_ticket, .order_ticket{
+    box-shadow: 0 0 12px rgba(0,0,0,.1);
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    border-radius: 12px;
     .cart_ticket_detail{
+        margin-top: 12px;
         .group{
             display: flex;
             align-items: center;
@@ -369,6 +384,7 @@
     .cart_ticket_all{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-top: 20px;
         .cart_ticket_all-price{
             display: flex;
@@ -392,9 +408,9 @@
             }
         }
     }
-}
-.cart_order{
+
     .cart_order_detail{
+        margin-top: 12px;
         .group{
             display: flex;
             align-items: center;
@@ -525,16 +541,14 @@
     }
 }
 .cart_order_all{
-    margin-top: 60px;
-    .container{
-        display: flex;
-        // justify-content: flex-end;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        background: #f5f5f5;
-        padding: 20px;
-    }
+    margin-top: 40px;
+    display: flex;
+    // justify-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background: #f5f5f5;
+    padding: 20px;
     .cart_order_total-price,
     .cart_order_all-discount,
     .cart_order_final-price{
@@ -682,6 +696,7 @@
                     }
                     #addressField{
                         width: 100%;
+                        
                     }
                 }
 

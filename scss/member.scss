@@ -982,3 +982,17 @@ form{
     }
 
 }
+#sendVerificationCode{
+    background: #333;
+    color: #fff;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    margin-left: 12px;
+    &:hover{
+        opacity: .9;
+    }
+}
+#verificationSuccess,
+#verificationFail{
+    margin-left: 12px;
+}

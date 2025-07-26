@@ -2261,4 +2261,21 @@ form #tab-option8:checked ~ .tab-option8:after {
 .member-frame .container #signin-login-link:hover {
   opacity: .9;
 }
+
+#sendVerificationCode {
+  background: #333;
+  color: #fff;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  margin-left: 12px;
+}
+
+#sendVerificationCode:hover {
+  opacity: .9;
+}
+
+#verificationSuccess,
+#verificationFail {
+  margin-left: 12px;
+}
 /*# sourceMappingURL=member.css.map */
