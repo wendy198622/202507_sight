@@ -91,16 +91,77 @@
 <Script>
     $(document).ready(function () {
 
+        // if ($(window).width() > 960) {
+        //     $('.nav_primary > li').hover(
+        //         function() {
+        //             $(this).find('.nav_secondery').stop(true, true).slideDown(200);
+        //         },
+        //         function() {
+        //             $(this).find('.nav_secondery').stop(true, true).slideUp(200);
+        //         }
+        //     );
+        // }
         if ($(window).width() > 960) {
-            $('.nav_primary > li').hover(
-                function() {
-                    $(this).find('.nav_secondery').stop(true, true).slideDown(200);
-                },
-                function() {
-                    $(this).find('.nav_secondery').stop(true, true).slideUp(200);
-                }
-            );
+    // Desktop: hover to show/hide secondary nav
+    $('.nav_primary > li').hover(
+        function() {
+            $(this).find('.nav_secondery').stop(true, true).slideDown(200);
+        },
+        function() {
+            $(this).find('.nav_secondery').stop(true, true).slideUp(200);
         }
+    );
+} else {
+    // Mobile/Tablet: click to toggle secondary nav
+    $('.nav_primary > li').off('hover').on('click', function(e) {
+        // Prevent the default link behavior if the clicked element is an anchor tag
+        if ($(e.target).closest('a').length) {
+            e.preventDefault();
+        }
+
+        // Only apply to list items that have a secondary navigation
+        if ($(this).find('.nav_secondery').length) {
+            $(this).find('.nav_secondery').stop(true, true).slideToggle(200);
+            // Optionally, close other open secondary menus
+            $('.nav_primary > li').not(this).find('.nav_secondery').slideUp(200);
+        }
+    });
+}
+
+// Add a resize event listener to handle changes in window size
+$(window).resize(function() {
+    // Re-evaluate the window width on resize and reapply/remove event handlers
+    // To ensure correct behavior when resizing across the 960px breakpoint
+    // It's often good practice to unbind and rebind to prevent multiple bindings
+    $('.nav_primary > li').off('hover').off('click'); // Remove existing bindings first
+
+    if ($(window).width() > 960) {
+        $('.nav_primary > li').hover(
+            function() {
+                $(this).find('.nav_secondery').stop(true, true).slideDown(200);
+            },
+            function() {
+                $(this).find('.nav_secondery').stop(true, true).slideUp(200);
+            }
+        );
+        // Ensure secondary menus are hidden when transitioning from mobile to desktop
+        $('.nav_secondery').slideUp(0);
+    } else {
+        $('.nav_primary > li').on('click', function(e) {
+            if ($(e.target).closest('a').length) {
+                e.preventDefault();
+            }
+
+            if ($(this).find('.nav_secondery').length) {
+                $(this).find('.nav_secondery').stop(true, true).slideToggle(200);
+                $('.nav_primary > li').not(this).find('.nav_secondery').slideUp(200);
+            }
+        });
+        // Ensure secondary menus are hidden when transitioning from desktop to mobile
+        $('.nav_secondery').slideUp(0);
+    }
+});
+
         
         $("#menu-toggle").click(function() {
             $(".nav_box").toggleClass("open");

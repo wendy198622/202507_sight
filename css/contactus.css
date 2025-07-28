@@ -605,10 +605,7 @@ header nav .nav_box.open .nav_primary .nav_secondery {
 
 @media (max-width: 960px) {
   header nav .nav_box.open .nav_primary .nav_secondery {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 20px;
+    display: none;
   }
 }
 
@@ -632,6 +629,12 @@ header nav .nav_box.open .nav_primary .nav_secondery li a {
   }
 }
 
+@media (max-width: 960px) {
+  header nav .nav_box.open .nav_primary .nav_secondery li + li {
+    margin-top: 12px;
+  }
+}
+
 header nav #menu-toggle {
   background-color: transparent;
   display: none;
@@ -641,6 +644,8 @@ header nav #menu-toggle {
 @media (max-width: 960px) {
   header nav #menu-toggle {
     display: block;
+    position: relative;
+    z-index: 101;
   }
 }
 
