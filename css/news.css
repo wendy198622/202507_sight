@@ -1113,4 +1113,188 @@ form #tab-option8:checked ~ .tab-option8:after {
 .news-frame .container .news_content .item:hover {
   cursor: pointer;
 }
+
+.newspage_frame {
+  margin: 60px auto;
+}
+
+.newspage_frame .title p {
+  margin-top: 10px;
+}
+
+.newspage_frame .theme_style {
+  margin-top: 60px;
+}
+
+.newspage_frame .theme_style p {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.newspage_frame .theme_style .photo_frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
+.newspage_frame .theme_style .photo_frame .item {
+  width: 25%;
+  text-align: center;
+}
+
+.newspage_frame .theme_style .photo_frame .item a {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newspage_frame .theme_style .photo_frame .item .photo {
+  width: 100%;
+  height: 0;
+  padding-bottom: 67%;
+  overflow: hidden;
+}
+
+.newspage_frame .theme_style .photo_frame .item span {
+  font-family: "Noto Sans TC", sans-serif;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.newspage_frame .theme_style .photo_frame .item + .item {
+  margin-left: 20px;
+}
+
+.newspage_frame .theme_style .photo_slider {
+  margin-top: 10px;
+  padding: 0;
+}
+
+.newspage_frame .theme_style .photo_slider .swiper-wrapper .swiper-slide span {
+  display: block;
+  text-align: center;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.newspage_frame .theme_style .swiper-button-next:after, .newspage_frame .theme_style .swiper-button-prev:after {
+  display: none;
+}
+
+.newspage_frame .theme_style .swiper-button-next {
+  right: 10px;
+  background: none;
+}
+
+.newspage_frame .theme_style .swiper-button-prev {
+  left: 10px;
+  background: none;
+}
+
+.newspage_frame .theme_style .swiper-button-next span, .newspage_frame .theme_style .swiper-button-prev span {
+  width: 24px;
+  height: 24px;
+  color: #000;
+  background: #fff;
+  border-radius: 20px;
+}
+
+@media (max-width: 1080px) {
+  .newspage_frame .theme_style .swiper-button-next span, .newspage_frame .theme_style .swiper-button-prev span {
+    font-size: 30px;
+  }
+}
+
+.newspage_frame .theme_style .swiper-pagination {
+  bottom: 0;
+}
+
+.newspage_frame .theme_style .swiper-pagination .swiper-pagination-bullet {
+  background: #000;
+}
+
+.newspage_frame .theme_style .swiper-pagination .swiper-pagination-bullet-active {
+  background: #EC2023;
+}
+
+.newspage_frame .link {
+  overflow: hidden;
+  margin: 40px auto;
+}
+
+.newspage_frame .link_ticket {
+  width: 200px;
+  float: right;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: #000;
+  padding: 4px 0;
+}
+
+.newspage_frame .link_ticket a {
+  color: #fff;
+}
+
+.newspage_frame .link_ticket a span {
+  vertical-align: bottom;
+  font-size: 24px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  color: #fff;
+}
+
+.newspage_frame .link_ticket:hover a span {
+  -webkit-transform: translateX(4px);
+          transform: translateX(4px);
+}
+
+.newspage_frame .link_back {
+  width: 150px;
+  float: left;
+  border: 1px solid #000;
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  text-align: center;
+}
+
+.newspage_frame .link_back a {
+  padding: 4px 12px;
+}
+
+.newspage_frame .link_back a span {
+  vertical-align: bottom;
+  font-size: 24px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin-right: 6px;
+}
+
+.newspage_frame .link_back:hover a span {
+  -webkit-transform: translateX(-4px);
+          transform: translateX(-4px);
+}
 /*# sourceMappingURL=news.css.map */

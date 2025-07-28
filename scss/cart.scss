@@ -696,6 +696,10 @@
                     }
                     #addressField{
                         width: 100%;
+                        .address-inputs{
+                            display: flex;
+                            gap: 20px;
+                        }
                         
                     }
                 }

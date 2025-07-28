@@ -204,9 +204,23 @@
                                 <input type="radio" id="delivery" name="deliveryMethod" value="delivery" onclick="toggleAddressField()">
                                 <label for="delivery">郵寄</label><br>
                             
-                                <div id="addressField" style="display:none;">
+                                <!-- <div id="addressField" style="display:none;">
                                     <label for="pickupAddress">自取地址 <span>*</span></label>
                                     <textarea id="pickupAddress" name="pickupAddress"></textarea>
+                                </div> -->
+                                <div class="form-group" id="addressField" style="display:none;">
+                                    <label for="pickupAddress">地址</label>
+                                    <div class="address-inputs" id="pickupAddress" name="pickupAddress">
+                                        <select id="city" name="city">
+                                            <option value="">縣市</option>
+                                            <!-- Add cities here -->
+                                        </select>
+                                        <select id="district" name="district">
+                                            <option value="">區域</option>
+                                            <!-- Add districts here -->
+                                        </select>
+                                        <input type="text" id="address_street" name="address_street">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -263,22 +277,22 @@
                         <div class="title"><span class="chevron">▸</span>電子發票、收據</div>
                     </div>
                     <div class="section-content">
-                    <div class="form-grid">
-                        <div class="form-field full-width">
-                            <label for="invoice-type">代收轉付電子收據</label>
-                            <select id="invoice-type">
-                                <option>寄至訂購人E-mail</option>
-                            </select>
+                        <div class="form-grid">
+                            <div class="form-field full-width">
+                                <label for="invoice-type">代收轉付電子收據</label>
+                                <select id="invoice-type">
+                                    <option>寄至訂購人E-mail</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="checkbox-field">
-                        <input type="checkbox" id="add-buyer-address" checked>
-                        <label for="add-buyer-address">加註買受人地址</label>
-                    </div>
-                    <div class="form-field">
-                        <label for="buyer-address">買受人地址 (非必填)</label>
-                        <input type="text" id="buyer-address" placeholder="請輸入買受人地址">
-                    </div>
+                        <!-- <div class="checkbox-field">
+                            <input type="checkbox" id="add-buyer-address" checked>
+                            <label for="add-buyer-address">加註買受人地址</label>
+                        </div>
+                        <div class="form-field">
+                            <label for="buyer-address">買受人地址 (非必填)</label>
+                            <input type="text" id="buyer-address" placeholder="請輸入買受人地址">
+                        </div> -->
                     </div>
                 </div>
             </div>

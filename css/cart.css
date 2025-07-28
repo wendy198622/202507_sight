@@ -1943,6 +1943,13 @@ footer .footer_brand_frame .footer_social .item a {
   width: 100%;
 }
 
+.cart_order_user-info .container .form-section .section-content .form-field #addressField .address-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
 .cart_order_user-info .container .form-section .section-content .checkbox-field {
   display: -webkit-box;
   display: -ms-flexbox;
