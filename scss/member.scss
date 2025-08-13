@@ -822,7 +822,8 @@ form{
             flex-direction: column;
             gap: 20px;
             .item{
-                background: linear-gradient(#fcfcfc,#F1F4FB);
+                // background: linear-gradient(#fcfcfc,#F1F4FB);
+                background: rgb(245, 248, 253);
                 // border: 1px solid #f5f5f5;
                 padding: 20px 32px;
                 border-radius: 12px;
@@ -863,23 +864,113 @@ form{
                     .refunded{ color: #6c757d; border-color: #6c757d;}
 
                 }
-                .order_price{
-                    display: flex;
-                    justify-content: center;
-                    margin-top: 20px;
-                    background: #fcfcfc;
-                    padding: 12px 20px;
-                    gap: 48px;
-                    .origin_price,
-                    .discount_price{
-                        font-size: 14px;
-                        .title{
-                            font-size: 14px;
+                .order_detail{
+                    > ul{
+                        > li{
+                            border-top: 1px solid #ccc;
+                            padding: 12px 0;
+                            &:first-child{
+                                border-top: 0;
+                            }
                         }
-                        span{
-                            display: inline-block;
-                            font-size: 28px;
-                            color: #2144AE;
+                    }
+                }
+                .order_info_content{
+                    .order_count{
+                        .order_content{
+                            // border-top: 1px solid rgb(219, 219, 219);
+                            background: #fcfcfc;;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 0;
+                            margin-bottom: 4px;
+                            > div{;
+                                padding: 12px 20px;
+                                text-align: center;
+                            }
+                            .zone{
+                                width: 30%;
+                                // border-right: 1px solid #ccc;
+                            }
+                            .type{
+                                width: 30%;
+                                // border-right: 1px solid #ccc;
+                            }
+                            .count{
+                                width: 15%;
+                                // border-right: 1px solid #ccc;
+                                // text-align: right;
+                            }
+                            .price{
+                                width: 25%;
+                                // text-align: right;
+                            }
+
+                            &:first-child{
+                                border-top: 0;
+                            }
+                        }
+                    }
+                    .order_price{
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 20px;
+                        // background: #fcfcfc;
+                        padding: 12px 20px;
+                        gap: 48px;
+                        .origin_price,
+                        .discount_price{
+                            font-size: 14px;
+                            .title{
+                                font-size: 14px;
+                            }
+                            span{
+                                display: inline-block;
+                                font-size: 28px;
+                                color: #2144AE;
+                            }
+                        }
+                    }
+
+                    .order_price{
+                        margin-top: 40px;
+                        display: flex;
+                        // justify-content: flex-end;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-end;
+                        padding: 4px 20px;
+                        gap: 4px;
+                        .origin_price,
+                        .discount_price,
+                        .total_price{
+                            display: flex;
+                            align-items: flex-end;
+                            position: relative;
+                            padding-right: 20px;
+                            .text{
+                                width: 80px;
+                                margin-right: 8px;
+                            }
+                            .price{
+                                width: 120px;
+                                text-align: right;
+                            }
+                            &:after{
+                                content: "元";
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                            }
+                        }
+                        .cart_order_final-price{
+                            margin-top: 20px;
+                            .price{
+                                color: $secondery-color;
+                                font-size: 24px;
+                                line-height: 1;
+                                font-weight: 500;
+                            }
                         }
                     }
                 }
