@@ -96,6 +96,13 @@ form{
         max-width: 960px;
         margin: 0 auto;
         .policy_content{
+            .item{}
+            .box{
+                padding-left: 56px;
+                & > .box{
+                    padding-left: 20px;
+                }
+            }
             h2,h3,h4,h5,h6{
                 margin-top: 40px;
                 &:first-child{
@@ -108,6 +115,9 @@ form{
                 letter-spacing: 1px;
                 text-align: justify;
                 margin: 20px auto;
+            }
+            a{
+                display: inline-block;
             }
         }
     }

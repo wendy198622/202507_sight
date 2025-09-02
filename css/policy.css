@@ -1067,6 +1067,14 @@ form #tab-option8:checked ~ .tab-option8:after {
   margin: 0 auto;
 }
 
+.policy-frame .container .policy_content .box {
+  padding-left: 56px;
+}
+
+.policy-frame .container .policy_content .box > .box {
+  padding-left: 20px;
+}
+
 .policy-frame .container .policy_content h2, .policy-frame .container .policy_content h3, .policy-frame .container .policy_content h4, .policy-frame .container .policy_content h5, .policy-frame .container .policy_content h6 {
   margin-top: 40px;
 }
@@ -1081,5 +1089,9 @@ form #tab-option8:checked ~ .tab-option8:after {
   letter-spacing: 1px;
   text-align: justify;
   margin: 20px auto;
+}
+
+.policy-frame .container .policy_content a {
+  display: inline-block;
 }
 /*# sourceMappingURL=policy.css.map */
