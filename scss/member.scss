@@ -143,7 +143,7 @@ form{
                     input[type="date"],
                     select {
                         flex: 1;
-                        padding: 8px 16px;
+                        // padding: 8px 16px;
                         // border: 1px solid #ccc;
                         border-radius: 4px;
                         background: #f1f1f1;
@@ -257,6 +257,49 @@ form{
                     cursor: pointer;
                     &:hover {
                         opacity: .9;
+                    }
+                }
+                .mobile-verification-wrapper {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column; // 讓兩個 group 垂直排列
+                    gap: 10px; // 在兩行之間增加間距
+            
+                    .mobile-input-group, .verification-code-group {
+                        display: flex;
+                        width: 100%;
+                        gap: 10px; // 輸入框與按鈕之間的間距
+            
+                        input[type="text"] {
+                            flex: 1; // 讓輸入框自動填滿剩餘空間
+                        }
+            
+                        button {
+                            // 為按鈕設定基本樣式
+                            padding: 8px 16px;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            white-space: nowrap; // 防止按鈕文字換行
+                            transition: opacity 0.3s;
+                            
+                            &:hover {
+                                opacity: .9;
+                            }
+                        }
+                    }
+            
+                    // 傳送/重新發送 按鈕的樣式 (灰色背景)
+                    #sendVerificationCode {
+                        background-color: #e0e0e0;
+                        color: #333;
+                        margin-left: 0;
+                    }
+            
+                    // 驗證手機號碼 按鈕的樣式 (深色背景)
+                    #verifyButton {
+                        background-color: #555;
+                        color: #fff;
                     }
                 }
             }

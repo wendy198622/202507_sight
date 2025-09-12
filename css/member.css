@@ -1153,7 +1153,6 @@ form #tab-option8:checked ~ .tab-option8:after {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 8px 16px;
   border-radius: 4px;
   background: #f1f1f1;
   font-size: 16px;
@@ -1297,6 +1296,57 @@ form #tab-option8:checked ~ .tab-option8:after {
 
 .member-frame .container .register_content .form .submit-btn:hover {
   opacity: .9;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group button, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group button:hover, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group button:hover {
+  opacity: .9;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper #sendVerificationCode {
+  background-color: #e0e0e0;
+  color: #333;
+  margin-left: 0;
+}
+
+.member-frame .container .register_content .form .mobile-verification-wrapper #verifyButton {
+  background-color: #555;
+  color: #fff;
 }
 
 .member-frame .container .register_content .password-form {
