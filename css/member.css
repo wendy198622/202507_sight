@@ -1369,7 +1369,7 @@ form #tab-option8:checked ~ .tab-option8:after {
   gap: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
