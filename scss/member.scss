@@ -2,7 +2,7 @@
 @import '_header';
 @import '_footer';
 
-
+body{width: 100%;}
 form{
     display: flex;
     justify-content: center;
@@ -92,6 +92,7 @@ form{
             padding: 40px 20px;
             // border-radius: 20px;
             border-top: 1px solid #ccc;
+            box-sizing: border-box;
             h2,h3,h4,h5,h6{
                 margin-top: 40px;
                 &:first-child{
@@ -111,6 +112,7 @@ form{
                 gap: 20px;
                 justify-content: space-between;
                 align-items: flex-start;
+                width: 100%;
                 .form-group {
                     width: 100%;
                     // margin-bottom: 15px;
@@ -234,15 +236,14 @@ form{
                     }
                 }
                 .recaptcha {
-                    // margin-left: 100px;
-                    // margin-bottom: 20px;
-                    width: 304px; /* Standard reCAPTCHA width */
-                    height: 78px; /* Standard reCAPTCHA height */
-                    // border: 1px solid #ccc;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-                    // background-color: #f9f9f9;
+                    width: 304px;
+                    height: 78px;
+                    @media (max-width: 340px) {
+                        transform: scale(0.9);
+                        transform-origin: 0 0; 
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
                 }
                 .submit-btn {
                     width: 100%;
@@ -269,6 +270,9 @@ form{
                         display: flex;
                         width: 100%;
                         gap: 10px; // 輸入框與按鈕之間的間距
+                        @media (max-width: 480px){
+                            // flex-direction: column;
+                        }
             
                         input[type="text"] {
                             flex: 1; // 讓輸入框自動填滿剩餘空間
@@ -282,6 +286,7 @@ form{
                             cursor: pointer;
                             white-space: nowrap; // 防止按鈕文字換行
                             transition: opacity 0.3s;
+                            flex: 1; // 讓輸入框自動填滿剩餘空間
                             
                             &:hover {
                                 opacity: .9;
@@ -306,7 +311,7 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
-                @media (max-width: 460px){
+                @media (max-width: 600px){
                     width: 100%;
                 }
             }
@@ -342,7 +347,7 @@ form{
                 align-items: flex-start;
                 width: 400px;
                 margin: 0 auto;
-                @media (max-width: 460px){
+                @media (max-width: 600px){
                     width: 100%;
                 }
                 .form-group {
@@ -468,15 +473,14 @@ form{
                     }
                 }
                 .recaptcha {
-                    // margin-left: 100px;
-                    // margin-bottom: 20px;
-                    width: 304px; /* Standard reCAPTCHA width */
-                    height: 78px; /* Standard reCAPTCHA height */
-                    // border: 1px solid #ccc;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-                    // background-color: #f9f9f9;
+                    width: 304px;
+                    height: 78px;
+                    @media (max-width: 340px) {
+                        transform: scale(0.9);
+                        transform-origin: 0 0; 
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
                 }
                 .submit-btn {
                     width: 100%;
@@ -497,7 +501,7 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
-                @media (max-width: 460px){
+                @media (max-width: 600px){
                     width: 100%;
                 }
             }
@@ -509,7 +513,7 @@ form{
             border-top: 1px solid #ccc;
             width: 400px;
             margin: 0 auto;
-            @media (max-width: 460px){
+            @media (max-width: 600px){
                 width: 100%;
             }
             h2,h3,h4,h5,h6{
@@ -658,15 +662,14 @@ form{
                     }
                 }
                 .recaptcha {
-                    // margin-left: 100px;
-                    // margin-bottom: 20px;
-                    width: 304px; /* Standard reCAPTCHA width */
-                    height: 78px; /* Standard reCAPTCHA height */
-                    // border: 1px solid #ccc;
-                    // display: flex;
-                    // justify-content: center;
-                    // align-items: center;
-                    // background-color: #f9f9f9;
+                    width: 304px;
+                    height: 78px;
+                    @media (max-width: 340px) {
+                        transform: scale(0.9);
+                        transform-origin: 0 0; 
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
                 }
                 .submit-btn {
                     width: 100%;
@@ -687,7 +690,7 @@ form{
             .password-form{
                 width: 400px;
                 margin: 0 auto;
-                @media (max-width: 460px){
+                @media (max-width: 600px){
                     width: 100%;
                 }
             }
@@ -712,6 +715,7 @@ form{
             .form{
                 display: flex;
                 flex-wrap: wrap;
+                align-items: flex-start;
                 gap: 20px;
                 justify-content: space-between;
                 .form-group {
@@ -851,11 +855,54 @@ form{
                         opacity: .9;
                     }
                 }
+                .mobile-verification-wrapper {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column; // 讓兩個 group 垂直排列
+                    gap: 10px; // 在兩行之間增加間距
+            
+                    .mobile-input-group, .verification-code-group {
+                        display: flex;
+                        width: 100%;
+                        gap: 10px; // 輸入框與按鈕之間的間距
+            
+                        input[type="text"] {
+                            flex: 1; // 讓輸入框自動填滿剩餘空間
+                        }
+            
+                        button {
+                            // 為按鈕設定基本樣式
+                            padding: 8px 16px;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            white-space: nowrap; // 防止按鈕文字換行
+                            transition: opacity 0.3s;
+                            
+                            &:hover {
+                                opacity: .9;
+                            }
+                        }
+                    }
+            
+                    // 傳送/重新發送 按鈕的樣式 (灰色背景)
+                    #sendVerificationCode {
+                        background-color: #e0e0e0;
+                        color: #333;
+                        margin-left: 0;
+                    }
+            
+                    // 驗證手機號碼 按鈕的樣式 (深色背景)
+                    #verifyButton {
+                        background-color: #555;
+                        color: #fff;
+                    }
+                }
             }
             .password-form{
                 width: 400px;
                 margin: 0 auto;
-                @media (max-width: 460px){
+                @media (max-width: 600px){
                     width: 100%;
                 }
             }
@@ -892,6 +939,18 @@ form{
                         }
                     }
                 }
+                .refunded_apply{
+                    font-size: 16px;
+                    line-height: 1.7;
+                    display: inline-block;
+                    padding: 0px 12px;
+                    border-radius: 20px;
+                    margin-left: 10px;
+                    background: #fff;
+                    letter-spacing: 1px;
+                    color: #555;
+
+                }
                 .order_ststus{
                     text-align: right;
                     span{
@@ -910,7 +969,7 @@ form{
                 .order_detail{
                     > ul{
                         > li{
-                            border-top: 1px solid #ccc;
+                            // border-top: 1px solid #ccc;
                             padding: 12px 0;
                             &:first-child{
                                 border-top: 0;
@@ -1026,6 +1085,9 @@ form{
             margin: 0 auto;
             padding: 40px 20px;
             gap: 20px;
+            @media (max-width: 600px){
+                width: 100%;
+            }
             .login-btn {
                 display: flex;
                 align-items: center;

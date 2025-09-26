@@ -195,6 +195,14 @@ p{
         line-height: 1.6;
         padding: 4px 12px;
     }
+    span{
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 2px;
+        line-height: 1.6;
+        padding: 4px 12px;
+        display: inline-block;
+    }
     &:hover{
         opacity: .8;
     }

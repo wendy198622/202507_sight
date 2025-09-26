@@ -47,9 +47,12 @@
                         <div class="cart_info_date"><span>節目時間</span>2025/7/13 (日) 14:00</div>
                         <div class="cart_info_location"><span>節目地點</span>國家音樂廳</div>
                     </div>
+                    <!-- 0912修改 -->
                     <div class="cart_ticket_detail">
                         <div class="group head">
-                            <div class="cart_ticket_check"></div>
+                            <div class="cart_ticket_check">
+                                <input type="checkbox" name="item" class="selectAll">
+                            </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">票區</div>
                                 <div class="cart_ticket_type">票種</div>
@@ -61,7 +64,7 @@
                         </div>
                         <div class="group">
                             <div class="cart_ticket_check">
-                                <input type="checkbox" name="item">
+                                <input type="checkbox" name="item" class="itemCheckbox">
                             </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">1200 元區</div>
@@ -76,7 +79,7 @@
                         </div>
                         <div class="group">
                             <div class="cart_ticket_check">
-                                <input type="checkbox" name="item">
+                                <input type="checkbox" name="item" class="itemCheckbox">
                             </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">1200 元區</div>
@@ -99,6 +102,7 @@
                             <div class="price">2,800</div>
                         </div>
                     </div>
+                    <!-- 0912修改end -->
                 </div>
                 <div class="cart_ticket">
                     <div class="cart_info">
@@ -106,9 +110,12 @@
                         <div class="cart_info_date"><span>節目時間</span>2025/7/13 (日) 14:00</div>
                         <div class="cart_info_location"><span>節目地點</span>國家音樂廳</div>
                     </div>
+                    <!-- 0912修改 -->
                     <div class="cart_ticket_detail">
                         <div class="group head">
-                            <div class="cart_ticket_check"></div>
+                            <div class="cart_ticket_check">
+                                <input type="checkbox" name="item" class="selectAll">
+                            </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">票區</div>
                                 <div class="cart_ticket_type">票種</div>
@@ -120,7 +127,7 @@
                         </div>
                         <div class="group">
                             <div class="cart_ticket_check">
-                                <input type="checkbox" name="item">
+                                <input type="checkbox" name="item" class="itemCheckbox">
                             </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">1200 元區</div>
@@ -135,7 +142,7 @@
                         </div>
                         <div class="group">
                             <div class="cart_ticket_check">
-                                <input type="checkbox" name="item">
+                                <input type="checkbox" name="item" class="itemCheckbox">
                             </div>
                             <div class="cart_ticket_item">
                                 <div class="cart_ticket_zone">1200 元區</div>
@@ -149,6 +156,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- 0912修改end -->
                     <div class="cart_ticket_all">
                         <div class="cart_ticket_all-delete">
                             <button class="delete">刪除</button>
@@ -237,6 +245,41 @@
 		}
 		}
 	});
+
+    // 0912修改
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const allGroups = document.querySelectorAll('.cart_ticket_detail');
+
+        allGroups.forEach(group => {
+            const selectAllCheckbox = group.querySelector('.selectAll');
+            const itemCheckboxes = group.querySelectorAll('.itemCheckbox');
+
+            selectAllCheckbox.addEventListener('change', function() {
+                itemCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+
+            itemCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const totalItems = itemCheckboxes.length;
+                    const checkedItems = group.querySelectorAll('.itemCheckbox:checked').length;
+
+                    if (checkedItems === totalItems) {
+                        selectAllCheckbox.checked = true;
+                        selectAllCheckbox.indeterminate = false; 
+                    } else if (checkedItems === 0) {
+                        selectAllCheckbox.checked = false;
+                        selectAllCheckbox.indeterminate = false; 
+                    } else {
+                        selectAllCheckbox.checked = false;
+                        selectAllCheckbox.indeterminate = true;
+                    }
+                });
+            });
+        });
+    });
 
 
 </script>

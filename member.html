@@ -45,13 +45,13 @@
                 </div>
                 <form>
                         
-                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option1">
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option1" checked>
                     <label for="tab-option1" class="tab-option1">個人資料修改</label>   
                         
-                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option2" checked>
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option2">
                     <label for="tab-option2" class="tab-option2">修改密碼</label>              
                         
-                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option3" checked>
+                    <input type="radio" name="nav-tab" class="nav-tab" id="tab-option3">
                     <label for="tab-option3" class="tab-option3">訂單記錄</label>             
     
                     <div class="tab-content tab-content1">
@@ -78,11 +78,22 @@
                                     <label for="id_number">身份證字號</label>
                                     <input type="text" id="id_number" name="id_number">
                                 </div>
+                                <!-- 0913修改 -->
                                 <div class="form-group col-2">
                                     <label for="mobile">行動電話</label>
-                                    <input type="text" id="mobile" name="mobile">
-                                    <p id="verificationSuccess" style="color: green;">✓ 已驗證</p>
-                                    <p id="verificationFail" style="color: red;">x 尚未驗證</p>
+                                    <!-- <input type="text" id="mobile" name="mobile"> -->
+                                    <!-- <button type="button" id="sendVerificationCode">傳送驗證碼</button> -->
+                                    <div class="mobile-verification-wrapper">
+                                        <div class="mobile-input-group">
+                                            <input type="text" id="mobile" name="mobile" placeholder="請輸入手機號碼">
+                                            <button type="button" id="sendVerificationCode">傳送驗證碼</button>
+                                        </div>
+                                
+                                        <div class="verification-code-group" id="verification-group" style="display: none;">
+                                            <input type="text" id="verification_code" placeholder="請輸入驗證碼">
+                                            <button type="button" id="verifyButton">驗證手機號碼</button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">電子郵件</label>
@@ -131,9 +142,12 @@
                         <div class="order_content">
                             <div class="item">
                                 <div class="order_ststus">
+                                    <!-- 0912修改 訂單狀態有新增兩個 -->
                                     <span class="success">訂購完成</span>
                                     <span class="processing">處理中</span>
+                                    <span class="refunding">退票中</span>
                                     <span class="refunded">退票完成</span>
+                                    <button class="refunded_apply">申請退票</button>
                                 </div>
                                 <div class="order_detail">
                                     <ul>
@@ -168,7 +182,7 @@
                                                         <div class="price">$1600</div>
                                                     </div>
                                                 </div>
-                                                <div class="order_price">
+                                                <!-- <div class="order_price">
                                                     <div class="origin_price">
                                                         <div class="text">訂購金額</div>
                                                         <div class="price">2,800</div>
@@ -181,14 +195,14 @@
                                                         <div class="text">總計</div>
                                                         <div class="price">2,600</div>
                                                     </div>                                              
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </li>
                                         <li>
-                                            <div class="order_date">
+                                            <!-- <div class="order_date">
                                                 訂購日期
                                                 <span>2025 / 6/ 30</span>
-                                            </div>
+                                            </div> -->
                                             <div class="order_info">
                                                 <ul>
                                                     <li>節目名稱 <span>《雙城脈動》薩克斯風音樂會</span></li>
@@ -238,7 +252,9 @@
                                 <div class="order_ststus">
                                     <span class="success">訂購完成</span>
                                     <span class="processing">處理中</span>
+                                    <span class="refunding">退票中</span>
                                     <span class="refunded">退票完成</span>
+                                    <button class="refunded_apply">申請退票</button>
                                 </div>
                                 <div class="order_detail">
                                     <ul>
@@ -297,7 +313,9 @@
                                     <!-- 訂單狀態 -->
                                     <span class="success">訂購完成</span>
                                     <span class="processing">處理中</span>
+                                    <span class="refunding">退票中</span>
                                     <span class="refunded">退票完成</span>
+                                    <button class="refunded_apply">申請退票</button>
                                 </div>
                                 <div class="order_detail">
                                     <ul>
@@ -387,6 +405,42 @@
 				// $(".logo").fadeOut(0);
 			}
 		});
+
+        // 0913修改
+        $('#sendVerificationCode').on('click', function() {
+            // 點擊後，顯示驗證碼輸入區塊
+            // .show() 會將 display 設為 block，我們可以用 .css() 來指定為 flex
+            $('#verification-group').css('display', 'flex');
+
+            // --- 以下為可選的進階功能，模擬倒數計時 ---
+            var button = $(this);
+            button.prop('disabled', true); // 禁用按鈕，防止重複點擊
+            var count = 69; // 從 69 秒開始倒數
+            button.text('重新發送 (' + count + 's)');
+
+            var timer = setInterval(function() {
+                count--;
+                if (count > 0) {
+                    button.text('重新發送 (' + count + 's)');
+                } else {
+                    clearInterval(timer); // 清除計時器
+                    button.prop('disabled', false); // 重新啟用按鈕
+                    button.text('重新發送');
+                }
+            }, 1000); // 每 1000 毫秒 (1秒) 更新一次
+        });
+        
+        // 這邊可以再加入 #verifyButton 的點擊事件，來處理驗證碼的校驗邏輯
+        $('#verifyButton').on('click', function() {
+            var code = $('#verification_code').val();
+            if (code) {
+                // 在這裡發送 AJAX 請求到後端驗證 code
+                console.log('正在驗證碼：' + code);
+                // 成功後，可以隱藏整個 wrapper，顯示 "✓ 已驗證"
+            } else {
+                alert('請輸入驗證碼');
+            }
+        });
 
 	})
 

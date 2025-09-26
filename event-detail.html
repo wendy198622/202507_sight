@@ -74,6 +74,10 @@
             <div class="container">
                 <div class="event_title event_ticket_title">
                     <h3>售票資訊</h3>
+                    <!-- 0913修改 -->
+                    <button id="openSeatingChartBtn" class="seating-chart-btn">
+                        <span class="material-icons">add</span>點我看座位圖
+                    </button>
                 </div>
                 <div class="event_ticket_detail">
                     <div class="group head">
@@ -132,6 +136,11 @@
                 </div>
                 <div class="event_editer">
                     圖文編輯區
+                    <div class="event_intro link">
+                        <a href="#" target="_blank">
+                            <span>節目介紹</span>                            
+                        </a>
+                    </div>
                 </div>
                 <div class="event_notice">
                     <ul>
@@ -192,9 +201,13 @@
         </div>
 	</section>
 
-	<!-- <div class="popup popup_send">
-		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
-	</div> -->
+    <!-- 0913修改 -->
+	<div id="seatingChartPopup" class="popup">
+		<div class="popup-content">
+			<span class="close-btn">&times;</span>
+			<img src="img/seat.png" alt="">
+		</div>
+	</div>
 	
 	<footer id="footer"></footer>
 
@@ -246,19 +259,33 @@
                 const parentLi = topic.parentElement;
                 const noticeText = parentLi.querySelector('.notice_text');
 
-                // 切換 active class，這主要用來控制圖示旋轉和標題顏色
                 parentLi.classList.toggle('active');
 
-                // 檢查 li 是否為 active 狀態 (也就是是否要展開)
                 if (parentLi.classList.contains('active')) {
-                    // 如果是展開狀態，將 max-height 設為內容的實際高度
-                    // scrollHeight 會回傳元素內容的完整高度，即使它目前是隱藏的
                     noticeText.style.maxHeight = (noticeText.scrollHeight + 40) + 'px';
                 } else {
-                    // 如果是收合狀態，將 max-height 設回 null (或 '0px')，讓它回到 CSS 的預設值
                     noticeText.style.maxHeight = null;
                 }
             });
+        });
+
+        // popup
+		const popup = $('#seatingChartPopup');
+        const openBtn = $('#openSeatingChartBtn');
+        const closeBtn = $('.close-btn');
+
+        openBtn.on('click', function() {
+            popup.css('display', 'flex');
+        });
+
+        closeBtn.on('click', function() {
+            popup.hide();
+        });
+
+        $(window).on('click', function(event) {
+            if ($(event.target).is(popup)) {
+                popup.hide();
+            }
         });
 	})
 	

@@ -36,12 +36,15 @@
     .item{
         width: 32%;
         margin-bottom: 32px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        @media (max-width: 960px) and  (min-width: 541px) {
-            flex-direction: row;
+        a{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            @media (max-width: 960px) and  (min-width: 541px) {
+                flex-direction: row;
+            }
         }
         
         .program_photo{
@@ -53,6 +56,7 @@
         .program_info{
             display: flex;
             flex-direction: column;
+            margin-top: 12px;
             @media (max-width: 960px){
                 width: 55%;
             }
@@ -130,9 +134,11 @@
     &.vertical{
         .item{
             width: 100%;
-            flex-direction: row;
-            @media (max-width: 540px){
-                flex-direction: column;
+            a{
+                flex-direction: row;
+                @media (max-width: 540px){
+                    flex-direction: column;
+                }
             }
             .program_photo{
                 width: 45%;
@@ -150,23 +156,30 @@
     }
 
     &.horizontal{
-        @media (max-width: 960px){
-            .item{
-                flex-direction: column;
-                @media (max-width: 800px){
-                    width: 49%;
+        .item{
+            @media (max-width: 800px){
+                width: 49%;
+            }
+            @media (max-width: 540px){
+                width: 100%;
+            }
+            a{
+                @media (max-width: 960px){
+                    flex-direction: column;
                 }
-                @media (max-width: 540px){
+            }
+
+            .program_photo{
+                @media (max-width: 960px){
                     width: 100%;
                 }
-                .program_photo{
-                    width: 100%;
-                }
-                .program_info{
+            }
+            .program_info{
+                @media (max-width: 960px){
                     width: 100%;
                 }
             }
         }
-
+        
     }
 }

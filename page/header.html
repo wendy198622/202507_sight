@@ -15,12 +15,18 @@
         <span></span>
     </button>
 
+    <div class="cart">
+        <a href="cart-step2.html">
+            <img src="./img/navicon_cart.svg" alt="">
+        </a>
+    </div>
+
     <div class="nav_box">
         <ul class="nav_primary">
-            <li class="search">
-                <a href="#">
-                    <img src="./img/navicon_search.svg" alt="">
-                    <span>搜尋</span>
+            <li>
+                <a href="news.html">
+                    <img src="./img/navicon_news.svg" alt="">
+                    <span>最新消息</span>
                 </a>
             </li>
             <li>
@@ -39,9 +45,9 @@
                 </ul>
             </li>
             <li>
-                <a href="news.html">
-                    <img src="./img/navicon_news.svg" alt="">
-                    <span>最新消息</span>
+                <a href="member.html">
+                    <img src="./img/navicon_service.svg" alt="">
+                    <span>會員服務</span>
                 </a>
             </li>
             <li>
@@ -50,10 +56,10 @@
                     <span>常見問題</span>
                 </a>
             </li>
-            <li>
-                <a href="member.html">
-                    <img src="./img/navicon_service.svg" alt="">
-                    <span>會員服務</span>
+            <li class="search">
+                <a href="#">
+                    <img src="./img/navicon_search.svg" alt="">
+                    <span>搜尋</span>
                 </a>
             </li>
             <li>
@@ -64,13 +70,11 @@
             </li>
             <li>
                 <a href="signin.html" class="signin">
-                    <!-- <img src="./img/navicon_cart.svg" alt=""> -->
                     <span>登入</span>
                 </a>
             </li>
             <li>
                 <a href="signin.html" class="signout">
-                    <!-- <img src="./img/navicon_cart.svg" alt=""> -->
                     <span>登出</span>
                 </a>
             </li>
@@ -87,122 +91,89 @@
     </div>
 </div>
 
-
-<Script>
-    $(document).ready(function () {
-
-        // if ($(window).width() > 960) {
-        //     $('.nav_primary > li').hover(
-        //         function() {
-        //             $(this).find('.nav_secondery').stop(true, true).slideDown(200);
-        //         },
-        //         function() {
-        //             $(this).find('.nav_secondery').stop(true, true).slideUp(200);
-        //         }
-        //     );
-        // }
-        if ($(window).width() > 960) {
-    // Desktop: hover to show/hide secondary nav
-    $('.nav_primary > li').hover(
-        function() {
-            $(this).find('.nav_secondery').stop(true, true).slideDown(200);
-        },
-        function() {
-            $(this).find('.nav_secondery').stop(true, true).slideUp(200);
-        }
-    );
-} else {
-    // Mobile/Tablet: click to toggle secondary nav
-    $('.nav_primary > li').off('hover').on('click', function(e) {
-        // Prevent the default link behavior if the clicked element is an anchor tag
-        if ($(e.target).closest('a').length) {
-            e.preventDefault();
-        }
-
-        // Only apply to list items that have a secondary navigation
-        if ($(this).find('.nav_secondery').length) {
-            $(this).find('.nav_secondery').stop(true, true).slideToggle(200);
-            // Optionally, close other open secondary menus
-            $('.nav_primary > li').not(this).find('.nav_secondery').slideUp(200);
-        }
-    });
-}
-
-// Add a resize event listener to handle changes in window size
-$(window).resize(function() {
-    // Re-evaluate the window width on resize and reapply/remove event handlers
-    // To ensure correct behavior when resizing across the 960px breakpoint
-    // It's often good practice to unbind and rebind to prevent multiple bindings
-    $('.nav_primary > li').off('hover').off('click'); // Remove existing bindings first
-
-    if ($(window).width() > 960) {
-        $('.nav_primary > li').hover(
-            function() {
-                $(this).find('.nav_secondery').stop(true, true).slideDown(200);
-            },
-            function() {
-                $(this).find('.nav_secondery').stop(true, true).slideUp(200);
+<!-- 0913修改 手機版連結失效修改-->
+<script>
+        $(document).ready(function () {
+    
+            function setupNav() {
+                // 先移除所有已綁定的事件，避免重複綁定
+                $('.nav_primary > li, .nav_primary > li > a').off('click mouseenter mouseleave');
+    
+                if ($(window).width() > 960) {
+                    // --- 桌面版：滑鼠移入/移出效果 ---
+                    $('.nav_primary > li').hover(
+                        function() {
+                            // 找到 li 中的 .nav_secondery 並滑下顯示
+                            $(this).find('.nav_secondery').stop(true, true).slideDown(200);
+                        },
+                        function() {
+                            // 找到 li 中的 .nav_secondery 並滑上隱藏
+                            $(this).find('.nav_secondery').stop(true, true).slideUp(200);
+                        }
+                    );
+                } else {
+                    // --- 手機/平板版：點擊效果 ---
+                    $('.nav_primary > li > a').on('click', function(e) {
+                        var $parentLi = $(this).parent('li');
+                        
+                        // 檢查這個連結的父層 li 是否有子選單 (.nav_secondery)
+                        if ($parentLi.children('.nav_secondery').length > 0) {
+                            // 如果有子選單，才阻止連結的預設跳轉行為
+                            e.preventDefault();
+    
+                            // 開關這個子選單
+                            $parentLi.children('.nav_secondery').stop(true, true).slideToggle(200);
+    
+                            // 關閉其他已開啟的子選單
+                            $parentLi.siblings().find('.nav_secondery').slideUp(200);
+                        }
+                        // 如果沒有子選單，就不做任何事，讓連結正常運作
+                    });
+                }
             }
-        );
-        // Ensure secondary menus are hidden when transitioning from mobile to desktop
-        $('.nav_secondery').slideUp(0);
-    } else {
-        $('.nav_primary > li').on('click', function(e) {
-            if ($(e.target).closest('a').length) {
-                e.preventDefault();
-            }
-
-            if ($(this).find('.nav_secondery').length) {
-                $(this).find('.nav_secondery').stop(true, true).slideToggle(200);
-                $('.nav_primary > li').not(this).find('.nav_secondery').slideUp(200);
+    
+            // 頁面初次載入時執行一次
+            setupNav();
+    
+            // 當視窗大小改變時，重新執行
+            $(window).resize(function() {
+                setupNav();
+            });
+    
+            
+            // 漢堡選單開關
+            $("#menu-toggle").click(function() {
+                $(".nav_box").toggleClass("open");
+                $(this).toggleClass("active");
+            });
+    
+        });
+    
+        // 以下是您的搜尋功能，維持不變
+        const searchButton = document.querySelector('.search');
+        const searchMask = document.getElementById('search-mask');
+        const closeButton = document.getElementById('close-btn');
+        const submitSearchButton = document.getElementById('submit-search');
+        const searchInput = document.getElementById('search-input');
+        
+        searchButton.addEventListener('click', (e) => {
+            e.preventDefault(); // 避免點擊搜尋時頁面跳動
+            searchMask.classList.add('active');
+            searchInput.focus();
+        });
+        
+        closeButton.addEventListener('click', () => {
+            searchMask.classList.remove('active');
+        });
+        
+        submitSearchButton.addEventListener('click', () => {
+            const query = searchInput.value;
+            window.location.href = `search-result.html?q=${encodeURIComponent(query)}`;
+        });
+        
+        searchMask.addEventListener('click', (event) => {
+            if (event.target === searchMask) {
+            searchMask.classList.remove('active');
             }
         });
-        // Ensure secondary menus are hidden when transitioning from desktop to mobile
-        $('.nav_secondery').slideUp(0);
-    }
-});
-
-        
-        $("#menu-toggle").click(function() {
-            $(".nav_box").toggleClass("open");
-            $(this).toggleClass("active");
-        });
-
-    });
-
-    const searchButton = document.querySelector('.search');
-    const searchMask = document.getElementById('search-mask');
-    const closeButton = document.getElementById('close-btn');
-    const submitSearchButton = document.getElementById('submit-search');
-    const searchInput = document.getElementById('search-input');
-    
-    searchButton.addEventListener('click', () => {
-        searchMask.classList.add('active');
-        searchInput.focus();
-    });
-    
-    closeButton.addEventListener('click', () => {
-        searchMask.classList.remove('active');
-    });
-    
-    submitSearchButton.addEventListener('click', () => {
-        const query = searchInput.value;
-        // searchMask.classList.remove('active');
-        window.location.href = `search-result.html?q=${encodeURIComponent(query)}`;
-        
-        // if (query) {
-        // alert(`正在搜尋: ${query}`);
-        // You can add your search logic here
-        // console.log('Searching for:', query);
-        // } else {
-        // alert('請輸入搜尋關鍵字');
-        // }
-    });
-    
-    // Optional: Close when clicking on the mask background
-    searchMask.addEventListener('click', (event) => {
-        if (event.target === searchMask) {
-        searchMask.classList.remove('active');
-        }
-    });
     </script>

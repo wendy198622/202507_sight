@@ -104,6 +104,12 @@ header{
                         border: 0;
                     }
 
+                    @media (max-width:960px){
+                        &:nth-child(6){
+                            // display: none;
+                        }
+                    }
+
                    a{
                         color: $primary-color;
                         font-size: 16px;
@@ -135,7 +141,7 @@ header{
 
                 .nav_secondery{
                     // width: 360px;
-                    width: auto;
+                    width: 100%;
                     opacity: 0;
                     visibility: hidden;
                     border-radius: 8px;
@@ -273,6 +279,23 @@ header{
                                 margin-top: 12px;
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        .cart{
+            display: none;
+            margin-right: 24px;
+            @media (max-width:960px){
+                display: block;
+            }
+            a{
+                padding: 8px;
+                img{
+                    width: 40px;
+                    @media (max-width:640px){
+                        width: 32px;
                     }
                 }
             }
