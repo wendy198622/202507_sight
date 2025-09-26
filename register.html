@@ -137,7 +137,7 @@
 	<footer id="footer"></footer>
 
 </body>
-<script>
+<!-- <script>
         document.getElementById("myForm").addEventListener("submit", function(event) {
           event.preventDefault();
     
@@ -177,7 +177,7 @@
             messageDiv.style.color = "red";
           });
         });
-</script>
+</script> -->
 
 <script>
 	$(document).ready(function () {
@@ -186,8 +186,8 @@
 
 		// $(".imgLiquidFill").imgLiquid({fill:true});
 
-		// $('#header').load('page/header.html');
-		// $('#footer').load('page/footer.html');
+		$('#header').load('page/header.html');
+		$('#footer').load('page/footer.html');
 
 		$(window).on("scroll", function() {
 			if ($(window).scrollTop() > 100) {
