@@ -1369,7 +1369,7 @@ form #tab-option8:checked ~ .tab-option8:after {
   gap: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1384,7 +1384,7 @@ form #tab-option8:checked ~ .tab-option8:after {
           flex: 1;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
     -webkit-box-flex: 0;
         -ms-flex: none;
@@ -2200,7 +2200,7 @@ form #tab-option8:checked ~ .tab-option8:after {
   gap: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2215,7 +2215,7 @@ form #tab-option8:checked ~ .tab-option8:after {
           flex: 1;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
     -webkit-box-flex: 0;
         -ms-flex: none;

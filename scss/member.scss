@@ -271,13 +271,13 @@ form{
                         display: flex;
                         width: 100%;
                         gap: 10px; // 輸入框與按鈕之間的間距
-                        @media (max-width: 400px){
+                        @media (max-width: 600px){
                             flex-direction: column;
                         }
             
                         input[type="text"] {
                             flex: 1; // 讓輸入框自動填滿剩餘空間
-                            @media (max-width: 400px){
+                            @media (max-width: 600px){
                                 flex: none;
                             }
                         }
@@ -869,13 +869,13 @@ form{
                         display: flex;
                         width: 100%;
                         gap: 10px; // 輸入框與按鈕之間的間距
-                        @media (max-width: 400px){
+                        @media (max-width: 600px){
                             flex-direction: column;
                         }
             
                         input[type="text"] {
                             flex: 1; // 讓輸入框自動填滿剩餘空間
-                            @media (max-width: 400px){
+                            @media (max-width: 600px){
                                 flex: none;
                             }
                         }
