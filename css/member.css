@@ -1369,10 +1369,27 @@ form #tab-option8:checked ~ .tab-option8:after {
   gap: 10px;
 }
 
+@media (max-width: 480px) {
+  .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+@media (max-width: 400px) {
+  .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+  }
 }
 
 .member-frame .container .register_content .form .mobile-verification-wrapper .mobile-input-group button, .member-frame .container .register_content .form .mobile-verification-wrapper .verification-code-group button {
@@ -2183,10 +2200,27 @@ form #tab-option8:checked ~ .tab-option8:after {
   gap: 10px;
 }
 
+@media (max-width: 400px) {
+  .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group, .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+@media (max-width: 400px) {
+  .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group input[type="text"], .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group input[type="text"] {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+  }
 }
 
 .member-frame .container .member_content .form .mobile-verification-wrapper .mobile-input-group button, .member-frame .container .member_content .form .mobile-verification-wrapper .verification-code-group button {
