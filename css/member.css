@@ -1201,6 +1201,10 @@ form #tab-option8:checked ~ .tab-option8:after {
   letter-spacing: 1px;
 }
 
+.member-frame .container .register_content .form .form-group input[type="date"] {
+  height: 46px;
+}
+
 .member-frame .container .register_content .form .form-group .gender-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1535,6 +1539,10 @@ form #tab-option8:checked ~ .tab-option8:after {
   letter-spacing: 1px;
 }
 
+.member-frame .container .signin_content .form .form-group input[type="date"] {
+  height: 46px;
+}
+
 .member-frame .container .signin_content .form .form-group .gender-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1797,6 +1805,10 @@ form #tab-option8:checked ~ .tab-option8:after {
   letter-spacing: 1px;
 }
 
+.member-frame .container .reset-psw_content .form .form-group input[type="date"] {
+  height: 46px;
+}
+
 .member-frame .container .reset-psw_content .form .form-group .gender-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2046,6 +2058,10 @@ form #tab-option8:checked ~ .tab-option8:after {
   background: #f1f1f1;
   font-size: 16px;
   letter-spacing: 1px;
+}
+
+.member-frame .container .member_content .form .form-group input[type="date"] {
+  height: 46px;
 }
 
 .member-frame .container .member_content .form .form-group .gender-group {
