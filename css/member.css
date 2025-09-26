@@ -1202,7 +1202,7 @@ form #tab-option8:checked ~ .tab-option8:after {
 }
 
 .member-frame .container .register_content .form .form-group input[type="date"] {
-  height: 46px;
+  height: 40px;
 }
 
 .member-frame .container .register_content .form .form-group .gender-group {
@@ -1540,7 +1540,7 @@ form #tab-option8:checked ~ .tab-option8:after {
 }
 
 .member-frame .container .signin_content .form .form-group input[type="date"] {
-  height: 46px;
+  height: 40px;
 }
 
 .member-frame .container .signin_content .form .form-group .gender-group {
@@ -1806,7 +1806,7 @@ form #tab-option8:checked ~ .tab-option8:after {
 }
 
 .member-frame .container .reset-psw_content .form .form-group input[type="date"] {
-  height: 46px;
+  height: 40px;
 }
 
 .member-frame .container .reset-psw_content .form .form-group .gender-group {
@@ -2061,7 +2061,7 @@ form #tab-option8:checked ~ .tab-option8:after {
 }
 
 .member-frame .container .member_content .form .form-group input[type="date"] {
-  height: 46px;
+  height: 40px;
 }
 
 .member-frame .container .member_content .form .form-group .gender-group {
