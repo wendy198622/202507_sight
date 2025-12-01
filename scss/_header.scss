@@ -30,6 +30,9 @@ header{
             display: flex;
             align-items: center;
             gap: 12px;
+            @media (max-width: 400px){
+                gap: 8px;
+            }
             img{ 
                 width: 180px;
                 @media (max-width: 1200px){
@@ -56,8 +59,8 @@ header{
                 }
                 @media (max-width: 400px){
                     font-size: 12px;
+                    padding: 0 8px;
                 }
-
             }
         }
 
@@ -289,6 +292,9 @@ header{
             margin-right: 24px;
             @media (max-width:960px){
                 display: block;
+            }
+            @media (max-width:600px){
+                margin-right: 12px;
             }
             a{
                 padding: 8px;

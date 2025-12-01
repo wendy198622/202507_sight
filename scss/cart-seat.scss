@@ -1,0 +1,185 @@
+@import '_setting';
+@import '_header';
+@import '_footer';
+
+.container{
+    max-width: 1200px;
+}
+.frame-title{
+    margin: 0 auto 60px;
+    text-align: center;
+}
+.event_frame{
+    padding: 20px 0 20px;
+    background: #f4f5f6;
+    .container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .event_info{
+        display: flex;
+        flex-direction: column;
+        .event_info_name{
+            font-size: 20px;
+        }
+        .event_info_en-name{
+            color: #847C7A;
+            font-size: 16px;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+        .event_info_date{
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-family: roboto;
+        }
+        .event_info_time{
+            font-size: 16px;
+            letter-spacing: 1px;
+            font-family: roboto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            span{
+                display: flex;
+                &.start{}
+                &.end{}
+                &.line{
+                    width: 100%;
+                    height: 1px;
+                    background: #000;
+                }
+
+            }
+        }
+    }
+}
+.event_seat{
+    width: 100%;
+    max-width: 96%;
+    margin: 60px auto 0;
+    .seat_title{
+        text-align: center;
+        .stage{
+            width: 280px;
+            height: 80px;
+            background: #FFCC00;
+            line-height: 80px;
+            margin: 20px auto 0;
+        }
+    }
+}
+#seat-map-container {
+    width: 100%;
+    background: white;
+    padding: 60px 20px 20px 20px;
+    border-radius: 8px;
+    // box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    user-select: none;
+    position: relative;
+}
+
+/* --- 左上角圖示說明 --- */
+#map-legend {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85em;
+    color: #555;
+    // background: rgba(255,255,255,0.95);
+    padding: 10px;
+    border-radius: 4px;
+    z-index: 10;
+}
+#seats-photo{
+    width: 100%;
+    max-width: 1200px;
+}
+
+.legend-item { display: flex; align-items: center; }
+.legend-color { width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; }
+
+/* --- SVG 互動樣式 (核心修改區) --- */
+
+svg g {
+    cursor: pointer;
+    transition: opacity 0.2s;
+    rect {
+        &:hover {
+            filter: brightness(0.9);
+        }
+        
+    }
+}
+
+/* 1. 選取樣式：改用邊框 (Stroke) */
+/* 當 <g> 有 .selected class 時，底下的 <rect> 會變色 */
+.selected rect {
+    // stroke: #ff0000 !important;   /* 紅色邊框 */
+    stroke-width: 0 !important; /* 邊框粗細 */
+    // paint-order: stroke;          /* 確保邊框不會蓋住文字太多 */
+    fill: #ff0000 !important;     /* 選取後底色微微變黃 */
+}
+.selected path{
+    fill: #ffffff !important; 
+}
+
+/* 2. 售完樣式 */
+.sold-seat {
+    cursor: not-allowed !important;
+    rect {
+        fill: #f1f1f1 !important; /* 灰色 */
+    }
+    path{
+        fill: #d3d2d2 !important; /* 灰色 */
+    }
+    &:hover { filter: none !important; }
+}
+
+
+
+/* --- 側邊欄樣式 (保持不變) --- */
+#sidebar {
+    position: fixed; top: 0; right: -350px; width: 320px; height: 100vh;
+    background: #fff; box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    transition: right 0.3s ease-in-out; z-index: 1000;
+    display: flex; flex-direction: column;
+}
+#sidebar.active { right: 0; }
+.sidebar-header { 
+    padding: 20px; 
+    background: #2c3e50; 
+    color: white; 
+    display: flex; 
+    justify-content: 
+    space-between; 
+    align-items: center; 
+    font-weight: bold; 
+    span{
+        color: white; 
+    }
+}
+.close-btn { cursor: pointer; font-size: 1.2em; }
+
+#zone-stats { padding: 15px; background: #f0f3f5; border-bottom: 1px solid #ddd; font-size: 0.9em; }
+.stat-row { display: flex; justify-content: space-between; margin-bottom: 5px; color: #555; }
+.stat-count { font-weight: bold; color: #2c3e50; }
+
+#cart-list { flex: 1; overflow-y: auto; padding: 15px; }
+.cart-item { background: #f9f9f9; border-radius: 6px; padding: 12px; margin-bottom: 10px; border-left: 5px solid #ccc; }
+.cart-item-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #333; }
+.cart-item-remove { color: #999; cursor: pointer; font-size: 0.9em; }
+.cart-item-remove:hover { color: #e74c3c; }
+.ticket-select { width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px; }
+
+.sidebar-footer { padding: 20px; border-top: 1px solid #eee; background: #fff; }
+.total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 1.1em; font-weight: bold; }
+.total-price { color: #e74c3c; font-size: 1.4em; }
+.btn-checkout { width: 100%; padding: 12px; background-color: #e74c3c; color: white; border: none; border-radius: 4px; font-size: 1em; cursor: pointer; font-weight: bold; }
+.btn-checkout:disabled { background-color: #ccc; cursor: not-allowed; }

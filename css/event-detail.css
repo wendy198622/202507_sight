@@ -319,6 +319,12 @@ header .logo a {
   gap: 12px;
 }
 
+@media (max-width: 400px) {
+  header .logo a {
+    gap: 8px;
+  }
+}
+
 header .logo a img {
   width: 180px;
 }
@@ -361,6 +367,7 @@ header .logo a span {
 @media (max-width: 400px) {
   header .logo a span {
     font-size: 12px;
+    padding: 0 8px;
   }
 }
 
@@ -653,6 +660,12 @@ header nav .cart {
 @media (max-width: 960px) {
   header nav .cart {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  header nav .cart {
+    margin-right: 12px;
   }
 }
 
@@ -1147,7 +1160,9 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_ticket .event_ticket_detail .group .event_price .item.sold-out {
-  text-decoration: line-through;
+  background: #fff;
+  color: #d3d2d2;
+  border: 1px solid #f1f1f1;
 }
 
 .event_ticket .event_ticket_detail .group .event_btn {
@@ -1181,7 +1196,9 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_ticket .event_ticket_detail .event_price .item.sold-out {
-  text-decoration: line-through;
+  background: #fff;
+  color: #d3d2d2;
+  border: 1px solid #f1f1f1;
 }
 
 .event_ticket .event_ticket_detail .head {
