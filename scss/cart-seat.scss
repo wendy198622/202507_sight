@@ -2,9 +2,6 @@
 @import '_header';
 @import '_footer';
 
-.container{
-    max-width: 1200px;
-}
 .frame-title{
     margin: 0 auto 60px;
     text-align: center;
@@ -12,8 +9,11 @@
 .event_frame{
     padding: 20px 0 20px;
     background: #f4f5f6;
+    margin: 0 auto;
     .container{
         display: flex;
+        width: 90%;
+        max-width: 960px;
         justify-content: space-between;
     }
     .event_info{
@@ -72,7 +72,7 @@
 #seat-map-container {
     width: 100%;
     background: white;
-    padding: 60px 20px 20px 20px;
+    padding: 40px 20px;
     border-radius: 8px;
     // box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: center;
@@ -83,7 +83,7 @@
 /* --- 左上角圖示說明 --- */
 #map-legend {
     position: fixed;
-    top: 50%;
+    top: 400px;
     left: 20px;
     transform: translateY(-50%);
     display: flex;
@@ -99,7 +99,11 @@
 }
 #seats-photo{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
+    margin: 0 auto;
+    @media (max-width: 1200px){
+        max-width: 90%;
+    }
 }
 
 .legend-item { display: flex; align-items: center; }
@@ -146,12 +150,20 @@ svg g {
 
 /* --- 側邊欄樣式 (保持不變) --- */
 #sidebar {
-    position: fixed; top: 0; right: -350px; width: 320px; height: 100vh;
+    position: fixed; 
+    bottom: 0; right: 0; width: 320px; height: calc(100vh - 80px);
     background: #fff; box-shadow: -2px 0 10px rgba(0,0,0,0.15);
     transition: right 0.3s ease-in-out; z-index: 1000;
-    display: flex; flex-direction: column;
+    display: flex; 
+    flex-direction: column;
+    @media (max-width: 1200px){
+        height: calc(100vh - 96px);
+    }
+    @media (max-width: 960px){
+        height: calc(100vh - 106px);
+    }
 }
-#sidebar.active { right: 0; }
+// #sidebar.active { right: 0; }
 .sidebar-header { 
     padding: 20px; 
     background: #2c3e50; 
@@ -167,19 +179,123 @@ svg g {
 }
 .close-btn { cursor: pointer; font-size: 1.2em; }
 
-#zone-stats { padding: 15px; background: #f0f3f5; border-bottom: 1px solid #ddd; font-size: 0.9em; }
-.stat-row { display: flex; justify-content: space-between; margin-bottom: 5px; color: #555; }
-.stat-count { font-weight: bold; color: #2c3e50; }
+/* ★★★ 新增：整合後的側邊欄內容樣式 ★★★ */
+#sidebar-content { 
+    flex: 1; 
+    overflow-y: auto; 
+    .zone-group { 
+        border-bottom: 1px solid #eee; 
+        padding: 20px;
+        .zone-header { 
+            display: flex; 
+            justify-content: space-between; 
+            // padding: 8px 5px; 
+            font-weight: bold; 
+            color: #2c3e50; 
+            // background-color: #f9f9f9; 
+            border-radius: 4px; 
+        }
+        .zone-items { 
+            padding-left: 5px; 
+        }
+    }
+}
+        
 
-#cart-list { flex: 1; overflow-y: auto; padding: 15px; }
-.cart-item { background: #f9f9f9; border-radius: 6px; padding: 12px; margin-bottom: 10px; border-left: 5px solid #ccc; }
-.cart-item-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; color: #333; }
-.cart-item-remove { color: #999; cursor: pointer; font-size: 0.9em; }
-.cart-item-remove:hover { color: #e74c3c; }
-.ticket-select { width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px; }
 
-.sidebar-footer { padding: 20px; border-top: 1px solid #eee; background: #fff; }
-.total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 1.1em; font-weight: bold; }
-.total-price { color: #e74c3c; font-size: 1.4em; }
-.btn-checkout { width: 100%; padding: 12px; background-color: #e74c3c; color: white; border: none; border-radius: 4px; font-size: 1em; cursor: pointer; font-weight: bold; }
-.btn-checkout:disabled { background-color: #ccc; cursor: not-allowed; }
+/* Cart Item 樣式微調 */
+.cart-item { 
+    background: #fff; 
+    // border: 1px solid #eee; 
+    border-radius: 6px; 
+    padding: 10px; 
+    padding-bottom: 0;
+    position: relative; 
+    border-left: 4px solid #ccc; 
+    &:first-child{
+        margin-top: 8px; 
+    }
+}
+.cart-item-header { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: #333; 
+    font-size: 0.95em; 
+}
+.cart-item-remove { 
+    color: #999; 
+    cursor: pointer; 
+    font-size: 0.85em; 
+}
+.cart-item-remove:hover { 
+    color: #e74c3c; 
+}
+.ticket-select { 
+    width: 100%; 
+    padding: 6px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    background-color: #fff; 
+    font-size: 13px; 
+    margin-top: 5px; 
+}
+
+.sidebar-footer { 
+    padding: 20px; 
+    border-top: 1px solid #eee; 
+    background: #fff; 
+}
+.total-row { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 15px; 
+    font-size: 1.1em; 
+    font-weight: bold; 
+}
+.total-price { 
+    color: #e74c3c; 
+    font-size: 1.4em; 
+}
+.btn-checkout { 
+    width: 100%; 
+    padding: 12px; 
+    background-color: #e74c3c; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    font-size: 1em; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+.btn-checkout:disabled { 
+    background-color: #ccc; 
+    cursor: not-allowed; 
+}
+
+/* 限制地圖容器的大小，讓 SVG 在這個框框內縮放 */
+#seat-map-container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: 500px; /* 電腦版高度，可自行調整 */
+    // border: 1px solid #ddd; /* 選填：加個框比較清楚範圍 */
+    overflow: hidden; /* 重要：隱藏超出的部分 */
+    // background: #f9f9f9; /* 選填：背景色 */
+    position: relative;
+}
+
+#seats-photo {
+    width: 100%;
+    height: 100%;
+    display: block; /* 避免 SVG 底部留白 */
+}
+
+/* 手機版可以稍微調高一點，方便操作 */
+@media (max-width: 768px) {
+    #seat-map-container {
+        height: 60vh; /* 手機版佔螢幕高度的 60% */
+    }
+}
