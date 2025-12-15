@@ -7,7 +7,7 @@
     text-align: center;
 }
 .event_frame{
-    padding: 20px 0 20px;
+    padding: 20px 0;
     background: #f4f5f6;
     margin: 0 auto;
     .container{
@@ -15,6 +15,7 @@
         width: 90%;
         max-width: 960px;
         justify-content: space-between;
+        margin: 0 2%;
     }
     .event_info{
         display: flex;
@@ -56,15 +57,16 @@
 }
 .event_seat{
     width: 100%;
-    max-width: 96%;
-    margin: 60px auto 0;
+    margin: 0 auto;
+    background: #f4f5f6;
+    padding: 20px 0;
     .seat_title{
         text-align: center;
         .stage{
-            width: 280px;
-            height: 80px;
+            width: 240px;
+            height: 60px;
             background: #FFCC00;
-            line-height: 80px;
+            line-height: 40px;
             margin: 20px auto 0;
         }
     }
@@ -99,7 +101,7 @@
 }
 #seats-photo{
     width: 100%;
-    max-width: 1000px;
+    // max-width: 1000px;
     margin: 0 auto;
     @media (max-width: 1200px){
         max-width: 90%;
@@ -277,13 +279,13 @@ svg g {
 
 /* 限制地圖容器的大小，讓 SVG 在這個框框內縮放 */
 #seat-map-container {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
+    width: 90%;
+    // max-width: 1920px;
+    margin: 40px auto 0;
     height: 500px; /* 電腦版高度，可自行調整 */
     // border: 1px solid #ddd; /* 選填：加個框比較清楚範圍 */
     overflow: hidden; /* 重要：隱藏超出的部分 */
-    // background: #f9f9f9; /* 選填：背景色 */
+    // background: #f5f5f5; /* 選填：背景色 */
     position: relative;
 }
 
@@ -298,4 +300,76 @@ svg g {
     #seat-map-container {
         height: 60vh; /* 手機版佔螢幕高度的 60% */
     }
+}
+
+
+#svg-pan-zoom-controls {
+    transform: translate(20px, 20px) scale(0.75);
+    /* 注意：transform-origin 預設可能導致位移不如預期，需視情況調整 */
+}
+
+/* 自訂控制面板容器：固定在右下角 */
+.my-controls {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    z-index: 100; /* 確保浮在 SVG 上方 */
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 5px; /* 按鈕間距 */
+}
+
+/* 按鈕樣式 */
+.my-controls button {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* 滑鼠移過去的效果 */
+.my-controls button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+/* 按下去的效果 */
+.my-controls button:active {
+    background-color: #e0e0e0;
+    transform: translateY(1px);
+}
+
+
+// ---
+
+/* 1. 優化游標體驗 */
+#seats-photo {
+    cursor: grab;
+}
+#seats-photo.svg-pan-zoom_viewport:active {
+    cursor: grabbing;
+}
+
+/* 2. 避免按鈕被不小心選取文字 */
+.my-controls button {
+    user-select: none;
+}
+
+/* 3. (選用) 調整按鈕位置到右下角，避免遮擋左側內容 */
+.my-controls {
+    top: auto;   /* 覆寫原本的 40% */
+    left: auto;  /* 覆寫原本的 20px */
+    bottom: 20px;
+    left: 20px;
 }

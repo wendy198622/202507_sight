@@ -1026,7 +1026,7 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_frame {
-  padding: 20px 0 20px;
+  padding: 20px 0;
   background: #f4f5f6;
   margin: 0 auto;
 }
@@ -1040,6 +1040,7 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin: 0 2%;
 }
 
 .event_frame .event_info {
@@ -1096,8 +1097,9 @@ footer .footer_brand_frame .footer_social .item a {
 
 .event_seat {
   width: 100%;
-  max-width: 96%;
-  margin: 60px auto 0;
+  margin: 0 auto;
+  background: #f4f5f6;
+  padding: 20px 0;
 }
 
 .event_seat .seat_title {
@@ -1105,10 +1107,10 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_seat .seat_title .stage {
-  width: 280px;
-  height: 80px;
+  width: 240px;
+  height: 60px;
   background: #FFCC00;
-  line-height: 80px;
+  line-height: 40px;
   margin: 20px auto 0;
 }
 
@@ -1151,7 +1153,6 @@ footer .footer_brand_frame .footer_social .item a {
 
 #seats-photo {
   width: 100%;
-  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -1402,9 +1403,8 @@ svg g rect:hover {
 
 /* 限制地圖容器的大小，讓 SVG 在這個框框內縮放 */
 #seat-map-container {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 40px auto 0;
   height: 500px;
   /* 電腦版高度，可自行調整 */
   overflow: hidden;
@@ -1425,5 +1425,99 @@ svg g rect:hover {
     height: 60vh;
     /* 手機版佔螢幕高度的 60% */
   }
+}
+
+#svg-pan-zoom-controls {
+  -webkit-transform: translate(20px, 20px) scale(0.75);
+          transform: translate(20px, 20px) scale(0.75);
+  /* 注意：transform-origin 預設可能導致位移不如預期，需視情況調整 */
+}
+
+/* 自訂控制面板容器：固定在右下角 */
+.my-controls {
+  position: absolute;
+  top: 40%;
+  left: 20px;
+  z-index: 100;
+  /* 確保浮在 SVG 上方 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* 垂直排列 */
+  gap: 5px;
+  /* 按鈕間距 */
+}
+
+/* 按鈕樣式 */
+.my-controls button {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+}
+
+/* 滑鼠移過去的效果 */
+.my-controls button:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* 按下去的效果 */
+.my-controls button:active {
+  background-color: #e0e0e0;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+
+/* 1. 優化游標體驗 */
+#seats-photo {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+#seats-photo.svg-pan-zoom_viewport:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* 2. 避免按鈕被不小心選取文字 */
+.my-controls button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* 3. (選用) 調整按鈕位置到右下角，避免遮擋左側內容 */
+.my-controls {
+  top: auto;
+  /* 覆寫原本的 40% */
+  left: auto;
+  /* 覆寫原本的 20px */
+  bottom: 20px;
+  left: 20px;
 }
 /*# sourceMappingURL=cart-seat.css.map */
