@@ -1025,6 +1025,13 @@ footer .footer_brand_frame .footer_social .item a {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .frame-title {
+    margin: 0 auto 30px;
+    /* 手機版間距縮小 */
+  }
+}
+
 .event_frame {
   padding: 20px 0;
   background: #f4f5f6;
@@ -1033,7 +1040,9 @@ footer .footer_brand_frame .footer_social .item a {
 
 @media (max-width: 1200px) {
   .event_frame {
-    width: calc(100% - 280px);
+    width: 100%;
+    /* 改為 100% 避免計算錯誤 */
+    max-width: 100%;
     margin: 0;
   }
 }
@@ -1046,12 +1055,13 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 90%;
+  width: 100%;
   max-width: 960px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 0 2%;
+  margin: 0 auto;
+  /* 置中 */
 }
 
 .event_frame .event_info {
@@ -1063,10 +1073,19 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /* 手機版資訊欄位統一調整 */
 }
 
 .event_frame .event_info .event_info_name {
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .event_frame .event_info .event_info_name {
+    font-size: 18px;
+    /* 手機版標題稍微縮小 */
+    margin-bottom: 5px;
+  }
 }
 
 .event_frame .event_info .event_info_en-name {
@@ -1077,17 +1096,31 @@ footer .footer_brand_frame .footer_social .item a {
   letter-spacing: 1px;
 }
 
-.event_frame .event_info .event_info_date {
+@media (max-width: 768px) {
+  .event_frame .event_info .event_info_en-name {
+    font-size: 13px;
+    /* 英文標題縮小 */
+  }
+}
+
+.event_frame .event_info .event_info_date, .event_frame .event_info .event_info_time, .event_frame .event_info .event_info_place {
   font-size: 15px;
   letter-spacing: 1px;
   font-family: roboto;
   margin-top: 10px;
 }
 
+@media (max-width: 768px) {
+  .event_frame .event_info .event_info_date, .event_frame .event_info .event_info_time, .event_frame .event_info .event_info_place {
+    font-size: 14px;
+    margin-left: 0;
+    /* 移除左邊距，靠左對齊 */
+    width: 100%;
+    /* 強制換行 */
+  }
+}
+
 .event_frame .event_info .event_info_time {
-  font-size: 15px;
-  letter-spacing: 1px;
-  font-family: roboto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1095,14 +1128,13 @@ footer .footer_brand_frame .footer_social .item a {
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
-  margin-top: 10px;
   margin-left: 10px;
 }
 
-.event_frame .event_info .event_info_time span {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+@media (max-width: 768px) {
+  .event_frame .event_info .event_info_time {
+    margin-left: 0;
+  }
 }
 
 .event_frame .event_info .event_info_time span.line {
@@ -1112,11 +1144,13 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_frame .event_info .event_info_place {
-  font-size: 15px;
-  letter-spacing: 1px;
-  font-family: roboto;
-  margin-top: 10px;
   margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .event_frame .event_info .event_info_place {
+    margin-left: 0;
+  }
 }
 
 .event_seat {
@@ -1128,8 +1162,7 @@ footer .footer_brand_frame .footer_social .item a {
 
 @media (max-width: 1200px) {
   .event_seat {
-    width: calc(100% - 280px);
-    margin: 0;
+    width: 100%;
   }
 }
 
@@ -1145,10 +1178,19 @@ footer .footer_brand_frame .footer_social .item a {
   margin: 20px auto 0;
 }
 
+@media (max-width: 768px) {
+  .event_seat .seat_title .stage {
+    width: 180px;
+    /* 舞台縮小 */
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+  }
+}
+
 .event_seat #seat-map-container {
   width: 90%;
   height: 500px;
-  /* 電腦版高度，可自行調整 */
   background: white;
   margin: 40px auto 0;
   padding: 40px 20px;
@@ -1159,25 +1201,32 @@ footer .footer_brand_frame .footer_social .item a {
       -ms-user-select: none;
           user-select: none;
   overflow: hidden;
-  /* 重要：隱藏超出的部分 */
   position: relative;
-  /* --- 左上角圖示說明 --- */
-  /* --- SVG 互動樣式 (核心修改區) --- */
+  /* 左上角圖例 - 手機版隱藏或調整 */
+  /* SVG 互動樣式 */
 }
 
 @media (max-width: 768px) {
   .event_seat #seat-map-container {
+    width: 95%;
+    /* 手機版寬度加大 */
     height: 60vh;
-    /* 手機版佔螢幕高度的 60% */
+    padding: 10px;
+    /* 內距縮小，增加可視範圍 */
+    margin-top: 20px;
   }
 }
 
 .event_seat #seat-map-container #map-legend {
   position: fixed;
-  top: 400px;
+  /* 注意：fixed 會相對於視窗，可能擋住內容，建議改成 absolute 相對容器 */
+  /* 建議改為 absolute 並放在容器內，或者手機版隱藏 */
+  position: absolute;
+  top: 20px;
   left: 20px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  -webkit-transform: none;
+          transform: none;
+  /* 移除垂直置中 */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1190,9 +1239,20 @@ footer .footer_brand_frame .footer_social .item a {
   gap: 8px;
   font-size: 0.85em;
   color: #555;
+  background: rgba(255, 255, 255, 0.8);
+  /* 增加背景色避免與地圖混淆 */
   padding: 10px;
   border-radius: 4px;
   z-index: 10;
+  pointer-events: none;
+  /* 讓點擊穿透，避免擋住選位 */
+}
+
+@media (max-width: 768px) {
+  .event_seat #seat-map-container #map-legend {
+    display: none;
+    /* 手機版空間太小，建議隱藏圖例，或是移到地圖下方顯示 */
+  }
 }
 
 .event_seat #seat-map-container #map-legend .legend-item {
@@ -1216,32 +1276,13 @@ footer .footer_brand_frame .footer_social .item a {
   height: 100%;
   margin: 0 auto;
   display: block;
-  /* 避免 SVG 底部留白 */
   cursor: -webkit-grab;
   cursor: grab;
-}
-
-@media (max-width: 1200px) {
-  .event_seat #seat-map-container #seats-photo {
-    margin: 0 auto;
-  }
 }
 
 .event_seat #seat-map-container #seats-photo.svg-pan-zoom_viewport:active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
-}
-
-.event_seat #seat-map-container #seats-photo #svg-pan-zoom-controls {
-  -webkit-transform: translate(20px, 0px) scale(0.75);
-          transform: translate(20px, 0px) scale(0.75);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
 }
 
 .event_seat #seat-map-container svg g {
@@ -1255,14 +1296,12 @@ footer .footer_brand_frame .footer_social .item a {
           filter: brightness(0.9);
 }
 
-.event_seat #seat-map-container svg g .selected rect {
+.event_seat #seat-map-container svg g.selected rect {
   stroke-width: 0 !important;
-  /* 邊框粗細 */
   fill: #ff0000 !important;
-  /* 選取後底色微微變黃 */
 }
 
-.event_seat #seat-map-container svg g .selected path {
+.event_seat #seat-map-container svg g.selected path {
   fill: #ffffff !important;
 }
 
@@ -1272,12 +1311,10 @@ footer .footer_brand_frame .footer_social .item a {
 
 .event_seat #seat-map-container .sold-seat rect {
   fill: #f1f1f1 !important;
-  /* 灰色 */
 }
 
 .event_seat #seat-map-container .sold-seat path {
   fill: #d3d2d2 !important;
-  /* 灰色 */
 }
 
 .event_seat #seat-map-container .sold-seat:hover {
@@ -1285,18 +1322,22 @@ footer .footer_brand_frame .footer_social .item a {
           filter: none !important;
 }
 
-/* --- 側邊欄樣式 (保持不變) --- */
+/* 側邊欄樣式 */
 #sidebar {
   position: fixed;
   bottom: 0;
   right: 0;
   width: 280px;
   height: calc(100vh - 80px);
+  /* 桌面版 header 高度 */
   background: #fff;
   -webkit-box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
           box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
-  -webkit-transition: right 0.3s ease-in-out;
-  transition: right 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  /* 改用 transform 效能較好 */
   z-index: 1000;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1305,6 +1346,15 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  /* 預設隱藏 (手機版與電腦版皆適用，視 JS 邏輯而定) */
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  /* ★ 手機版側邊欄調整 ★ */
+}
+
+#sidebar.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 @media (max-width: 1200px) {
@@ -1313,14 +1363,31 @@ footer .footer_brand_frame .footer_social .item a {
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 768px) {
   #sidebar {
-    height: calc(100vh - 106px);
+    width: 100%;
+    /* 寬度佔滿 */
+    height: 50vh;
+    /* 高度佔一半，或者也可以做成 full screen */
+    bottom: 0;
+    top: auto;
+    /* 確保貼底 */
+    -webkit-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    /* 陰影改上面 */
+    /* 如果希望手機版是「由下往上」滑出 */
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  #sidebar.active {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 
 #sidebar .sidebar-header {
-  padding: 20px;
+  padding: 15px 20px;
+  /* 手機版 padding 稍微縮小 */
   background: #2c3e50;
   color: white;
   display: -webkit-box;
@@ -1349,6 +1416,8 @@ footer .footer_brand_frame .footer_social .item a {
       -ms-flex: 1;
           flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* iOS 滾動優化 */
 }
 
 #sidebar #sidebar-content .zone-group {
@@ -1368,16 +1437,19 @@ footer .footer_brand_frame .footer_social .item a {
           align-items: center;
   font-weight: bold;
   color: #2c3e50;
-  border-radius: 4px;
+  font-size: 14px;
+  /* 字體微調 */
 }
 
 #sidebar #sidebar-content .zone-group .zone-header .stat-count {
   font-size: 12px;
   font-weight: 400;
+  color: #666;
 }
 
 #sidebar #sidebar-content .zone-group .zone-items {
-  padding-left: 5px;
+  padding-left: 0;
+  /* 手機版不一定要縮排，節省空間 */
 }
 
 #sidebar #sidebar-content .zone-group .zone-items .cart-item {
@@ -1387,9 +1459,9 @@ footer .footer_brand_frame .footer_social .item a {
   padding-bottom: 0;
   position: relative;
   border-left: 4px solid #ccc;
-}
-
-#sidebar #sidebar-content .zone-group .zone-items .cart-item:first-child {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* 增加一點立體感 */
   margin-top: 8px;
 }
 
@@ -1403,13 +1475,15 @@ footer .footer_brand_frame .footer_social .item a {
   margin-bottom: 5px;
   font-weight: bold;
   color: #333;
-  font-size: 0.85em;
+  font-size: 0.9em;
 }
 
 #sidebar #sidebar-content .zone-group .zone-items .cart-item .cart-item-remove {
   color: #999;
   cursor: pointer;
-  font-size: 0.85em;
+  font-size: 0.9em;
+  padding: 5px;
+  /* 增加點擊範圍 */
 }
 
 #sidebar #sidebar-content .zone-group .zone-items .cart-item .cart-item-remove:hover {
@@ -1417,9 +1491,11 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 #sidebar .sidebar-footer {
-  padding: 20px;
+  padding: 15px 20px;
   border-top: 1px solid #eee;
   background: #fff;
+  /* 針對 iPhone X 等有 Home bar 的手機增加底部 padding */
+  padding-bottom: calc(15px + env(safe-area-inset-bottom));
 }
 
 #sidebar .sidebar-footer .total-row {
@@ -1432,14 +1508,14 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 15px;
-  font-size: 1.1em;
+  margin-bottom: 10px;
+  font-size: 1em;
   font-weight: bold;
 }
 
 #sidebar .sidebar-footer .total-row .total-price {
   color: #e74c3c;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 #sidebar .sidebar-footer .btn-checkout {
@@ -1461,11 +1537,63 @@ footer .footer_brand_frame .footer_social .item a {
 
 .ticket-select {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
+  /* 手機版選單高一點好按 */
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #fff;
-  font-size: 13px;
-  margin-top: 5px;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+/* 自訂控制面板容器 */
+.my-controls {
+  position: absolute;
+  /* 電腦版左上 (避開右側購物車) */
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  /* ★★★ 關鍵：一定要比 SVG 高 ★★★ */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+/* 手機版右上 (避開底部購物車) */
+@media (max-width: 768px) {
+  .my-controls {
+    top: 20px;
+    right: 15px;
+    left: auto;
+  }
+}
+
+.my-controls button {
+  width: 44px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* 避免按鈕變成橢圓 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
 }
 /*# sourceMappingURL=cart-seat.css.map */

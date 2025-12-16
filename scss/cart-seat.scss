@@ -5,30 +5,42 @@
 .frame-title{
     margin: 0 auto 60px;
     text-align: center;
+    @media (max-width: 768px) {
+        margin: 0 auto 30px; /* 手機版間距縮小 */
+    }
 }
+
 .event_frame{
     padding: 20px 0;
     background: #f4f5f6;
     margin: 0 auto;
+    
     @media (max-width: 1200px){
-        width: calc(100% - 280px);
+        width: 100%; /* 改為 100% 避免計算錯誤 */
+        max-width: 100%;
         margin: 0;
     }
+
     .container{
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 100%;
         max-width: 960px;
         justify-content: space-between;
-        margin: 0 2%;
+        margin: 0 auto; /* 置中 */
     }
+
     .event_info{
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        // flex-direction: column;
+        
         .event_info_name{
             font-size: 20px;
+            @media (max-width: 768px) {
+                font-size: 18px; /* 手機版標題稍微縮小 */
+                margin-bottom: 5px;
+            }
         }
         .event_info_en-name{
             width: 100%;
@@ -36,53 +48,59 @@
             font-size: 15px;
             line-height: 1.4;
             letter-spacing: 1px;
+            @media (max-width: 768px) {
+                font-size: 13px; /* 英文標題縮小 */
+            }
         }
-        .event_info_date{
-            // width: 220px;
+        
+        /* 手機版資訊欄位統一調整 */
+        .event_info_date, .event_info_time, .event_info_place {
             font-size: 15px;
             letter-spacing: 1px;
             font-family: roboto;
             margin-top: 10px;
+            
+            @media (max-width: 768px) {
+                font-size: 14px;
+                margin-left: 0; /* 移除左邊距，靠左對齊 */
+                width: 100%;    /* 強制換行 */
+            }
         }
-        .event_info_time{
-            font-size: 15px;
-            letter-spacing: 1px;
-            font-family: roboto;
+        
+        .event_info_time {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-top: 10px;
             margin-left: 10px;
-            span{
-                display: flex;
-                &.start{}
-                &.end{}
-                &.line{
-                    width: 20px;
-                    height: 1px;
-                    background: #000;
-                }
-
+            @media (max-width: 768px) {
+                margin-left: 0;
+            }
+            span.line{
+                width: 20px;
+                height: 1px;
+                background: #000;
             }
         }
-        .event_info_place{
-            font-size: 15px;
-            letter-spacing: 1px;
-            font-family: roboto;
-            margin-top: 10px;
+        
+        .event_info_place {
             margin-left: 20px;
+            @media (max-width: 768px) {
+                margin-left: 0;
+            }
         }
     }
 }
+
 .event_seat{
     width: 100%;
     margin: 0 auto;
     background: #f4f5f6;
     padding: 20px 0;
+    
     @media (max-width: 1200px){
-        width: calc(100% - 280px);
-        margin: 0;
+        width: 100%; 
     }
+
     .seat_title{
         text-align: center;
         .stage{
@@ -91,41 +109,58 @@
             background: #FFCC00;
             line-height: 60px;
             margin: 20px auto 0;
+            @media (max-width: 768px) {
+                width: 180px; /* 舞台縮小 */
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+            }
         }
     }
 
     #seat-map-container {
         width: 90%;
-        height: 500px; /* 電腦版高度，可自行調整 */
+        height: 500px;
         background: white;
         margin: 40px auto 0;
         padding: 40px 20px;
         border-radius: 8px;
         text-align: center;
         user-select: none;
-        // border: 1px solid #ddd; /* 選填：加個框比較清楚範圍 */
-        overflow: hidden; /* 重要：隱藏超出的部分 */
-        // background: #f5f5f5; /* 選填：背景色 */
+        overflow: hidden;
         position: relative;
+        
         @media (max-width: 768px) {
-            height: 60vh; /* 手機版佔螢幕高度的 60% */
+            width: 95%; /* 手機版寬度加大 */
+            height: 60vh; 
+            padding: 10px; /* 內距縮小，增加可視範圍 */
+            margin-top: 20px;
         }
-        /* --- 左上角圖示說明 --- */
+
+        /* 左上角圖例 - 手機版隱藏或調整 */
         #map-legend {
-            position: fixed;
-            top: 400px;
+            position: fixed; /* 注意：fixed 會相對於視窗，可能擋住內容，建議改成 absolute 相對容器 */
+            /* 建議改為 absolute 並放在容器內，或者手機版隱藏 */
+            position: absolute; 
+            top: 20px;
             left: 20px;
-            transform: translateY(-50%);
+            transform: none; /* 移除垂直置中 */
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             gap: 8px;
             font-size: 0.85em;
             color: #555;
-            // background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.8); /* 增加背景色避免與地圖混淆 */
             padding: 10px;
             border-radius: 4px;
             z-index: 10;
+            pointer-events: none; /* 讓點擊穿透，避免擋住選位 */
+
+            @media (max-width: 768px) {
+                display: none; /* 手機版空間太小，建議隱藏圖例，或是移到地圖下方顯示 */
+            }
+
             .legend-item { 
                 display: flex; 
                 align-items: center; 
@@ -137,93 +172,97 @@
                 }
             }
         }
+
         #seats-photo{
             width: 100%;
             height: 100%;
             margin: 0 auto;
-            display: block; /* 避免 SVG 底部留白 */
+            display: block;
             cursor: grab;
-            @media (max-width: 1200px){
-                // width: 90%;
-                margin: 0 auto;
-            }
             &.svg-pan-zoom_viewport:active {
                 cursor: grabbing;
             }
-            #svg-pan-zoom-controls {
-                transform: translate(20px, 0px) scale(0.75);
-                display: flex;
-                flex-direction: row;
-            }
         }
 
-        /* --- SVG 互動樣式 (核心修改區) --- */
+        /* SVG 互動樣式 */
         svg g {
             cursor: pointer;
             transition: opacity 0.2s;
-            rect {
-                &:hover {
-                    filter: brightness(0.9);
-                }                
+            rect:hover { filter: brightness(0.9); }
+            
+            &.selected rect {
+                stroke-width: 0 !important;
+                fill: #ff0000 !important;
             }
-            .selected rect {
-                // stroke: #ff0000 !important;   /* 紅色邊框 */
-                stroke-width: 0 !important; /* 邊框粗細 */
-                // paint-order: stroke;          /* 確保邊框不會蓋住文字太多 */
-                fill: #ff0000 !important;     /* 選取後底色微微變黃 */
-            }
-            .selected path{
+            &.selected path{
                 fill: #ffffff !important; 
             }
         }
         .sold-seat {
             cursor: not-allowed !important;
-            rect {
-                fill: #f1f1f1 !important; /* 灰色 */
-            }
-            path{
-                fill: #d3d2d2 !important; /* 灰色 */
-            }
+            rect { fill: #f1f1f1 !important; }
+            path { fill: #d3d2d2 !important; }
             &:hover { filter: none !important; }
         }
     }
 }
 
-/* --- 側邊欄樣式 (保持不變) --- */
+/* 側邊欄樣式 */
 #sidebar {
     position: fixed; 
-    bottom: 0; right: 0; 
+    bottom: 0; 
+    right: 0; 
     width: 280px; 
-    height: calc(100vh - 80px);
-    background: #fff; box-shadow: -2px 0 10px rgba(0,0,0,0.15);
-    transition: right 0.3s ease-in-out; z-index: 1000;
+    height: calc(100vh - 80px); /* 桌面版 header 高度 */
+    background: #fff; 
+    box-shadow: -2px 0 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out; /* 改用 transform 效能較好 */
+    z-index: 1000;
     display: flex; 
     flex-direction: column;
+    
+    /* 預設隱藏 (手機版與電腦版皆適用，視 JS 邏輯而定) */
+    transform: translateX(100%); 
+    &.active {
+        transform: translateX(0);
+    }
+
     @media (max-width: 1200px){
         height: calc(100vh - 96px);
     }
-    @media (max-width: 960px){
-        height: calc(100vh - 106px);
+    
+    /* ★ 手機版側邊欄調整 ★ */
+    @media (max-width: 768px){
+        width: 100%; /* 寬度佔滿 */
+        height: 50vh; /* 高度佔一半，或者也可以做成 full screen */
+        bottom: 0;
+        top: auto; /* 確保貼底 */
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.15); /* 陰影改上面 */
+        
+        /* 如果希望手機版是「由下往上」滑出 */
+        transform: translateY(100%);
+        &.active {
+            transform: translateY(0);
+        }
     }
 
     .sidebar-header { 
-        padding: 20px; 
+        padding: 15px 20px; /* 手機版 padding 稍微縮小 */
         background: #2c3e50; 
         color: white; 
         display: flex; 
-        justify-content: 
-        space-between; 
+        justify-content: space-between; 
         align-items: center; 
         font-weight: bold; 
-        span{
-            color: white; 
-        }
+        span{ color: white; }
     }
     .close-btn { cursor: pointer; font-size: 1.2em; }
 
     #sidebar-content { 
         flex: 1; 
         overflow-y: auto; 
+        -webkit-overflow-scrolling: touch; /* iOS 滾動優化 */
+        
         .zone-group { 
             border-bottom: 1px solid #eee; 
             padding: 10px 16px;
@@ -231,29 +270,26 @@
                 display: flex; 
                 justify-content: space-between; 
                 align-items: center;
-                // padding: 8px 5px; 
                 font-weight: bold; 
                 color: #2c3e50; 
-                // background-color: #f9f9f9; 
-                border-radius: 4px; 
+                font-size: 14px; /* 字體微調 */
                 .stat-count{
                     font-size: 12px;
                     font-weight: 400;
+                    color: #666;
                 }
             }
             .zone-items { 
-                padding-left: 5px; 
+                padding-left: 0; /* 手機版不一定要縮排，節省空間 */
                 .cart-item { 
                     background: #fff; 
-                    // border: 1px solid #eee; 
                     border-radius: 6px; 
                     padding: 10px; 
                     padding-bottom: 0;
                     position: relative; 
                     border-left: 4px solid #ccc; 
-                    &:first-child{
-                        margin-top: 8px; 
-                    }
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* 增加一點立體感 */
+                    margin-top: 8px;
 
                     .cart-item-header { 
                         display: flex; 
@@ -261,16 +297,15 @@
                         margin-bottom: 5px; 
                         font-weight: bold; 
                         color: #333; 
-                        font-size: 0.85em; 
+                        font-size: 0.9em; 
                     }
 
                     .cart-item-remove { 
                         color: #999; 
                         cursor: pointer; 
-                        font-size: 0.85em; 
-                        &:hover { 
-                            color: #e74c3c; 
-                        }
+                        font-size: 0.9em; 
+                        padding: 5px; /* 增加點擊範圍 */
+                        &:hover { color: #e74c3c; }
                     }
                 }
             }
@@ -278,19 +313,22 @@
     }
 
     .sidebar-footer { 
-        padding: 20px; 
+        padding: 15px 20px; 
         border-top: 1px solid #eee; 
         background: #fff; 
+        /* 針對 iPhone X 等有 Home bar 的手機增加底部 padding */
+        padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+
         .total-row { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            margin-bottom: 15px; 
-            font-size: 1.1em; 
+            margin-bottom: 10px; 
+            font-size: 1em; 
             font-weight: bold; 
             .total-price { 
                 color: #e74c3c; 
-                font-size: 1.4em; 
+                font-size: 1.3em; 
             }
         }
         .btn-checkout { 
@@ -313,10 +351,48 @@
 
 .ticket-select { 
     width: 100%; 
-    padding: 6px; 
+    padding: 8px; /* 手機版選單高一點好按 */
     border: 1px solid #ddd; 
     border-radius: 4px; 
     background-color: #fff; 
-    font-size: 13px; 
-    margin-top: 5px; 
+    font-size: 14px; 
+    margin-top: 8px; 
+    margin-bottom: 10px;
+}
+
+/* 自訂控制面板容器 */
+.my-controls {
+    position: absolute;
+    /* 電腦版左上 (避開右側購物車) */
+    top: 20px;
+    left: 20px; 
+    z-index: 100; /* ★★★ 關鍵：一定要比 SVG 高 ★★★ */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 手機版右上 (避開底部購物車) */
+@media (max-width: 768px) {
+    .my-controls {
+        top: 20px;
+        right: 15px;
+        left: auto; 
+    }
+}
+
+.my-controls button {
+    width: 44px;
+    height: 44px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* 避免按鈕變成橢圓 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; 
 }

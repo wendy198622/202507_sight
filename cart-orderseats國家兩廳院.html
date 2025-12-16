@@ -62,7 +62,11 @@
       <div id="seat-map-container">
           <!-- 修正：清空這裡的內容，由 JS 自動根據 ticketTypes 生成，避免重複與維護困難 -->
           <div id="map-legend" style="opacity: 0; visibility: hidden;"></div>
-          
+          <div class="my-controls">
+            <button id="zoom-in-btn" type="button" title="放大">＋</button>
+            <button id="zoom-out-btn" type="button" title="縮小">－</button>
+            <button id="reset-btn" type="button" title="重置">⟲</button>
+          </div>
           <!-- SVG 請完整貼在這裡 -->
           <svg id="seats-photo" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 740 466">
             <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 152)  -->
@@ -1791,15 +1795,45 @@
           // --- 3. 啟用 svg-pan-zoom ---
           // 確保 DOM 載入且計算完畢後執行
           setTimeout(() => {
-              panZoomInstance = svgPanZoom('#seats-photo', {
-                  zoomEnabled: true,
-                  controlIconsEnabled: true, // 顯示右下角 + - 按鈕
-                  fit: true,                 // 自動填滿容器
-                  center: true,              // 自動置中
-                  minZoom: 1,                // 最小縮放倍率
-                  maxZoom: 5,               // 最大縮放倍率 (可拉很近)
-                  dblClickZoomEnabled: false // 建議關閉雙擊縮放，避免誤觸選位
-              });
+            // 1. 初始化套件
+            panZoomInstance = svgPanZoom('#seats-photo', {
+                zoomEnabled: true,
+                controlIconsEnabled: false, // 關閉預設按鈕，使用自訂按鈕
+                fit: true,
+                center: true,
+                minZoom: 1,
+                maxZoom: 5,
+                dblClickZoomEnabled: false,
+                preventMouseEventsDefault: false // 允許事件穿透，確保選位正常
+            });
+
+            // 綁定放大按鈕
+            const zoomInBtn = document.getElementById('zoom-in-btn');
+            if(zoomInBtn) {
+                zoomInBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    panZoomInstance.zoomIn();
+                });
+            }
+
+            // 綁定縮小按鈕
+            const zoomOutBtn = document.getElementById('zoom-out-btn');
+            if(zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    panZoomInstance.zoomOut();
+                });
+            }
+
+            // 綁定重置按鈕
+            const resetBtn = document.getElementById('reset-btn');
+            if(resetBtn) {
+                resetBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    panZoomInstance.resetZoom();
+                    panZoomInstance.center(); 
+                });
+            }
           }, 100);
           
           // 視窗大小改變時，重置 SVG 大小
