@@ -1031,10 +1031,21 @@ footer .footer_brand_frame .footer_social .item a {
   margin: 0 auto;
 }
 
+@media (max-width: 1200px) {
+  .event_frame {
+    width: calc(100% - 280px);
+    margin: 0;
+  }
+}
+
 .event_frame .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 90%;
   max-width: 960px;
   -webkit-box-pack: justify;
@@ -1047,10 +1058,11 @@ footer .footer_brand_frame .footer_social .item a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .event_frame .event_info .event_info_name {
@@ -1058,20 +1070,22 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_frame .event_info .event_info_en-name {
+  width: 100%;
   color: #847C7A;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.4;
   letter-spacing: 1px;
 }
 
 .event_frame .event_info .event_info_date {
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 1px;
   font-family: roboto;
+  margin-top: 10px;
 }
 
 .event_frame .event_info .event_info_time {
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 1px;
   font-family: roboto;
   display: -webkit-box;
@@ -1081,6 +1095,8 @@ footer .footer_brand_frame .footer_social .item a {
       -ms-flex-align: center;
           align-items: center;
   gap: 8px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .event_frame .event_info .event_info_time span {
@@ -1090,9 +1106,17 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .event_frame .event_info .event_info_time span.line {
-  width: 100%;
+  width: 20px;
   height: 1px;
   background: #000;
+}
+
+.event_frame .event_info .event_info_place {
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: roboto;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .event_seat {
@@ -1100,6 +1124,13 @@ footer .footer_brand_frame .footer_social .item a {
   margin: 0 auto;
   background: #f4f5f6;
   padding: 20px 0;
+}
+
+@media (max-width: 1200px) {
+  .event_seat {
+    width: calc(100% - 280px);
+    margin: 0;
+  }
 }
 
 .event_seat .seat_title {
@@ -1110,13 +1141,16 @@ footer .footer_brand_frame .footer_social .item a {
   width: 240px;
   height: 60px;
   background: #FFCC00;
-  line-height: 40px;
+  line-height: 60px;
   margin: 20px auto 0;
 }
 
-#seat-map-container {
-  width: 100%;
+.event_seat #seat-map-container {
+  width: 90%;
+  height: 500px;
+  /* 電腦版高度，可自行調整 */
   background: white;
+  margin: 40px auto 0;
   padding: 40px 20px;
   border-radius: 8px;
   text-align: center;
@@ -1124,11 +1158,21 @@ footer .footer_brand_frame .footer_social .item a {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  overflow: hidden;
+  /* 重要：隱藏超出的部分 */
   position: relative;
+  /* --- 左上角圖示說明 --- */
+  /* --- SVG 互動樣式 (核心修改區) --- */
 }
 
-/* --- 左上角圖示說明 --- */
-#map-legend {
+@media (max-width: 768px) {
+  .event_seat #seat-map-container {
+    height: 60vh;
+    /* 手機版佔螢幕高度的 60% */
+  }
+}
+
+.event_seat #seat-map-container #map-legend {
   position: fixed;
   top: 400px;
   left: 20px;
@@ -1151,18 +1195,7 @@ footer .footer_brand_frame .footer_social .item a {
   z-index: 10;
 }
 
-#seats-photo {
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media (max-width: 1200px) {
-  #seats-photo {
-    max-width: 90%;
-  }
-}
-
-.legend-item {
+.event_seat #seat-map-container #map-legend .legend-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1171,54 +1204,83 @@ footer .footer_brand_frame .footer_social .item a {
           align-items: center;
 }
 
-.legend-color {
+.event_seat #seat-map-container #map-legend .legend-item .legend-color {
   width: 12px;
   height: 12px;
   border-radius: 2px;
   margin-right: 6px;
 }
 
-/* --- SVG 互動樣式 (核心修改區) --- */
-svg g {
+.event_seat #seat-map-container #seats-photo {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  /* 避免 SVG 底部留白 */
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+@media (max-width: 1200px) {
+  .event_seat #seat-map-container #seats-photo {
+    margin: 0 auto;
+  }
+}
+
+.event_seat #seat-map-container #seats-photo.svg-pan-zoom_viewport:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.event_seat #seat-map-container #seats-photo #svg-pan-zoom-controls {
+  -webkit-transform: translate(20px, 0px) scale(0.75);
+          transform: translate(20px, 0px) scale(0.75);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.event_seat #seat-map-container svg g {
   cursor: pointer;
   -webkit-transition: opacity 0.2s;
   transition: opacity 0.2s;
 }
 
-svg g rect:hover {
+.event_seat #seat-map-container svg g rect:hover {
   -webkit-filter: brightness(0.9);
           filter: brightness(0.9);
 }
 
-/* 1. 選取樣式：改用邊框 (Stroke) */
-/* 當 <g> 有 .selected class 時，底下的 <rect> 會變色 */
-.selected rect {
+.event_seat #seat-map-container svg g .selected rect {
   stroke-width: 0 !important;
   /* 邊框粗細 */
   fill: #ff0000 !important;
   /* 選取後底色微微變黃 */
 }
 
-.selected path {
+.event_seat #seat-map-container svg g .selected path {
   fill: #ffffff !important;
 }
 
-/* 2. 售完樣式 */
-.sold-seat {
+.event_seat #seat-map-container .sold-seat {
   cursor: not-allowed !important;
 }
 
-.sold-seat rect {
+.event_seat #seat-map-container .sold-seat rect {
   fill: #f1f1f1 !important;
   /* 灰色 */
 }
 
-.sold-seat path {
+.event_seat #seat-map-container .sold-seat path {
   fill: #d3d2d2 !important;
   /* 灰色 */
 }
 
-.sold-seat:hover {
+.event_seat #seat-map-container .sold-seat:hover {
   -webkit-filter: none !important;
           filter: none !important;
 }
@@ -1228,7 +1290,7 @@ svg g rect:hover {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 320px;
+  width: 280px;
   height: calc(100vh - 80px);
   background: #fff;
   -webkit-box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
@@ -1257,7 +1319,7 @@ svg g rect:hover {
   }
 }
 
-.sidebar-header {
+#sidebar .sidebar-header {
   padding: 20px;
   background: #2c3e50;
   color: white;
@@ -1273,46 +1335,52 @@ svg g rect:hover {
   font-weight: bold;
 }
 
-.sidebar-header span {
+#sidebar .sidebar-header span {
   color: white;
 }
 
-.close-btn {
+#sidebar .close-btn {
   cursor: pointer;
   font-size: 1.2em;
 }
 
-/* ★★★ 新增：整合後的側邊欄內容樣式 ★★★ */
-#sidebar-content {
+#sidebar #sidebar-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   overflow-y: auto;
 }
 
-#sidebar-content .zone-group {
+#sidebar #sidebar-content .zone-group {
   border-bottom: 1px solid #eee;
-  padding: 20px;
+  padding: 10px 16px;
 }
 
-#sidebar-content .zone-group .zone-header {
+#sidebar #sidebar-content .zone-group .zone-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-weight: bold;
   color: #2c3e50;
   border-radius: 4px;
 }
 
-#sidebar-content .zone-group .zone-items {
+#sidebar #sidebar-content .zone-group .zone-header .stat-count {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#sidebar #sidebar-content .zone-group .zone-items {
   padding-left: 5px;
 }
 
-/* Cart Item 樣式微調 */
-.cart-item {
+#sidebar #sidebar-content .zone-group .zone-items .cart-item {
   background: #fff;
   border-radius: 6px;
   padding: 10px;
@@ -1321,11 +1389,11 @@ svg g rect:hover {
   border-left: 4px solid #ccc;
 }
 
-.cart-item:first-child {
+#sidebar #sidebar-content .zone-group .zone-items .cart-item:first-child {
   margin-top: 8px;
 }
 
-.cart-item-header {
+#sidebar #sidebar-content .zone-group .zone-items .cart-item .cart-item-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1335,36 +1403,26 @@ svg g rect:hover {
   margin-bottom: 5px;
   font-weight: bold;
   color: #333;
-  font-size: 0.95em;
+  font-size: 0.85em;
 }
 
-.cart-item-remove {
+#sidebar #sidebar-content .zone-group .zone-items .cart-item .cart-item-remove {
   color: #999;
   cursor: pointer;
   font-size: 0.85em;
 }
 
-.cart-item-remove:hover {
+#sidebar #sidebar-content .zone-group .zone-items .cart-item .cart-item-remove:hover {
   color: #e74c3c;
 }
 
-.ticket-select {
-  width: 100%;
-  padding: 6px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #fff;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-.sidebar-footer {
+#sidebar .sidebar-footer {
   padding: 20px;
   border-top: 1px solid #eee;
   background: #fff;
 }
 
-.total-row {
+#sidebar .sidebar-footer .total-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1379,12 +1437,12 @@ svg g rect:hover {
   font-weight: bold;
 }
 
-.total-price {
+#sidebar .sidebar-footer .total-row .total-price {
   color: #e74c3c;
   font-size: 1.4em;
 }
 
-.btn-checkout {
+#sidebar .sidebar-footer .btn-checkout {
   width: 100%;
   padding: 12px;
   background-color: #e74c3c;
@@ -1396,128 +1454,18 @@ svg g rect:hover {
   font-weight: bold;
 }
 
-.btn-checkout:disabled {
+#sidebar .sidebar-footer .btn-checkout:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-/* 限制地圖容器的大小，讓 SVG 在這個框框內縮放 */
-#seat-map-container {
-  width: 90%;
-  margin: 40px auto 0;
-  height: 500px;
-  /* 電腦版高度，可自行調整 */
-  overflow: hidden;
-  /* 重要：隱藏超出的部分 */
-  position: relative;
-}
-
-#seats-photo {
+.ticket-select {
   width: 100%;
-  height: 100%;
-  display: block;
-  /* 避免 SVG 底部留白 */
-}
-
-/* 手機版可以稍微調高一點，方便操作 */
-@media (max-width: 768px) {
-  #seat-map-container {
-    height: 60vh;
-    /* 手機版佔螢幕高度的 60% */
-  }
-}
-
-#svg-pan-zoom-controls {
-  -webkit-transform: translate(20px, 20px) scale(0.75);
-          transform: translate(20px, 20px) scale(0.75);
-  /* 注意：transform-origin 預設可能導致位移不如預期，需視情況調整 */
-}
-
-/* 自訂控制面板容器：固定在右下角 */
-.my-controls {
-  position: absolute;
-  top: 40%;
-  left: 20px;
-  z-index: 100;
-  /* 確保浮在 SVG 上方 */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  /* 垂直排列 */
-  gap: 5px;
-  /* 按鈕間距 */
-}
-
-/* 按鈕樣式 */
-.my-controls button {
-  width: 40px;
-  height: 40px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  cursor: pointer;
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0;
-}
-
-/* 滑鼠移過去的效果 */
-.my-controls button:hover {
-  background-color: #f0f0f0;
-  color: #000;
-}
-
-/* 按下去的效果 */
-.my-controls button:active {
-  background-color: #e0e0e0;
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
-}
-
-/* 1. 優化游標體驗 */
-#seats-photo {
-  cursor: -webkit-grab;
-  cursor: grab;
-}
-
-#seats-photo.svg-pan-zoom_viewport:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
-
-/* 2. 避免按鈕被不小心選取文字 */
-.my-controls button {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-/* 3. (選用) 調整按鈕位置到右下角，避免遮擋左側內容 */
-.my-controls {
-  top: auto;
-  /* 覆寫原本的 40% */
-  left: auto;
-  /* 覆寫原本的 20px */
-  bottom: 20px;
-  left: 20px;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 13px;
+  margin-top: 5px;
 }
 /*# sourceMappingURL=cart-seat.css.map */

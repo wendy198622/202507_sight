@@ -10,8 +10,13 @@
     padding: 20px 0;
     background: #f4f5f6;
     margin: 0 auto;
+    @media (max-width: 1200px){
+        width: calc(100% - 280px);
+        margin: 0;
+    }
     .container{
         display: flex;
+        flex-direction: column;
         width: 90%;
         max-width: 960px;
         justify-content: space-between;
@@ -19,39 +24,53 @@
     }
     .event_info{
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        // flex-direction: column;
         .event_info_name{
             font-size: 20px;
         }
         .event_info_en-name{
+            width: 100%;
             color: #847C7A;
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.4;
             letter-spacing: 1px;
         }
         .event_info_date{
-            font-size: 16px;
+            // width: 220px;
+            font-size: 15px;
             letter-spacing: 1px;
             font-family: roboto;
+            margin-top: 10px;
         }
         .event_info_time{
-            font-size: 16px;
+            font-size: 15px;
             letter-spacing: 1px;
             font-family: roboto;
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-top: 10px;
+            margin-left: 10px;
             span{
                 display: flex;
                 &.start{}
                 &.end{}
                 &.line{
-                    width: 100%;
+                    width: 20px;
                     height: 1px;
                     background: #000;
                 }
 
             }
+        }
+        .event_info_place{
+            font-size: 15px;
+            letter-spacing: 1px;
+            font-family: roboto;
+            margin-top: 10px;
+            margin-left: 20px;
         }
     }
 }
@@ -60,100 +79,122 @@
     margin: 0 auto;
     background: #f4f5f6;
     padding: 20px 0;
+    @media (max-width: 1200px){
+        width: calc(100% - 280px);
+        margin: 0;
+    }
     .seat_title{
         text-align: center;
         .stage{
             width: 240px;
             height: 60px;
             background: #FFCC00;
-            line-height: 40px;
+            line-height: 60px;
             margin: 20px auto 0;
         }
     }
-}
-#seat-map-container {
-    width: 100%;
-    background: white;
-    padding: 40px 20px;
-    border-radius: 8px;
-    // box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    user-select: none;
-    position: relative;
-}
 
-/* --- 左上角圖示說明 --- */
-#map-legend {
-    position: fixed;
-    top: 400px;
-    left: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.85em;
-    color: #555;
-    // background: rgba(255,255,255,0.95);
-    padding: 10px;
-    border-radius: 4px;
-    z-index: 10;
-}
-#seats-photo{
-    width: 100%;
-    // max-width: 1000px;
-    margin: 0 auto;
-    @media (max-width: 1200px){
-        max-width: 90%;
-    }
-}
-
-.legend-item { display: flex; align-items: center; }
-.legend-color { width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; }
-
-/* --- SVG 互動樣式 (核心修改區) --- */
-
-svg g {
-    cursor: pointer;
-    transition: opacity 0.2s;
-    rect {
-        &:hover {
-            filter: brightness(0.9);
+    #seat-map-container {
+        width: 90%;
+        height: 500px; /* 電腦版高度，可自行調整 */
+        background: white;
+        margin: 40px auto 0;
+        padding: 40px 20px;
+        border-radius: 8px;
+        text-align: center;
+        user-select: none;
+        // border: 1px solid #ddd; /* 選填：加個框比較清楚範圍 */
+        overflow: hidden; /* 重要：隱藏超出的部分 */
+        // background: #f5f5f5; /* 選填：背景色 */
+        position: relative;
+        @media (max-width: 768px) {
+            height: 60vh; /* 手機版佔螢幕高度的 60% */
         }
-        
+        /* --- 左上角圖示說明 --- */
+        #map-legend {
+            position: fixed;
+            top: 400px;
+            left: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.85em;
+            color: #555;
+            // background: rgba(255,255,255,0.95);
+            padding: 10px;
+            border-radius: 4px;
+            z-index: 10;
+            .legend-item { 
+                display: flex; 
+                align-items: center; 
+                .legend-color { 
+                    width: 12px; 
+                    height: 12px; 
+                    border-radius: 2px; 
+                    margin-right: 6px; 
+                }
+            }
+        }
+        #seats-photo{
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            display: block; /* 避免 SVG 底部留白 */
+            cursor: grab;
+            @media (max-width: 1200px){
+                // width: 90%;
+                margin: 0 auto;
+            }
+            &.svg-pan-zoom_viewport:active {
+                cursor: grabbing;
+            }
+            #svg-pan-zoom-controls {
+                transform: translate(20px, 0px) scale(0.75);
+                display: flex;
+                flex-direction: row;
+            }
+        }
+
+        /* --- SVG 互動樣式 (核心修改區) --- */
+        svg g {
+            cursor: pointer;
+            transition: opacity 0.2s;
+            rect {
+                &:hover {
+                    filter: brightness(0.9);
+                }                
+            }
+            .selected rect {
+                // stroke: #ff0000 !important;   /* 紅色邊框 */
+                stroke-width: 0 !important; /* 邊框粗細 */
+                // paint-order: stroke;          /* 確保邊框不會蓋住文字太多 */
+                fill: #ff0000 !important;     /* 選取後底色微微變黃 */
+            }
+            .selected path{
+                fill: #ffffff !important; 
+            }
+        }
+        .sold-seat {
+            cursor: not-allowed !important;
+            rect {
+                fill: #f1f1f1 !important; /* 灰色 */
+            }
+            path{
+                fill: #d3d2d2 !important; /* 灰色 */
+            }
+            &:hover { filter: none !important; }
+        }
     }
 }
-
-/* 1. 選取樣式：改用邊框 (Stroke) */
-/* 當 <g> 有 .selected class 時，底下的 <rect> 會變色 */
-.selected rect {
-    // stroke: #ff0000 !important;   /* 紅色邊框 */
-    stroke-width: 0 !important; /* 邊框粗細 */
-    // paint-order: stroke;          /* 確保邊框不會蓋住文字太多 */
-    fill: #ff0000 !important;     /* 選取後底色微微變黃 */
-}
-.selected path{
-    fill: #ffffff !important; 
-}
-
-/* 2. 售完樣式 */
-.sold-seat {
-    cursor: not-allowed !important;
-    rect {
-        fill: #f1f1f1 !important; /* 灰色 */
-    }
-    path{
-        fill: #d3d2d2 !important; /* 灰色 */
-    }
-    &:hover { filter: none !important; }
-}
-
-
 
 /* --- 側邊欄樣式 (保持不變) --- */
 #sidebar {
     position: fixed; 
-    bottom: 0; right: 0; width: 320px; height: calc(100vh - 80px);
+    bottom: 0; right: 0; 
+    width: 280px; 
+    height: calc(100vh - 80px);
     background: #fff; box-shadow: -2px 0 10px rgba(0,0,0,0.15);
     transition: right 0.3s ease-in-out; z-index: 1000;
     display: flex; 
@@ -164,76 +205,112 @@ svg g {
     @media (max-width: 960px){
         height: calc(100vh - 106px);
     }
-}
-// #sidebar.active { right: 0; }
-.sidebar-header { 
-    padding: 20px; 
-    background: #2c3e50; 
-    color: white; 
-    display: flex; 
-    justify-content: 
-    space-between; 
-    align-items: center; 
-    font-weight: bold; 
-    span{
-        color: white; 
-    }
-}
-.close-btn { cursor: pointer; font-size: 1.2em; }
 
-/* ★★★ 新增：整合後的側邊欄內容樣式 ★★★ */
-#sidebar-content { 
-    flex: 1; 
-    overflow-y: auto; 
-    .zone-group { 
-        border-bottom: 1px solid #eee; 
-        padding: 20px;
-        .zone-header { 
+    .sidebar-header { 
+        padding: 20px; 
+        background: #2c3e50; 
+        color: white; 
+        display: flex; 
+        justify-content: 
+        space-between; 
+        align-items: center; 
+        font-weight: bold; 
+        span{
+            color: white; 
+        }
+    }
+    .close-btn { cursor: pointer; font-size: 1.2em; }
+
+    #sidebar-content { 
+        flex: 1; 
+        overflow-y: auto; 
+        .zone-group { 
+            border-bottom: 1px solid #eee; 
+            padding: 10px 16px;
+            .zone-header { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                // padding: 8px 5px; 
+                font-weight: bold; 
+                color: #2c3e50; 
+                // background-color: #f9f9f9; 
+                border-radius: 4px; 
+                .stat-count{
+                    font-size: 12px;
+                    font-weight: 400;
+                }
+            }
+            .zone-items { 
+                padding-left: 5px; 
+                .cart-item { 
+                    background: #fff; 
+                    // border: 1px solid #eee; 
+                    border-radius: 6px; 
+                    padding: 10px; 
+                    padding-bottom: 0;
+                    position: relative; 
+                    border-left: 4px solid #ccc; 
+                    &:first-child{
+                        margin-top: 8px; 
+                    }
+
+                    .cart-item-header { 
+                        display: flex; 
+                        justify-content: space-between; 
+                        margin-bottom: 5px; 
+                        font-weight: bold; 
+                        color: #333; 
+                        font-size: 0.85em; 
+                    }
+
+                    .cart-item-remove { 
+                        color: #999; 
+                        cursor: pointer; 
+                        font-size: 0.85em; 
+                        &:hover { 
+                            color: #e74c3c; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sidebar-footer { 
+        padding: 20px; 
+        border-top: 1px solid #eee; 
+        background: #fff; 
+        .total-row { 
             display: flex; 
             justify-content: space-between; 
-            // padding: 8px 5px; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            font-size: 1.1em; 
             font-weight: bold; 
-            color: #2c3e50; 
-            // background-color: #f9f9f9; 
+            .total-price { 
+                color: #e74c3c; 
+                font-size: 1.4em; 
+            }
+        }
+        .btn-checkout { 
+            width: 100%; 
+            padding: 12px; 
+            background-color: #e74c3c; 
+            color: white; 
+            border: none; 
             border-radius: 4px; 
-        }
-        .zone-items { 
-            padding-left: 5px; 
+            font-size: 1em; 
+            cursor: pointer; 
+            font-weight: bold; 
+            &:disabled { 
+                background-color: #ccc; 
+                cursor: not-allowed; 
+            }
         }
     }
 }
-        
 
-
-/* Cart Item 樣式微調 */
-.cart-item { 
-    background: #fff; 
-    // border: 1px solid #eee; 
-    border-radius: 6px; 
-    padding: 10px; 
-    padding-bottom: 0;
-    position: relative; 
-    border-left: 4px solid #ccc; 
-    &:first-child{
-        margin-top: 8px; 
-    }
-}
-.cart-item-header { 
-    display: flex; 
-    justify-content: space-between; 
-    margin-bottom: 5px; 
-    font-weight: bold; 
-    color: #333; 
-    font-size: 0.95em; 
-}
-.cart-item-remove { 
-    color: #999; 
-    cursor: pointer; 
-    font-size: 0.85em; 
-}
-.cart-item-remove:hover { 
-    color: #e74c3c; 
-}
 .ticket-select { 
     width: 100%; 
     padding: 6px; 
@@ -242,134 +319,4 @@ svg g {
     background-color: #fff; 
     font-size: 13px; 
     margin-top: 5px; 
-}
-
-.sidebar-footer { 
-    padding: 20px; 
-    border-top: 1px solid #eee; 
-    background: #fff; 
-}
-.total-row { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 15px; 
-    font-size: 1.1em; 
-    font-weight: bold; 
-}
-.total-price { 
-    color: #e74c3c; 
-    font-size: 1.4em; 
-}
-.btn-checkout { 
-    width: 100%; 
-    padding: 12px; 
-    background-color: #e74c3c; 
-    color: white; 
-    border: none; 
-    border-radius: 4px; 
-    font-size: 1em; 
-    cursor: pointer; 
-    font-weight: bold; 
-}
-.btn-checkout:disabled { 
-    background-color: #ccc; 
-    cursor: not-allowed; 
-}
-
-/* 限制地圖容器的大小，讓 SVG 在這個框框內縮放 */
-#seat-map-container {
-    width: 90%;
-    // max-width: 1920px;
-    margin: 40px auto 0;
-    height: 500px; /* 電腦版高度，可自行調整 */
-    // border: 1px solid #ddd; /* 選填：加個框比較清楚範圍 */
-    overflow: hidden; /* 重要：隱藏超出的部分 */
-    // background: #f5f5f5; /* 選填：背景色 */
-    position: relative;
-}
-
-#seats-photo {
-    width: 100%;
-    height: 100%;
-    display: block; /* 避免 SVG 底部留白 */
-}
-
-/* 手機版可以稍微調高一點，方便操作 */
-@media (max-width: 768px) {
-    #seat-map-container {
-        height: 60vh; /* 手機版佔螢幕高度的 60% */
-    }
-}
-
-
-#svg-pan-zoom-controls {
-    transform: translate(20px, 20px) scale(0.75);
-    /* 注意：transform-origin 預設可能導致位移不如預期，需視情況調整 */
-}
-
-/* 自訂控制面板容器：固定在右下角 */
-.my-controls {
-    position: absolute;
-    top: 40%;
-    left: 20px;
-    z-index: 100; /* 確保浮在 SVG 上方 */
-    display: flex;
-    flex-direction: column; /* 垂直排列 */
-    gap: 5px; /* 按鈕間距 */
-}
-
-/* 按鈕樣式 */
-.my-controls button {
-    width: 40px;
-    height: 40px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-}
-
-/* 滑鼠移過去的效果 */
-.my-controls button:hover {
-    background-color: #f0f0f0;
-    color: #000;
-}
-
-/* 按下去的效果 */
-.my-controls button:active {
-    background-color: #e0e0e0;
-    transform: translateY(1px);
-}
-
-
-// ---
-
-/* 1. 優化游標體驗 */
-#seats-photo {
-    cursor: grab;
-}
-#seats-photo.svg-pan-zoom_viewport:active {
-    cursor: grabbing;
-}
-
-/* 2. 避免按鈕被不小心選取文字 */
-.my-controls button {
-    user-select: none;
-}
-
-/* 3. (選用) 調整按鈕位置到右下角，避免遮擋左側內容 */
-.my-controls {
-    top: auto;   /* 覆寫原本的 40% */
-    left: auto;  /* 覆寫原本的 20px */
-    bottom: 20px;
-    left: 20px;
 }
