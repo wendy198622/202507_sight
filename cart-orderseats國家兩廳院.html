@@ -63,9 +63,21 @@
           <!-- 修正：清空這裡的內容，由 JS 自動根據 ticketTypes 生成，避免重複與維護困難 -->
           <div id="map-legend" style="opacity: 0; visibility: hidden;"></div>
           <div class="my-controls">
-            <button id="zoom-in-btn" type="button" title="放大">＋</button>
-            <button id="zoom-out-btn" type="button" title="縮小">－</button>
-            <button id="reset-btn" type="button" title="重置">⟲</button>
+            <button id="zoom-in-btn" type="button" title="放大">
+              <span class="material-icons">
+                add
+              </span>
+            </button>
+            <button id="zoom-out-btn" type="button" title="縮小">
+              <span class="material-icons">
+                remove
+              </span>
+              </button>
+            <button id="reset-btn" type="button" title="重置">
+              <span class="material-icons">
+                replay
+              </span>
+            </button>
           </div>
           <!-- SVG 請完整貼在這裡 -->
           <svg id="seats-photo" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 740 466">

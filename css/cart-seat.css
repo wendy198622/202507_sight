@@ -1064,6 +1064,12 @@ footer .footer_brand_frame .footer_social .item a {
   /* 置中 */
 }
 
+@media (max-width: 1000px) {
+  .event_frame .container {
+    padding: 0 20px;
+  }
+}
+
 .event_frame .event_info {
   display: -webkit-box;
   display: -ms-flexbox;
