@@ -1302,13 +1302,23 @@ footer .footer_brand_frame .footer_social .item a {
           filter: brightness(0.9);
 }
 
-.event_seat #seat-map-container svg g.selected rect {
+.event_seat #seat-map-container svg g.selected rect, .event_seat #seat-map-container svg g.selected g {
   stroke-width: 0 !important;
-  fill: #ff0000 !important;
+  fill: #ffffff !important;
 }
 
-.event_seat #seat-map-container svg g.selected path {
+.event_seat #seat-map-container svg g path.st4 {
+  fill: #231815;
+}
+
+.event_seat #seat-map-container svg g.selected path.st4 {
+  stroke-width: 0 !important;
   fill: #ffffff !important;
+}
+
+.event_seat #seat-map-container svg g.selected path.st8 {
+  stroke-width: 0 !important;
+  fill: #ff0000 !important;
 }
 
 .event_seat #seat-map-container .sold-seat {
@@ -1319,8 +1329,12 @@ footer .footer_brand_frame .footer_social .item a {
   fill: #f1f1f1 !important;
 }
 
-.event_seat #seat-map-container .sold-seat path {
-  fill: #d3d2d2 !important;
+.event_seat #seat-map-container .sold-seat g {
+  fill: #f1f1f1 !important;
+}
+
+.event_seat #seat-map-container .sold-seat path.st8 {
+  fill: #f1f1f1 !important;
 }
 
 .event_seat #seat-map-container .sold-seat:hover {
@@ -1603,4 +1617,4 @@ footer .footer_brand_frame .footer_social .item a {
           justify-content: center;
   padding: 0;
 }
-/*# sourceMappingURL=cart-seat.css.map */
+/*# sourceMappingURL=cart-seat-nkc.css.map */

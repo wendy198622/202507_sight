@@ -2396,25 +2396,76 @@ form #tab-option8:checked ~ .tab-option8:after {
   margin-bottom: 4px;
 }
 
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding: 10px 0;
+  }
+}
+
 .member-frame .container .order_content .item .order_info_content .order_count .order_content > div {
   padding: 12px 20px;
   text-align: center;
 }
 
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content > div {
+    text-align: left;
+    padding: 4px 20px;
+  }
+}
+
 .member-frame .container .order_content .item .order_info_content .order_count .order_content .zone {
-  width: 30%;
+  width: 20%;
+}
+
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content .zone {
+    width: 50%;
+  }
 }
 
 .member-frame .container .order_content .item .order_info_content .order_count .order_content .type {
-  width: 30%;
+  width: 20%;
+}
+
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content .type {
+    width: 50%;
+    text-align: right;
+  }
+}
+
+.member-frame .container .order_content .item .order_info_content .order_count .order_content .seat {
+  width: 20%;
+}
+
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content .seat {
+    width: 100%;
+  }
 }
 
 .member-frame .container .order_content .item .order_info_content .order_count .order_content .count {
   width: 15%;
 }
 
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content .count {
+    width: 50%;
+  }
+}
+
 .member-frame .container .order_content .item .order_info_content .order_count .order_content .price {
   width: 25%;
+}
+
+@media (max-width: 480px) {
+  .member-frame .container .order_content .item .order_info_content .order_count .order_content .price {
+    width: 50%;
+    text-align: right;
+  }
 }
 
 .member-frame .container .order_content .item .order_info_content .order_count .order_content:first-child {

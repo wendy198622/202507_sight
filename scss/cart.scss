@@ -349,41 +349,50 @@
                     justify-content: space-between;
                 }
                 > div{
-                    width: calc((100% - 50px) / 4);
+                    width: calc((100% - 50px) / 5);
                     // outline: 1px solid red;
                     @media (max-width: 480px){
                         padding: 0 8px;
+                        text-align: left;
                     }
                 }
                 .cart_ticket_zone{
                     @media (max-width: 480px){
-                        width: 50%;
-                        text-align: left;
+                        width: 66%;
+                        // text-align: left;
                     }
                 }
                 .cart_ticket_type{
                     @media (max-width: 480px){
-                        width: 50%;
-                        text-align: right;
+                        width: 33%;
+                        // width: 50%;
+                        // text-align: right;
+                    }
+                }
+                .cart_ticket_seat{
+                    @media (max-width: 480px){
+                        width: 100%;
+                        // width: 50%;
+                        // text-align: right;
                     }
                 }
                 .cart_ticket_price{
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: left;
+                        width: 38%;
+                        // text-align: left;
                     }
                 }
                 .cart_ticket_count{
                     width: 50px;
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: center;
+                        width: 24%;
+                        // text-align: center;
                     }
                 }
                 .cart_ticket_total-price{
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: right;
+                        width: 38%;
+                        // text-align: right;
                     }
                 }
             }
@@ -502,41 +511,50 @@
                     justify-content: space-between;
                 }
                 > div{
-                    width: calc((100% - 50px) / 4);
+                    width: calc((100% - 50px) / 5);
                     // outline: 1px solid red;
                     @media (max-width: 480px){
                         padding: 0 8px;
+                        text-align: left;
                     }
                 }
                 .cart_ticket_zone{
                     @media (max-width: 480px){
-                        width: 50%;
-                        text-align: left;
+                        width: 66%;
+                        // text-align: left;
                     }
                 }
                 .cart_ticket_type{
                     @media (max-width: 480px){
-                        width: 50%;
-                        text-align: right;
+                        width: 33%;
+                        // width: 50%;
+                        // text-align: right;
+                    }
+                }
+                .cart_ticket_seat{
+                    @media (max-width: 480px){
+                        width: 100%;
+                        // width: 50%;
+                        // text-align: right;
                     }
                 }
                 .cart_ticket_price{
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: left;
+                        width: 38%;
+                        // text-align: left;
                     }
                 }
                 .cart_ticket_count{
                     width: 50px;
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: center;
+                        width: 24%;
+                        // text-align: center;
                     }
                 }
                 .cart_ticket_total-price{
                     @media (max-width: 480px){
-                        width: calc(100% / 3);
-                        text-align: right;
+                        width: 38%;
+                        // text-align: right;
                     }
                 }
             }
@@ -887,11 +905,133 @@
         border: 1px solid #e8e8e8;
         border-radius: 8px;
         padding: 20px 40px 40px;
+        @media (max-width: 800px){
+            padding: 20px 20px 40px;
+        }
         p{
             font-weight: normal;
             a{
                 display: inline-block;
                 text-decoration: underline;
+            }
+        }
+        .order_summary_box {
+            margin: 40px auto;
+            // max-width: 900px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 16px; // 圓角增加現代感
+            overflow: hidden;
+            padding: 20px 32px; // 重新分配內距
+            @media (max-width: 800px){
+                padding: 0px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .summary_title {
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 20px;
+                padding-left: 10px;
+                border-left: 4px solid #EC2023; // 使用品牌紅
+                @media (max-width: 800px){
+                    margin-bottom: 0px;
+                }
+            }
+            .order_content .item {
+            
+            
+                // 節目基本資訊
+                .order_detail {
+                    padding: 25px 0;
+                    .order_date{
+                        margin-bottom: 12px;
+                    }
+                    
+                    .order_info {
+                        // background: #f5f8fd; // 淡淡的藍色背景
+                        // padding: 20px;
+                        border-radius: 8px;
+                        margin-bottom: 20px;
+                        
+                        ul li {
+                            color: #444;
+                            margin-bottom: 8px;
+                            display: flex;
+                            // list-style: none;
+                            
+                            // &:before { content: "•"; color: #2144AE; margin-right: 8px; font-weight: bold; }
+                            span { color: #000; font-weight: 500; margin-left: 8px; }
+                            
+                        }
+                    }
+                }
+            
+                // 票券明細列表
+                .order_info_content {
+                    .ticket_header { // 新增的標頭樣式
+                        display: flex;
+                        background: #333;
+                        font-size: 14px;
+                        border-radius: 4px 4px 0 0;
+                        div { padding: 10px 20px; text-align: center; flex: 1; }
+                        @media (max-width: 480px) { display: none; }
+                        > div{
+                            color: #fff;
+                        }
+                    }
+            
+                    .order_count .order_content {
+                        border: 1px solid #eee;
+                        border-top: none;
+                        display: flex;
+                        align-content: space-around;
+                        &:hover { background: #fdfdfd; }
+                        
+                        > div { 
+                            width: 100%;
+                            text-align: center;
+                            line-height: 2;
+                        }
+                        .price { font-weight: 600; color: #333; }
+                    }
+                }
+            
+                // 價格結算區
+                .order_price {
+                    width: 100%;
+                    display: flex;
+                    // flex-direction: column;
+                    align-content: space-between;
+                    justify-content: flex-end;
+                    margin-top: 12px;
+                    // padding-top: 20px !important;
+                    gap: 40px;
+                    @media (max-width: 540px){
+                        flex-direction: column;
+                        gap: 0px;
+                    }
+            
+                    .origin_price, .discount_price, .total_price {
+                        // width: 20%;
+                        display: flex;
+                        justify-content: flex-end;
+                        gap: 12px;
+                        .text { 
+                            color: #888; 
+                        }
+                        .price { 
+                            color: #555; 
+                        }
+                    }
+                    .total_price{
+                        // border-top: 2px dashed #eee; // 像收據的虛線
+                        // padding: 12px 0;
+                    }
+            
+                }
             }
         }
     }
@@ -949,8 +1089,6 @@
     color: #007bff; /* 可選，讓它看起來像連結 */
     text-decoration: underline;
 }
-
-/* 彈出視窗的背景遮罩 */
 .popup-modal {
     display: none; /* 預設隱藏 */
     position: fixed; /* 固定在畫面上 */
@@ -1019,5 +1157,3 @@
         }
     }
 }
-
-

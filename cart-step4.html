@@ -1,114 +1,145 @@
 <!DOCTYPE html>
-
+<html lang="zh-TW">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-	<title>縱觀藝術售票系統</title>
-	<meta name="author" content="" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="Resource-type" content="" />
-	<link rel="icon" href="logo.ico">
-	<!-- <meta property="og:image" content="../img/index/1200x628.jpg"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>完成訂購 - 縱觀藝術售票系統</title>
+    <link rel="icon" href="logo.ico">
 
-	<!-- css -->
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<!-- <link rel="stylesheet" type="text/css" href="css/slick.css" /> -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/slick-theme.css" /> -->
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
-	<link rel="stylesheet" type="text/css" href="css/animate.css" />
-	<link rel="stylesheet" type="text/css" href="css/cart.css" />
-	<!-- js -->
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<!-- <script src="js/slick.js"></script> -->
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/cart.css" />
+    
+    <!-- js -->
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
-	<script src="js/wow.min.js"></script>
-
-	<script src="js/imgLiquid-min.js"></script>
-
+    <script src="js/wow.min.js"></script>
+    <script src="js/imgLiquid-min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
-	
-	<header id="header"></header>
+    
+    <header id="header"></header>
 
-	<section>
-		<div class="cart_frame">
+    <section>
+        <div class="cart_frame">
             <div class="container">
                 <div class="frame-title">
                     <h3>完成訂購</h3>
                 </div>
             </div>
         </div>
+
         <div class="cart_order_finish">
             <div class="container">
-                <p>訂單完成！感謝您的購票！</p>
-                <p>我們會將票卷於開演前2周寄送給您，請幫我留意您的信件。<br>
-                    訂單紀錄都可以在會員專區內的「<a href="member.html#tab-option3">訂購紀錄</a>」查詢喔!<br>
-                    若有任何問題請與我們聯繫。</p>
-                        
-                <p>EMAIL : xxx@mail.com<br>
-                        
-                    LINE@ : @xxxxxx</p>
+                <div class="finish_msg">
+                    <p class="main_text">訂單完成！感謝您的購票！</p>
+                    <p>我們會將票券於開演前 2 周寄送給您，請留意您的信件。<br>
+                        訂單紀錄都可以在會員專區內的「<a href="member.html#tab-option3">訂購紀錄</a>」查詢喔!<br>
+                        若有任何問題請與我們聯繫。</p>
+                            
+                    <p>EMAIL : xxx@mail.com<br>
+                        LINE@ : @xxxxxx</p>
+                </div>
+
+                <!-- 插入訂單摘要 -->
+                <div class="order_summary_box">
+                    <div class="summary_title">訂單明細</div>
+                    
+					<div class="order_content">
+						<div class="item">
+							<div class="order_detail">
+								<ul>
+									<li>
+										<div class="order_info">
+											<ul>
+                                                <li>訂單編號：<span>202601200000123</span></li>
+												<li>訂購日期：<span>2025 / 6/ 30</span></li>
+												<li>取票方式：<span>現場自取</span></li>
+												<li>節目名稱：<span>《雙城脈動》薩克斯風音樂會</span></li>
+												<li>節目時間：<span>2025/11/29 (六) 18:30~21:00</span></li>
+												<li>節目地點：<span>國家音樂廳</span></li>
+											</ul>
+										</div>
+										<div class="order_info_content">
+											<div class="ticket_header">
+													<div style="width: 20%;">區域</div>
+													<div style="width: 20%;">票種</div>
+													<div style="width: 20%;">座位</div>
+													<div style="width: 15%;">數量</div>
+													<div style="width: 25%;">小計</div>
+												</div>
+
+											<div class="order_count">
+												<div class="order_content">
+													<div class="zone">1200 元區</div>
+													<div class="type">全票</div>
+													<div class="seat">2樓5排14號</div>
+													<div class="count">1張</div>
+													<div class="price">$1200</div>
+												</div>
+												<div class="order_content">
+													<div class="zone">1200 元區</div>
+													<div class="type">學生票</div>
+													<div class="seat">3樓20排20號</div>
+													<div class="count">2張</div>
+													<div class="price">$1600</div>
+												</div>
+											</div>
+											<div class="order_price">
+												<div class="origin_price">
+													<div class="text">訂購金額</div>
+													<div class="price">2,800</div>
+												</div>
+												<div class="discount_price">
+													<div class="text">折扣金額</div>
+													<div class="price">- 200</div>
+												</div>  
+												<div class="total_price">
+													<div class="text">總計</div>
+													<div class="price">2,600</div>
+												</div>                                              
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+                </div>
+                <!-- 訂單摘要結束 -->
+
+                <div class="finish_btns" style="text-align: center; margin-top: 30px;">
+                    <a href="index.html" class="btn_back_home" style="display: inline-block; padding: 10px 30px; background: #333; color: #fff; text-decoration: none; border-radius: 5px;">回首頁</a>
+                </div>
             </div>
         </div>
-	</section>
+    </section>
 
-	<!-- <div class="popup popup_send">
-		<div class="popup_content popup_message">您已送出資訊，我們將與您聯繫</div>
-	</div> -->
-	
-	<footer id="footer"></footer>
+    <footer id="footer"></footer>
 
 </body>
+
+
 <script>
-	$(document).ready(function () {
-		
-		new WOW().init();
+    $(document).ready(function () {
+        new WOW().init();
 
-		// $(".imgLiquidFill").imgLiquid({fill:true});
+        $('#header').load('page/header.html');
+        $('#footer').load('page/footer.html');
 
-		$('#header').load('page/header.html');
-		$('#footer').load('page/footer.html');
-
-		$(window).on("scroll", function() {
-			if ($(window).scrollTop() > 100) {
-				$("#header").addClass("fixed");
-				// $(".logo").fadeIn(200);
-			} else {
-				$("#header").removeClass("fixed");
-				// $(".logo").fadeOut(0);
-			}
-		});		
-
-        document.querySelectorAll('.section-header').forEach(header => {
-            header.addEventListener('click', () => {
-            const section = header.parentElement;
-            section.classList.toggle('open');
-            const chevron = header.querySelector('.chevron');
-            if (section.classList.contains('open')) {
-                chevron.innerHTML = '▾';
+        $(window).on("scroll", function() {
+            if ($(window).scrollTop() > 100) {
+                $("#header").addClass("fixed");
             } else {
-                chevron.innerHTML = '▸';
+                $("#header").removeClass("fixed");
             }
-            });
-        });
-	})
-	
-	//tab 切換
-	window.addEventListener('DOMContentLoaded', () => {
-		const hash = window.location.hash;
-		if (hash) {
-		const targetTab = document.querySelector(`input[type="radio"]${hash}`);
-		if (targetTab) {
-			targetTab.checked = true;
-		}
-		}
-	});
-
-
+        });     
+    });
 </script>
 </html>

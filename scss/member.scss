@@ -1007,26 +1007,54 @@ form{
                             flex-direction: row;
                             gap: 0;
                             margin-bottom: 4px;
+                            @media (max-width: 480px){
+                                flex-wrap: wrap;
+                                padding: 10px 0;
+                            }
                             > div{;
                                 padding: 12px 20px;
                                 text-align: center;
+                                @media (max-width: 480px){
+                                    text-align: left;
+                                    padding: 4px 20px;
+                                }
                             }
                             .zone{
-                                width: 30%;
+                                width: 20%;
                                 // border-right: 1px solid #ccc;
+                                @media (max-width: 480px){
+                                    width: 50%;
+                                }
                             }
                             .type{
-                                width: 30%;
+                                width: 20%;
                                 // border-right: 1px solid #ccc;
+                                @media (max-width: 480px){
+                                    width: 50%;
+                                    text-align: right;
+                                }
+                            }
+                            .seat{
+                                width: 20%;
+                                @media (max-width: 480px){
+                                    width: 100%;
+                                }
                             }
                             .count{
                                 width: 15%;
                                 // border-right: 1px solid #ccc;
                                 // text-align: right;
+                                @media (max-width: 480px){
+                                    width: 50%;
+                                }
                             }
                             .price{
                                 width: 25%;
                                 // text-align: right;
+                                @media (max-width: 480px){
+                                    width: 50%;
+                                    text-align: right;
+                                }
                             }
 
                             &:first-child{

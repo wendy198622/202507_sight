@@ -225,7 +225,7 @@
     flex-direction: column;
     
     /* 預設隱藏 (手機版與電腦版皆適用，視 JS 邏輯而定) */
-    transform: translateX(100%); 
+    // transform: translateX(100%); 
     &.active {
         transform: translateX(0);
     }
@@ -259,7 +259,13 @@
         font-weight: bold; 
         span{ color: white; }
     }
-    .close-btn { cursor: pointer; font-size: 1.2em; }
+    .close-btn { 
+        cursor: pointer; 
+        font-size: 1.2em; 
+        display: block;
+        top: 12px;
+        right: 20px;
+    }
 
     #sidebar-content { 
         flex: 1; 
