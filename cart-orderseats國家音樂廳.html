@@ -9149,13 +9149,13 @@
                 maxZoom: 8,
                 zoomScaleSensitivity: 0.2,
                 dblClickZoomEnabled: false,
-                preventMouseEventsDefault: true   // ← 改成 true，交給函式庫自己處理手勢衝突
-            });
+                preventMouseEventsDefault: false   // ← 改回 false，恢復點擊/原生手勢
+                });
 
-            requestAnimationFrame(() => {
-                const fitZoom = panZoomInstance.getSizes().realZoom;
-                panZoomInstance.setMinZoom(fitZoom * 0.8);
-            });
+                requestAnimationFrame(() => {
+                    const fitZoom = panZoomInstance.getSizes().realZoom;
+                    panZoomInstance.setMinZoom(fitZoom * 0.8);
+                });
 
             const zoomInBtn = document.getElementById('zoom-in-btn');
             if(zoomInBtn) {
