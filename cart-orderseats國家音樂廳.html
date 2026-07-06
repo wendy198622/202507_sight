@@ -9187,8 +9187,14 @@
             }
           }, 100);
           
-          window.addEventListener('resize', function(){
-              if(panZoomInstance) panZoomInstance.resize();
+          window.addEventListener('resize', function () {
+              if (panZoomInstance) {
+                  panZoomInstance.resize();
+                  panZoomInstance.fit();
+                  panZoomInstance.center();
+                  const fitZoom = panZoomInstance.getSizes().realZoom;
+                  panZoomInstance.setMinZoom(fitZoom * 0.8);
+              }
           });
       }
       
