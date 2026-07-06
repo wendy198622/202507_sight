@@ -193,7 +193,7 @@
             transition: opacity 0.2s;
             rect:hover { filter: brightness(0.9); }
             
-            &.selected rect, &.selected path.st0, &.selected path.st5 {
+            &.selected rect, &.selected path.st0, &.selected path.st4 , &.selected path.st5 {
                 stroke-width: 0 !important;
                 fill: #ff0000 !important;
             }

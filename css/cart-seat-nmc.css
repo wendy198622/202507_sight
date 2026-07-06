@@ -229,7 +229,7 @@ p {
   line-height: 160%;
   font-weight: 300;
   letter-spacing: 2px;
-  text-align: justify;
+  text-align: left;
   margin-top: 20px;
 }
 
@@ -1302,7 +1302,7 @@ footer .footer_brand_frame .footer_social .item a {
           filter: brightness(0.9);
 }
 
-.event_seat #seat-map-container svg g.selected rect, .event_seat #seat-map-container svg g.selected path.st0, .event_seat #seat-map-container svg g.selected path.st5 {
+.event_seat #seat-map-container svg g.selected rect, .event_seat #seat-map-container svg g.selected path.st0, .event_seat #seat-map-container svg g.selected path.st4, .event_seat #seat-map-container svg g.selected path.st5 {
   stroke-width: 0 !important;
   fill: #ff0000 !important;
 }
