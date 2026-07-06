@@ -9084,9 +9084,7 @@
       let panZoomInstance;
       let isDragging = false; 
 
-      function initSeatMap() {
-          document.getElementById('seat-map-container').style.touchAction = 'none';
-    
+      function initSeatMap() {    
           renderLegend();
           generateConfig();
 
@@ -9142,24 +9140,22 @@
 
           // --- 3. 啟用 svg-pan-zoom ---
           setTimeout(() => {
-            panZoomInstance = svgPanZoom('#seats-photo', {
-              zoomEnabled: true,
-              controlIconsEnabled: false, 
-              fit: true,
-              center: true,
-              minZoom: 0.5,      // 先給一個保守的相對值，避免初始跟 fit 衝突
-              maxZoom: 8,
-              zoomScaleSensitivity: 0.2,   // 每次縮放的步進更平滑（預設 0.1~0.2 之間更順）
-              dblClickZoomEnabled: false,
-              preventMouseEventsDefault: false 
-          });
+              panZoomInstance = svgPanZoom('#seats-photo', {
+                zoomEnabled: true,
+                controlIconsEnabled: false,
+                fit: true,
+                center: true,
+                minZoom: 0.5,
+                maxZoom: 8,
+                zoomScaleSensitivity: 0.2,
+                dblClickZoomEnabled: false,
+                preventMouseEventsDefault: true   // ← 改成 true，交給函式庫自己處理手勢衝突
+            });
 
-          // 用實際 fit 完的比例，動態校正 minZoom，避免縮小時瞬間跳回錯誤下限
-          requestAnimationFrame(() => {
-              const sizes = panZoomInstance.getSizes();
-              const fitZoom = sizes.realZoom;
-              panZoomInstance.setMinZoom(fitZoom * 0.8); // 讓使用者最多只能比 fit 再縮小一點點
-          });
+            requestAnimationFrame(() => {
+                const fitZoom = panZoomInstance.getSizes().realZoom;
+                panZoomInstance.setMinZoom(fitZoom * 0.8);
+            });
 
             const zoomInBtn = document.getElementById('zoom-in-btn');
             if(zoomInBtn) {
