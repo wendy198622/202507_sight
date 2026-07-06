@@ -9084,7 +9084,9 @@
       let panZoomInstance;
       let isDragging = false; 
 
-      function initSeatMap() {    
+      function initSeatMap() {  
+          document.getElementById('seat-map-container').style.touchAction = 'none';  
+          
           renderLegend();
           generateConfig();
 
