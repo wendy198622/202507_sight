@@ -1208,6 +1208,8 @@ footer .footer_brand_frame .footer_social .item a {
           user-select: none;
   overflow: hidden;
   position: relative;
+  -ms-touch-action: none;
+      touch-action: none;
   /* 左上角圖例 - 手機版隱藏或調整 */
   /* SVG 互動樣式 */
 }
@@ -1413,9 +1415,15 @@ footer .footer_brand_frame .footer_social .item a {
 #sidebar .close-btn {
   cursor: pointer;
   font-size: 1.2em;
-  display: block;
+  display: none;
   top: 12px;
   right: 20px;
+}
+
+@media (max-width: 600px) {
+  #sidebar .close-btn {
+    display: block;
+  }
 }
 
 #sidebar #sidebar-content {

@@ -132,6 +132,7 @@
         user-select: none;
         overflow: hidden;
         position: relative;
+        touch-action: none;   // ← 新增這一行
         
         @media (max-width: 768px) {
             width: 95%; /* 手機版寬度加大 */
@@ -262,9 +263,12 @@
     .close-btn { 
         cursor: pointer; 
         font-size: 1.2em; 
-        display: block;
+        display: none;
         top: 12px;
         right: 20px;
+        @media (max-width: 600px){
+            display: block;
+        }
     }
 
     #sidebar-content { 
