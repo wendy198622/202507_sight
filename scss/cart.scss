@@ -311,7 +311,7 @@
             padding: 16px 12px;
             @media (max-width: 600px){
                 padding: 16px 0px;
-                // flex-wrap: wrap;
+                flex-wrap: nowrap;
             }
 
             > div{
@@ -344,57 +344,64 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                @media (max-width: 800px){
-                    width: 100%;
+                @media (max-width: 600px){
+                    width: calc(100% - 32px);
                     justify-content: space-between;
                 }
                 > div{
                     width: calc((100% - 50px) / 5);
                     // outline: 1px solid red;
-                    @media (max-width: 480px){
+                    @media (max-width: 600px){
+                        width: 100%;
                         padding: 0 8px;
                         text-align: left;
                     }
-                }
-                .cart_ticket_zone{
-                    @media (max-width: 480px){
-                        width: 66%;
-                        // text-align: left;
+                    span{
+                        display: none;
+                        @media (max-width: 600px){
+                            display: inline-block;
+                        }
                     }
                 }
-                .cart_ticket_type{
-                    @media (max-width: 480px){
-                        width: 33%;
-                        // width: 50%;
-                        // text-align: right;
-                    }
-                }
-                .cart_ticket_seat{
-                    @media (max-width: 480px){
-                        width: 100%;
-                        // width: 50%;
-                        // text-align: right;
-                    }
-                }
-                .cart_ticket_price{
-                    @media (max-width: 480px){
-                        width: 38%;
-                        // text-align: left;
-                    }
-                }
-                .cart_ticket_count{
-                    width: 50px;
-                    @media (max-width: 480px){
-                        width: 24%;
-                        // text-align: center;
-                    }
-                }
-                .cart_ticket_total-price{
-                    @media (max-width: 480px){
-                        width: 38%;
-                        // text-align: right;
-                    }
-                }
+                // .cart_ticket_zone{
+                //     @media (max-width: 480px){
+                //         width: 66%;
+                //         // text-align: left;
+                //     }
+                // }
+                // .cart_ticket_type{
+                //     @media (max-width: 480px){
+                //         width: 33%;
+                //         // width: 50%;
+                //         // text-align: right;
+                //     }
+                // }
+                // .cart_ticket_seat{
+                //     @media (max-width: 480px){
+                //         width: 100%;
+                //         // width: 50%;
+                //         // text-align: right;
+                //     }
+                // }
+                // .cart_ticket_price{
+                //     @media (max-width: 480px){
+                //         width: 38%;
+                //         // text-align: left;
+                //     }
+                // }
+                // .cart_ticket_count{
+                //     width: 50px;
+                //     @media (max-width: 480px){
+                //         width: 24%;
+                //         // text-align: center;
+                //     }
+                // }
+                // .cart_ticket_total-price{
+                //     @media (max-width: 480px){
+                //         width: 38%;
+                //         // text-align: right;
+                //     }
+                // }
             }
             .cart_ticket_delete{
                 width: 60px;
@@ -420,6 +427,7 @@
             padding: 8px 12px;
             @media (max-width: 600px){
                 padding: 8px 0px;
+                display: none;
             }
             .cart_ticket_price{
                 justify-content: center;
@@ -473,7 +481,7 @@
             padding: 16px 12px;
             @media (max-width: 600px){
                 padding: 16px 0px;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
             }
 
             > div{
@@ -506,57 +514,64 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                @media (max-width: 800px){
-                    width: 100%;
+                @media (max-width: 600px){
+                    width: calc(100% - 32px);
                     justify-content: space-between;
                 }
                 > div{
                     width: calc((100% - 50px) / 5);
                     // outline: 1px solid red;
-                    @media (max-width: 480px){
+                    @media (max-width: 600px){
+                        width: 100%;
                         padding: 0 8px;
                         text-align: left;
                     }
-                }
-                .cart_ticket_zone{
-                    @media (max-width: 480px){
-                        width: 66%;
-                        // text-align: left;
+                    span{
+                        display: none;
+                        @media (max-width: 600px){
+                            display: inline-block;
+                        }
                     }
                 }
-                .cart_ticket_type{
-                    @media (max-width: 480px){
-                        width: 33%;
-                        // width: 50%;
-                        // text-align: right;
-                    }
-                }
-                .cart_ticket_seat{
-                    @media (max-width: 480px){
-                        width: 100%;
-                        // width: 50%;
-                        // text-align: right;
-                    }
-                }
-                .cart_ticket_price{
-                    @media (max-width: 480px){
-                        width: 38%;
-                        // text-align: left;
-                    }
-                }
-                .cart_ticket_count{
-                    width: 50px;
-                    @media (max-width: 480px){
-                        width: 24%;
-                        // text-align: center;
-                    }
-                }
-                .cart_ticket_total-price{
-                    @media (max-width: 480px){
-                        width: 38%;
-                        // text-align: right;
-                    }
-                }
+                // .cart_ticket_zone{
+                //     @media (max-width: 480px){
+                //         width: 66%;
+                //         // text-align: left;
+                //     }
+                // }
+                // .cart_ticket_type{
+                //     @media (max-width: 480px){
+                //         width: 33%;
+                //         // width: 50%;
+                //         // text-align: right;
+                //     }
+                // }
+                // .cart_ticket_seat{
+                //     @media (max-width: 480px){
+                //         width: 100%;
+                //         // width: 50%;
+                //         // text-align: right;
+                //     }
+                // }
+                // .cart_ticket_price{
+                //     @media (max-width: 480px){
+                //         width: 38%;
+                //         // text-align: left;
+                //     }
+                // }
+                // .cart_ticket_count{
+                //     width: 50px;
+                //     @media (max-width: 480px){
+                //         width: 24%;
+                //         // text-align: center;
+                //     }
+                // }
+                // .cart_ticket_total-price{
+                //     @media (max-width: 480px){
+                //         width: 38%;
+                //         // text-align: right;
+                //     }
+                // }
             }
             .cart_ticket_delete{
                 width: 60px;
@@ -582,6 +597,7 @@
             padding: 8px 12px;
             @media (max-width: 600px){
                 padding: 8px 0px;
+                display: none;
             }
             .cart_ticket_price{
                 justify-content: center;

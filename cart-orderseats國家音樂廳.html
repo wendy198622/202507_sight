@@ -9085,13 +9085,8 @@
       let isDragging = false; 
 
       function initSeatMap() {  
-          const seatMapContainer = document.getElementById('seat-map-container');
-          seatMapContainer.style.touchAction = 'none';
-
-          // 直接攔截 touchmove，避免合成滑鼠事件造成拖曳跳動，也避免兩指縮放波及整頁
-          seatMapContainer.addEventListener('touchmove', function(e) {
-              e.preventDefault();
-          }, { passive: false });
+          document.documentElement.style.touchAction = 'none';
+          document.body.style.touchAction = 'none';
 
           renderLegend();
           generateConfig();

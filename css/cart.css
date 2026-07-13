@@ -1452,6 +1452,8 @@ footer .footer_brand_frame .footer_social .item a {
 @media (max-width: 600px) {
   .cart_ticket .cart_ticket_detail .group, .order_ticket .cart_ticket_detail .group {
     padding: 16px 0px;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
   }
 }
 
@@ -1503,9 +1505,9 @@ footer .footer_brand_frame .footer_social .item a {
           justify-content: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .cart_ticket .cart_ticket_detail .group .cart_ticket_item, .order_ticket .cart_ticket_detail .group .cart_ticket_item {
-    width: 100%;
+    width: calc(100% - 32px);
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1516,50 +1518,21 @@ footer .footer_brand_frame .footer_social .item a {
   width: calc((100% - 50px) / 5);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .cart_ticket .cart_ticket_detail .group .cart_ticket_item > div, .order_ticket .cart_ticket_detail .group .cart_ticket_item > div {
+    width: 100%;
     padding: 0 8px;
     text-align: left;
   }
 }
 
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_zone, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_zone {
-    width: 66%;
-  }
+.cart_ticket .cart_ticket_detail .group .cart_ticket_item > div span, .order_ticket .cart_ticket_detail .group .cart_ticket_item > div span {
+  display: none;
 }
 
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_type, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_type {
-    width: 33%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_seat, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_seat {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_price, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_price {
-    width: 38%;
-  }
-}
-
-.cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_count, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_count {
-  width: 50px;
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_count, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_count {
-    width: 24%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_total-price, .order_ticket .cart_ticket_detail .group .cart_ticket_item .cart_ticket_total-price {
-    width: 38%;
+@media (max-width: 600px) {
+  .cart_ticket .cart_ticket_detail .group .cart_ticket_item > div span, .order_ticket .cart_ticket_detail .group .cart_ticket_item > div span {
+    display: inline-block;
   }
 }
 
@@ -1594,6 +1567,7 @@ footer .footer_brand_frame .footer_social .item a {
 @media (max-width: 600px) {
   .cart_ticket .cart_ticket_detail .head, .order_ticket .cart_ticket_detail .head {
     padding: 8px 0px;
+    display: none;
   }
 }
 
@@ -1672,8 +1646,8 @@ footer .footer_brand_frame .footer_social .item a {
 @media (max-width: 600px) {
   .cart_ticket .cart_order_detail .group, .order_ticket .cart_order_detail .group {
     padding: 16px 0px;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
   }
 }
 
@@ -1725,9 +1699,9 @@ footer .footer_brand_frame .footer_social .item a {
           justify-content: center;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .cart_ticket .cart_order_detail .group .cart_ticket_item, .order_ticket .cart_order_detail .group .cart_ticket_item {
-    width: 100%;
+    width: calc(100% - 32px);
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -1738,50 +1712,21 @@ footer .footer_brand_frame .footer_social .item a {
   width: calc((100% - 50px) / 5);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .cart_ticket .cart_order_detail .group .cart_ticket_item > div, .order_ticket .cart_order_detail .group .cart_ticket_item > div {
+    width: 100%;
     padding: 0 8px;
     text-align: left;
   }
 }
 
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_zone, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_zone {
-    width: 66%;
-  }
+.cart_ticket .cart_order_detail .group .cart_ticket_item > div span, .order_ticket .cart_order_detail .group .cart_ticket_item > div span {
+  display: none;
 }
 
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_type, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_type {
-    width: 33%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_seat, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_seat {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_price, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_price {
-    width: 38%;
-  }
-}
-
-.cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_count, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_count {
-  width: 50px;
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_count, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_count {
-    width: 24%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cart_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_total-price, .order_ticket .cart_order_detail .group .cart_ticket_item .cart_ticket_total-price {
-    width: 38%;
+@media (max-width: 600px) {
+  .cart_ticket .cart_order_detail .group .cart_ticket_item > div span, .order_ticket .cart_order_detail .group .cart_ticket_item > div span {
+    display: inline-block;
   }
 }
 
@@ -1816,6 +1761,7 @@ footer .footer_brand_frame .footer_social .item a {
 @media (max-width: 600px) {
   .cart_ticket .cart_order_detail .head, .order_ticket .cart_order_detail .head {
     padding: 8px 0px;
+    display: none;
   }
 }
 
