@@ -9085,6 +9085,11 @@
       let isDragging = false; 
 
       function initSeatMap() {  
+          document.getElementById('seat-map-container').style.touchAction = 'none';
+
+          document.getElementById('seat-map-container').addEventListener('touchstart', function(e) {
+              console.log('[診斷] touchstart, 觸點數:', e.touches.length, '目標元素:', e.target.tagName, e.target.id);
+          }, { passive: true });
 
           renderLegend();
           generateConfig();
