@@ -1194,6 +1194,18 @@ footer .footer_brand_frame .footer_social .item a {
   }
 }
 
+@media (max-width: 768px) {
+  .event_seat header#header,
+  .event_seat footer#footer,
+  .event_seat .event_frame {
+    display: none;
+  }
+  .event_seat body {
+    overflow: hidden;
+    /* 全螢幕模式下不需要頁面捲動 */
+  }
+}
+
 .event_seat #seat-map-container {
   width: 90%;
   height: 500px;
@@ -1214,12 +1226,15 @@ footer .footer_brand_frame .footer_social .item a {
 
 @media (max-width: 768px) {
   .event_seat #seat-map-container {
-    width: 95%;
-    /* 手機版寬度加大 */
-    height: 60vh;
-    padding: 10px;
-    /* 內距縮小，增加可視範圍 */
-    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    z-index: 999;
   }
 }
 

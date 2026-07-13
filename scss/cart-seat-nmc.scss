@@ -120,7 +120,17 @@
             }
         }
     }
+    @media (max-width: 768px) {
+        header#header,
+        footer#footer,
+        .event_frame {
+            display: none;
+        }
 
+        body {
+            overflow: hidden; /* 全螢幕模式下不需要頁面捲動 */
+        }
+    }
     #seat-map-container {
         width: 90%;
         height: 500px;
@@ -133,11 +143,22 @@
         overflow: hidden;
         position: relative;
         
+        // @media (max-width: 768px) {
+        //     width: 95%; /* 手機版寬度加大 */
+        //     height: 60vh; 
+        //     padding: 10px; /* 內距縮小，增加可視範圍 */
+        //     margin-top: 20px;
+        // }
         @media (max-width: 768px) {
-            width: 95%; /* 手機版寬度加大 */
-            height: 60vh; 
-            padding: 10px; /* 內距縮小，增加可視範圍 */
-            margin-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+            z-index: 999;
         }
 
         /* 左上角圖例 - 手機版隱藏或調整 */
