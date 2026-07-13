@@ -9085,14 +9085,6 @@
       let isDragging = false; 
 
       function initSeatMap() {  
-          // 擋掉 iOS Safari 原生的整頁捏合縮放，讓縮放完全交給 svg-pan-zoom 處理
-          document.addEventListener('gesturestart', function(e) {
-              e.preventDefault();
-          }, { passive: false });
-          document.addEventListener('gesturechange', function(e) {
-              e.preventDefault();
-          }, { passive: false });
-
 
           renderLegend();
           generateConfig();
@@ -9113,8 +9105,6 @@
               const config = seatConfig[id];
               if(!config) return;
 
-              // 請協助改這行
-              // const rect = group.querySelector('rect');
               const rect = group.querySelector('rect, path:first-child');
 
               if (config.status === 'sold') {
@@ -9150,46 +9140,52 @@
           // --- 3. 啟用 svg-pan-zoom ---
           setTimeout(() => {
               panZoomInstance = svgPanZoom('#seats-photo', {
-                zoomEnabled: true,
-                controlIconsEnabled: false,
-                fit: true,
-                center: true,
-                minZoom: 0.5,
-                maxZoom: 8,
-                zoomScaleSensitivity: 0.2,
-                dblClickZoomEnabled: false,
-                preventMouseEventsDefault: false   // ← 改回 false，恢復點擊/原生手勢
-                });
+                  zoomEnabled: true,
+                  panEnabled: true,
+                  controlIconsEnabled: false,
+                  fit: true,
+                  center: true,
+                  minZoom: 0.5,
+                  maxZoom: 8,
+                  zoomScaleSensitivity: 0.2,
+                  dblClickZoomEnabled: false,
+                  preventMouseEventsDefault: false
+              });
 
-                requestAnimationFrame(() => {
-                    const fitZoom = panZoomInstance.getSizes().realZoom;
-                    panZoomInstance.setMinZoom(fitZoom * 0.8);
-                });
+              requestAnimationFrame(() => {
+                  const fitZoom = panZoomInstance.getSizes().realZoom;
+                  panZoomInstance.setMinZoom(fitZoom * 0.8);
 
-            const zoomInBtn = document.getElementById('zoom-in-btn');
-            if(zoomInBtn) {
-                zoomInBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    panZoomInstance.zoomIn();
-                });
-            }
+                  // 手機版：關閉手勢縮放（避免跟 iOS 系統縮放衝突），只保留拖曳跟按鈕縮放
+                  if (window.matchMedia('(max-width: 768px)').matches) {
+                      panZoomInstance.disableZoom();
+                  }
+              });
 
-            const zoomOutBtn = document.getElementById('zoom-out-btn');
-            if(zoomOutBtn) {
-                zoomOutBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    panZoomInstance.zoomOut();
-                });
-            }
+              const zoomInBtn = document.getElementById('zoom-in-btn');
+              if(zoomInBtn) {
+                  zoomInBtn.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      panZoomInstance.zoomIn();
+                  });
+              }
 
-            const resetBtn = document.getElementById('reset-btn');
-            if(resetBtn) {
-                resetBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    panZoomInstance.resetZoom();
-                    panZoomInstance.center(); 
-                });
-            }
+              const zoomOutBtn = document.getElementById('zoom-out-btn');
+              if(zoomOutBtn) {
+                  zoomOutBtn.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      panZoomInstance.zoomOut();
+                  });
+              }
+
+              const resetBtn = document.getElementById('reset-btn');
+              if(resetBtn) {
+                  resetBtn.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      panZoomInstance.resetZoom();
+                      panZoomInstance.center(); 
+                  });
+              }
           }, 100);
           
           window.addEventListener('resize', function () {
