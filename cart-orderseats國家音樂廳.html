@@ -9085,7 +9085,14 @@
       let isDragging = false; 
 
       function initSeatMap() {  
-          // document.getElementById('seat-map-container').style.touchAction = 'none';
+          // 擋掉 iOS Safari 原生的整頁捏合縮放，讓縮放完全交給 svg-pan-zoom 處理
+          document.addEventListener('gesturestart', function(e) {
+              e.preventDefault();
+          }, { passive: false });
+          document.addEventListener('gesturechange', function(e) {
+              e.preventDefault();
+          }, { passive: false });
+
 
           renderLegend();
           generateConfig();
