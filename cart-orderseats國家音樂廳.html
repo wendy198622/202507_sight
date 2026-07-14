@@ -9085,6 +9085,9 @@
       let isDragging = false; 
 
       function initSeatMap() {  
+          document.getElementById('seat-map-container').addEventListener('touchstart', function(e) {
+              console.log('[診斷] touchstart, 觸點數:', e.touches.length);
+          }, { passive: true });
 
           renderLegend();
           generateConfig();
@@ -9157,9 +9160,9 @@
                   panZoomInstance.setMinZoom(fitZoom * 0.8);
 
                   // 手機版：關閉手勢縮放（避免跟 iOS 系統縮放衝突），只保留拖曳跟按鈕縮放
-                  if (window.matchMedia('(max-width: 768px)').matches) {
-                      panZoomInstance.disableZoom();
-                  }
+                  // if (window.matchMedia('(max-width: 768px)').matches) {
+                  //     panZoomInstance.disableZoom();
+                  // }
               });
 
               const zoomInBtn = document.getElementById('zoom-in-btn');

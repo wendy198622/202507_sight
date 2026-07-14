@@ -1,7 +1,9 @@
 @import '_setting';
 @import '_header';
 @import '_footer';
-
+body {
+    touch-action: pan-x pan-y;
+}
 .frame-title{
     margin: 0 auto 60px;
     text-align: center;
