@@ -159,32 +159,55 @@
         color: #6b5300;
         line-height: 1.6;
     }
+
+    .event-frame {
+        background: #1f2d3d;
+        color: #fff;
+        padding: 16px 20px;
+    }
+    .event-frame .event-name {
+        font-size: 17px;
+        font-weight: 600;
+        margin: 0 0 4px;
+    }
+    .event-frame .event-en-name {
+        font-size: 12px;
+        color: #b8c2cc;
+        margin: 0 0 10px;
+    }
+    .event-frame .event-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        font-size: 13px;
+        color: #e0e6ec;
+    }
+    .event-frame .event-meta span.highlight { color: #ffd61e; font-weight: 600; }
 </style>
 </head>
 <body>
 
-<header class="page-header">
-    <h1>國家音樂廳 － 選位（測試版）</h1>
-    <span class="badge">CANVAS</span>
-</header>
-
-<div class="note">
-    這是把座位圖從 SVG 改成 Canvas 繪製的效能測試版本，用來跟原本的 SVG 版本比較拖曳／縮放的流暢度。座位資料（2,022 個座位）是直接從原始 SVG 檔案解析座標算出來的，位置應與正式版一致。左上角有簡易 FPS／繪製時間顯示，方便判斷效能差異。
+<div class="event-frame">
+    <h1 class="event-name">《雙城脈動》薩克斯風音樂會</h1>
+    <p class="event-en-name">《Echoes of Two Cities》Saxophone Concert by NIKITA ZIMIN and MATSUSHITA YO</p>
+    <div class="event-meta">
+        <span>時間：2025 年 12 月 31 日 (三)</span>
+        <span class="highlight">19:00 － 21:00</span>
+        <span>地點：國家音樂廳</span>
+    </div>
 </div>
 
 <div id="map-legend"></div>
 
 <div id="seat-map-container">
     <canvas id="seatCanvas"></canvas>
-    <div class="perf-panel" id="perfPanel">FPS: -- / draw: -- ms</div>
+    <!-- <div class="perf-panel" id="perfPanel">FPS: -- / draw: -- ms</div> -->
     <div class="map-controls">
         <button id="zoom-in-btn" title="放大">＋</button>
         <button id="zoom-out-btn" title="縮小">－</button>
         <button id="reset-btn" title="重置">⟲</button>
     </div>
 </div>
-
-<div style="height:56px;"></div><!-- 佔位，避免底部固定抽屜蓋住上面內容 -->
 
 <div id="cart-drawer">
     <div class="cart-drawer-handle" id="cartDrawerHandle">
@@ -247,8 +270,6 @@ function parseSeatId(seatId) {
 
 // --- 2. 建立座位資料表（type / status / 幾何位置）---
 let seatConfig = {};
-// 原始 SVG 裡「中間區塊」座位的路徑本來就比兩側小很多（設計稿如此，不是解析錯誤）。
-// 這裡統一用固定尺寸繪製，並以每個座位原始的中心點對齊，讓畫面上大小、文字大小全部一致。
 const SEAT_W = 24, SEAT_H = 21;
 seatsGeometry.forEach(g => {
     let assignedType = defaultType;
@@ -385,6 +406,32 @@ function draw() {
     ctx.textAlign = "center";
     ctx.fillText("舞台", VB_W/2, 65);
 
+    // 特殊席位分類標籤（輪椅席/輪陪席/友善席/友陪席）：同一排裡這幾種票種常常是交錯出現、
+    // 分成好幾個不連續的小群組，所以改成「由左到右掃過整排，票種一換就重新標一次」，
+    // 這樣不管一排裡有幾個交錯的小群組，每一群都會拿到正確對應的標籤，不會漏標或標錯組。
+    const specialLabels = { wheelchair: '輪椅席', w_companion: '輪陪席', friendly: '友善席', f_companion: '友陪席' };
+    const rowGroups = {};
+    for (const id in seatConfig) {
+        const s = seatConfig[id];
+        if (specialLabels[s.type]) {
+            const parts = id.split('-');
+            const rowKey = parts[0] + '-' + parts[1]; // 只用「樓層-排」分組，不分票種，才能偵測交錯
+            if (!rowGroups[rowKey]) rowGroups[rowKey] = [];
+            rowGroups[rowKey].push(s);
+        }
+    }
+    const labelAnchors = [];
+    for (const rowKey in rowGroups) {
+        const seatsInRow = rowGroups[rowKey].slice().sort((a, b) => a.x - b.x);
+        let lastType = null;
+        seatsInRow.forEach(s => {
+            if (s.type !== lastType) {
+                labelAnchors.push({ x: s.x, y: s.y, label: specialLabels[s.type] });
+                lastType = s.type;
+            }
+        });
+    }
+
     for (const id in seatConfig) {
         const s = seatConfig[id];
         let fill = s.color || "#fff";
@@ -425,6 +472,17 @@ function draw() {
             ctx.textBaseline = "middle";
             ctx.fillText(num, s.x + s.w/2, s.y + s.h/2);
         }
+    }
+
+    // 縮放夠大時才畫分類標籤，避免縮到很小時文字疊在一起看不清楚
+    if (view.scale > 1.0) {
+        ctx.font = "9px sans-serif";
+        ctx.fillStyle = "#c0392b";
+        ctx.textAlign = "left";
+        ctx.textBaseline = "bottom";
+        labelAnchors.forEach(a => {
+            ctx.fillText(a.label, a.x, a.y - 2);
+        });
     }
 
     ctx.restore();
