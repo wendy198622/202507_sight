@@ -1282,64 +1282,15 @@ footer .footer_brand_frame .footer_social .item a {
   height: 100%;
   margin: 0 auto;
   display: block;
+  -ms-touch-action: none;
+      touch-action: none;
   cursor: -webkit-grab;
   cursor: grab;
 }
 
-.event_seat #seat-map-container #seats-photo.svg-pan-zoom_viewport:active {
+.event_seat #seat-map-container #seats-photo:active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
-}
-
-.event_seat #seat-map-container svg g {
-  cursor: pointer;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.event_seat #seat-map-container svg g rect:hover {
-  -webkit-filter: brightness(0.9);
-          filter: brightness(0.9);
-}
-
-.event_seat #seat-map-container svg g.selected rect, .event_seat #seat-map-container svg g.selected g {
-  stroke-width: 0 !important;
-  fill: #ffffff !important;
-}
-
-.event_seat #seat-map-container svg g path.st4 {
-  fill: #231815;
-}
-
-.event_seat #seat-map-container svg g.selected path.st4 {
-  stroke-width: 0 !important;
-  fill: #ffffff !important;
-}
-
-.event_seat #seat-map-container svg g.selected path.st8 {
-  stroke-width: 0 !important;
-  fill: #ff0000 !important;
-}
-
-.event_seat #seat-map-container .sold-seat {
-  cursor: not-allowed !important;
-}
-
-.event_seat #seat-map-container .sold-seat rect {
-  fill: #f1f1f1 !important;
-}
-
-.event_seat #seat-map-container .sold-seat g {
-  fill: #f1f1f1 !important;
-}
-
-.event_seat #seat-map-container .sold-seat path.st8 {
-  fill: #f1f1f1 !important;
-}
-
-.event_seat #seat-map-container .sold-seat:hover {
-  -webkit-filter: none !important;
-          filter: none !important;
 }
 
 /* 側邊欄樣式 */
@@ -1616,5 +1567,284 @@ footer .footer_brand_frame .footer_social .item a {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 0;
+}
+
+.canvas-seat-page {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", sans-serif;
+  background: #f2f2f2;
+  -ms-touch-action: pan-y;
+      touch-action: pan-y;
+  /* 頁面本身允許正常垂直捲動，縮放交給下面的 canvas 自己處理 */
+}
+
+.canvas-seat-page * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.event-frame {
+  background: #1f2d3d;
+  color: #fff;
+  padding: 16px 20px;
+}
+
+.event-frame .event-name {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.event-frame .event-en-name {
+  font-size: 12px;
+  color: #b8c2cc;
+  margin: 0 0 10px;
+}
+
+.event-frame .event-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 13px;
+  color: #e0e6ec;
+}
+
+.event-frame .event-meta span.highlight {
+  color: #ffd61e;
+  font-weight: 600;
+}
+
+#map-legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 8px 14px;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+#map-legend .legend-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 4px;
+  color: #444;
+}
+
+#map-legend .legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+#seat-map-container {
+  position: relative;
+  width: 100%;
+  height: 62vh;
+  background: transparent;
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
+  /* 只鎖在這個單一 canvas 容器上，範圍精準，不會像多層 DOM 那樣被 iOS 誤判 */
+}
+
+#seat-map-container #seatCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -ms-touch-action: none;
+      touch-action: none;
+}
+
+#seat-map-container .map-controls {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+}
+
+#seat-map-container .map-controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+#seat-map-container .map-controls button:active {
+  background: #eee;
+}
+
+#seat-map-container .perf-panel {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #0f0;
+  font-family: monospace;
+  font-size: 11px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  z-index: 5;
+  line-height: 1.5;
+}
+
+/* 底部購物車抽屜：預設收合只露出總金額列，選了座位後可展開看清單，
+   這樣清單不會被總金額列蓋住、也不用另外捲動頁面才看得到 */
+#cart-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  -webkit-box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 12px 12px 0 0;
+  z-index: 20;
+  max-height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translateY(calc(100% - 56px));
+          transform: translateY(calc(100% - 56px));
+  /* 收合，只露出底下的總金額列 */
+  -webkit-transition: -webkit-transform .25s ease;
+  transition: -webkit-transform .25s ease;
+  transition: transform .25s ease;
+  transition: transform .25s ease, -webkit-transform .25s ease;
+}
+
+#cart-drawer.expanded {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+#cart-drawer .cart-drawer-handle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+#cart-drawer .cart-drawer-handle h2 {
+  font-size: 14px;
+  margin: 0;
+  color: #1f2d3d;
+}
+
+#cart-drawer .cart-drawer-handle .count-badge {
+  background: #c0392b;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 10px;
+  padding: 1px 7px;
+  margin-left: 6px;
+}
+
+#cart-drawer .cart-drawer-handle .chevron {
+  font-size: 12px;
+  color: #999;
+}
+
+#cart-drawer #sidebar-content {
+  overflow-y: auto;
+  padding: 6px 16px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+#cart-drawer .cart-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 13px;
+  padding: 8px 0 8px 8px;
+  border-left: 3px solid #ccc;
+  margin-top: 6px;
+}
+
+#cart-drawer .cart-item .cart-item-remove {
+  color: #c0392b;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+#cart-drawer .bottom-bar {
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 12px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 56px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#cart-drawer .bottom-bar #total-price {
+  font-weight: bold;
+  color: #c0392b;
+  font-size: 16px;
+}
+
+#cart-drawer .bottom-bar #btn-checkout {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+#cart-drawer .bottom-bar #btn-checkout:disabled {
+  background: #ccc;
 }
 /*# sourceMappingURL=cart-seat-nkc.css.map */
