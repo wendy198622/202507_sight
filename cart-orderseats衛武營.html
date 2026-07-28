@@ -65,7 +65,7 @@
     <div id="sidebar">
       <div class="sidebar-header">
         <span>購物車</span>
-        <!-- <span class="close-btn" onclick="toggleSidebar()">✖</span> -->
+        <span class="close-btn" onclick="toggleSidebar()">✖</span>
       </div>
       
       <div id="sidebar-content">
@@ -134,10 +134,8 @@
       }
 
       // --- 3. 座位資料（type / status / 幾何座標）---
-      // SEAT_MAP_SEATS 是從原始 SVG 解析出的每個座位中心點；原稿中不同區塊的座位方塊本來就大小不一
-      // （視覺透視效果），這裡統一用固定尺寸繪製，讓畫面上大小、文字大小一致，也方便點擊。
-      const SEAT_W = 24, SEAT_H = 21;
-
+      // SEAT_MAP_SEATS 裡每個座位的 x/y/w/h 已經是繪製用的方框座標，且大小已依實際鄰座間距
+      // 縮放過（間距窄的地方方框就小一點），確保任兩個座位方框不會重疊，點擊才不會選錯鄰座。
       function generateConfig() {
           for (let key in ticketTypes) zoneCounts[key] = 0;
 
@@ -149,14 +147,13 @@
               }
               if (zoneCounts[assignedType] !== undefined) zoneCounts[assignedType]++;
               const typeData = ticketTypes[assignedType];
-              const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
               seatConfig[id] = {
                   type: assignedType,
                   color: typeData.color,
                   stroke: typeData.stroke,
                   isSelectable: typeData.isSelectable,
                   status: "available",
-                  x: cx - SEAT_W / 2, y: cy - SEAT_H / 2, w: SEAT_W, h: SEAT_H
+                  x: g.x, y: g.y, w: g.w, h: g.h
               };
           });
 
