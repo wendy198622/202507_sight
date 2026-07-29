@@ -1293,6 +1293,59 @@ footer .footer_brand_frame .footer_social .item a {
   cursor: grabbing;
 }
 
+/* 購物車開關按鈕：面板預設隱藏時，靠這顆浮動按鈕開啟；面板開啟時可再按一次或用面板內的 ✖ 關閉 */
+.cart-toggle-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #2c3e50;
+  color: #fff;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1001;
+  /* 高於 #sidebar，開啟時仍可再次點擊 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cart-toggle-btn .material-icons {
+  font-size: 26px;
+  color: #fff;
+}
+
+.cart-toggle-btn .cart-toggle-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 18px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 /* 側邊欄樣式 */
 #sidebar {
   position: fixed;
@@ -1317,7 +1370,9 @@ footer .footer_brand_frame .footer_social .item a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* 預設隱藏 (手機版與電腦版皆適用，視 JS 邏輯而定) */
+  /* 預設隱藏：購物車為空時不顯示面板，透過浮動按鈕或 ✖ 手動開關 */
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   /* ★ 手機版側邊欄調整 ★ */
 }
 

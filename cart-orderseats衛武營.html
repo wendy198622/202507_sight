@@ -61,6 +61,12 @@
     
     <footer id="footer"></footer>
 
+    <!-- 購物車開關按鈕：面板預設隱藏，靠這顆浮動按鈕開啟/關閉 -->
+    <button id="cart-toggle-btn" class="cart-toggle-btn" type="button" onclick="toggleSidebar()" title="購物車">
+      <span class="material-icons">shopping_cart</span>
+      <span id="cart-toggle-count" class="cart-toggle-count" style="display:none;">0</span>
+    </button>
+
     <!-- 側邊欄 -->
     <div id="sidebar">
       <div class="sidebar-header">
@@ -98,13 +104,18 @@
       // --- 2. 批量座位配置 ---
       const seatTypeAssignments = {
           "work": [ "", "", "", "" ], 
-          "wheelchair": [ "f2-mB9-1", "f2-mB9-2", "f2-mB9-3", "f2-mB9-84", "f2-mB9-85", "f2-mB9-86", "f2-mB9-7", "f2-mB9-8", "f2-mB9-9", "f3-rB4-66", "f3-rB4-68", 
+          "wheelchair": [ "f3-mC4-26","f3-mC4-28","f3-mC4-30", "f2-mF6-19", "f2-mF6-21", "f2-mF6-23", "f2-mF6-18", "f2-mF6-20", "f2-mF6-22","f2-mB9-1", "f2-mB9-2", "f2-mB9-3", "f2-mB9-84", "f2-mB9-85", "f2-mB9-86", "f2-mB9-7", "f2-mB9-8", "f2-mB9-9", "f3-rB4-66", "f3-rB4-68", 
           "f2-mB9-1", "f2-mB9-2", "f2-mB9-3", "f2-mB9-4", "f2-mB9-5", "f2-mB9-6", "f2-mB9-7", "f2-mB9-8", "f2-mB9-9" ],
-          "w_companion": [ "f3-mC4-20", "f3-mC4-22", "f3-mC4-24", "f2-mF5-25", "f2-mF5-21", "f2-mF5-19", "f3-rB3-82", "f3-rB3-80",
+          "w_companion": [ "f3-mC4-20", "f3-mC4-22", "f3-mC4-24", "f2-mF5-25", "f2-mF5-21", "f2-mF5-19", "f2-mF5-18", "f2-mF5-20", "f2-mF5-24", "f3-rB3-82", "f3-rB3-80",
           "f2-lC1-1", "f2-lC1-3", "f2-lC1-5", "f2-lC1-7", "f2-lC1-9", "f2-rC1-2", "f2-rC1-4", "f2-rC1-6", "f2-rC1-8" ], 
           "friendly": [ "", "" ], 
           "f_companion": [ "", "" ], 
-          "bad_view": [ "", "" ], 
+          "bad_view": [ "f3-mC2-36", "f3-mC2-38","f3-mC3-36","f3-mC3-38","f3-mC2-35", "f3-mC2-37","f3-mC3-37","f3-mC3-39", "f3-rB2-78", "f3-rB2-80", "f3-rB2-82", "f2-rE3-2", "f2-rE3-4", "f2-rD3-2", "f2-rD3-4", "f3-rB2-36", "f3-rB2-38", "f3-rB2-40", "f3-rB3-36", "f3-rB3-38", "f3-rB3-40", "f3-rB1-2", "f3-rB1-4", "f3-rB2-2", "f3-rB2-4",
+            "f2-lD3-1", "f2-lD3-3", "f2-lE3-1", "f2-lE3-3", "f3-lB2-1", "f3-lB2-3", "f3-lB2-35", "f3-lB2-37", "f3-lB2-39", "f3-lB2-55", "f3-lB2-57", "f3-lB3-35", "f3-lB3-37", "f3-lB3-39", "f3-lB3-55", "f3-lB4-43",
+            "f2-lB3-31", "f2-lB3-29", "f2-lB3-27", "f2-lB3-25", "f2-lB3-23", "f2-lB3-21", "f2-rB3-20", "f2-rB3-22", "f2-rB3-24", "f2-rB3-26", "f2-rB3-28", "f2-rB3-30",
+            "f2-lB4-27", "f2-rB4-28", "f2-lB7-17", "f2-rB7-16",
+            "f3-lA2-87", "f3-lA2-85", "f3-lA2-27", "f3-lA2-25", "f3-rA2-24", "f3-rA2-26", "f3-rA2-82", "f3-rA2-84", "f3-rA2-86", "f3-mA1-15", "f3-mA1-16", "f3-mA2-23", "f3-mA2-21", "f3-mA2-20", "f3-mA2-22",
+           ], 
           "vip": [ "", "" ], 
           "price_2600": [ "", "" ], 
           "price_1800": [ "", "" ], 
@@ -112,7 +123,7 @@
       };
   
       const defaultType = "general"; 
-      const soldSeatsList = ["f2-rE1-32", "f2-rE1-30","f3-lA3-49","f3-lA3-47"];
+      const soldSeatsList = ["", "",];
   
       let seatConfig = {};
       const cart = new Map();
@@ -182,9 +193,17 @@
           const contentContainer = document.getElementById('sidebar-content');
           const totalPriceEl = document.getElementById('total-price');
           const checkoutBtn = document.getElementById('btn-checkout');
-  
-          if (cart.size > 0) sidebar.classList.add('active');
-  
+          const cartToggleCount = document.getElementById('cart-toggle-count');
+
+          if (cart.size > 0) {
+              sidebar.classList.add('active');
+              cartToggleCount.textContent = cart.size;
+              cartToggleCount.style.display = 'flex';
+          } else {
+              sidebar.classList.remove('active');
+              cartToggleCount.style.display = 'none';
+          }
+
           contentContainer.innerHTML = "";
   
           let totalPrice = 0;
@@ -274,8 +293,15 @@
   
           totalPriceEl.textContent = "NT$ " + totalPrice.toLocaleString();
           checkoutBtn.disabled = !hasItems;
+          syncCartToggleBtn();
       }
-  
+
+      // 面板開啟時先隱藏浮動開關鈕，避免和面板內的 ✖ 關閉鈕重疊
+      function syncCartToggleBtn() {
+          const isOpen = document.getElementById('sidebar').classList.contains('active');
+          document.getElementById('cart-toggle-btn').style.display = isOpen ? 'none' : 'flex';
+      }
+
       function renderLegend() {
           const container = document.getElementById('map-legend');
           let html = "";
@@ -294,7 +320,7 @@
   
       function changeTicketType(seatId, newType) { if (cart.has(seatId)) { cart.set(seatId, newType); updateSidebar(); } }
       function removeSeat(seatId) { if (cart.has(seatId)) toggleSeat(seatId); }
-      function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
+      function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); syncCartToggleBtn(); }
 
       // --- 4. Canvas 座位圖繪製引擎 ---
       // 座位數上千個，改用單一 canvas 直接畫幾何圖形取代大量 SVG DOM 節點，
