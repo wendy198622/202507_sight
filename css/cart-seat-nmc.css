@@ -1302,53 +1302,71 @@ body {
   height: 100%;
   margin: 0 auto;
   display: block;
+  -ms-touch-action: none;
+      touch-action: none;
   cursor: -webkit-grab;
   cursor: grab;
 }
 
-.event_seat #seat-map-container #seats-photo.svg-pan-zoom_viewport:active {
+.event_seat #seat-map-container #seats-photo:active {
   cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
-.event_seat #seat-map-container svg g {
-  cursor: pointer;
-  -webkit-transition: opacity 0.2s;
-  transition: opacity 0.2s;
-}
-
-.event_seat #seat-map-container svg g rect:hover {
-  -webkit-filter: brightness(0.9);
-          filter: brightness(0.9);
-}
-
-.event_seat #seat-map-container svg g.selected rect, .event_seat #seat-map-container svg g.selected path.st0, .event_seat #seat-map-container svg g.selected path.st4, .event_seat #seat-map-container svg g.selected path.st5 {
-  stroke-width: 0 !important;
-  fill: #ff0000 !important;
-}
-
-.event_seat #seat-map-container svg g.selected path {
-  fill: #ffffff !important;
-}
-
-.event_seat #seat-map-container .sold-seat {
-  cursor: not-allowed !important;
-}
-
-.event_seat #seat-map-container .sold-seat rect {
-  fill: #f1f1f1 !important;
-}
-
-.event_seat #seat-map-container .sold-seat path.st0, .event_seat #seat-map-container .sold-seat path.st5 {
-  fill: #d3d2d2 !important;
-}
-
-.event_seat #seat-map-container .sold-seat:hover {
-  -webkit-filter: none !important;
-          filter: none !important;
-}
-
 /* 側邊欄樣式 */
+/* 購物車開關按鈕：面板預設隱藏時，靠這顆浮動按鈕開啟；面板開啟時可再按一次或用面板內的 ✖ 關閉 */
+.cart-toggle-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #2c3e50;
+  color: #fff;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1001;
+  /* 高於 #sidebar，開啟時仍可再次點擊 */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cart-toggle-btn .material-icons {
+  font-size: 26px;
+  color: #fff;
+}
+
+.cart-toggle-btn .cart-toggle-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 18px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 #sidebar {
   position: fixed;
   bottom: 0;
@@ -1372,7 +1390,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  /* 預設隱藏 (手機版與電腦版皆適用，視 JS 邏輯而定) */
+  /* 預設隱藏：購物車為空時不顯示面板，透過浮動按鈕或 ✖ 手動開關 */
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   /* ★ 手機版側邊欄調整 ★ */
 }
 
@@ -1433,7 +1453,7 @@ body {
 #sidebar .close-btn {
   cursor: pointer;
   font-size: 1.2em;
-  display: none;
+  display: block;
   top: 12px;
   right: 20px;
 }

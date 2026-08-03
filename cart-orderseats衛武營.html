@@ -127,7 +127,8 @@
   
       let seatConfig = {};
       const cart = new Map();
-      let zoneCounts = {}; 
+      let prevCartSize = 0;
+      let zoneCounts = {};
   
       // ★★★ 修正 parseSeatId 支援 f1, f2, f3 ★★★
       function parseSeatId(seatId) {
@@ -196,13 +197,15 @@
           const cartToggleCount = document.getElementById('cart-toggle-count');
 
           if (cart.size > 0) {
-              sidebar.classList.add('active');
+              // 只在「從空到有」時自動開啟，手機版關閉後不會因為再選座位而被強制彈回
+              if (prevCartSize === 0) sidebar.classList.add('active');
               cartToggleCount.textContent = cart.size;
               cartToggleCount.style.display = 'flex';
           } else {
               sidebar.classList.remove('active');
               cartToggleCount.style.display = 'none';
           }
+          prevCartSize = cart.size;
 
           contentContainer.innerHTML = "";
   
@@ -399,13 +402,22 @@
                   (rowGroups[rowKey] || (rowGroups[rowKey] = [])).push(s);
               }
           }
+          // 標籤文字常常比同一排相鄰兩個小群組的間距還寬（例如輪椅席/輪陪席常常只隔一個座位），
+          // 直接照座位位置畫會疊在一起看不清楚，所以量測文字寬度、彼此會撞到就往上疊到下一層
+          ctx.font = "7px sans-serif";
           const labelAnchors = [];
           for (const rowKey in rowGroups) {
               const seatsInRow = rowGroups[rowKey].slice().sort((a, b) => a.x - b.x);
               let lastType = null;
+              const laneEndX = [];
               seatsInRow.forEach(s => {
                   if (s.type !== lastType) {
-                      labelAnchors.push({ x: s.x, y: s.y, label: SPECIAL_LABELS[s.type] });
+                      const label = SPECIAL_LABELS[s.type];
+                      const width = ctx.measureText(label).width;
+                      let lane = 0;
+                      while (laneEndX[lane] !== undefined && s.x < laneEndX[lane] + 2) lane++;
+                      laneEndX[lane] = s.x + width;
+                      labelAnchors.push({ x: s.x, y: s.y - lane * 8, label });
                       lastType = s.type;
                   }
               });
@@ -454,7 +466,7 @@
           }
 
           if (view.scale > 1.0) {
-              ctx.font = "9px sans-serif";
+              ctx.font = "7px sans-serif";
               ctx.fillStyle = "#c0392b";
               ctx.textAlign = "left";
               ctx.textBaseline = "bottom";
