@@ -1209,7 +1209,6 @@ footer .footer_brand_frame .footer_social .item a {
   overflow: hidden;
   position: relative;
   /* 左上角圖例 - 手機版隱藏或調整 */
-  /* SVG 互動樣式 */
 }
 
 @media (max-width: 768px) {

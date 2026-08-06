@@ -2,6 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&family=Noto+Serif+Display:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+TC&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@font-face {
+  .material-icons {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    /* For IE6-8 */
+    src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+  }
+}
 
 body {
   font-family: "Noto Sans TC", sans-serif;
@@ -1199,7 +1209,6 @@ footer .footer_brand_frame .footer_social .item a {
   overflow: hidden;
   position: relative;
   /* 左上角圖例 - 手機版隱藏或調整 */
-  /* SVG 互動樣式 */
 }
 
 @media (max-width: 768px) {
@@ -1287,8 +1296,7 @@ footer .footer_brand_frame .footer_social .item a {
 .cart-toggle-btn {
   position: fixed;
   right: 20px;
-  /* iOS Safari 的底部工具列會蓋住固定定位元素，加上安全區間距避免按鈕被蓋住點不到 */
-  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  bottom: 20px;
   width: 56px;
   height: 56px;
   border-radius: 50%;

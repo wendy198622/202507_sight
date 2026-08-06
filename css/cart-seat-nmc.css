@@ -1226,7 +1226,6 @@ body {
   overflow: hidden;
   position: relative;
   /* 左上角圖例 - 手機版隱藏或調整 */
-  /* SVG 互動樣式 */
 }
 
 @media (max-width: 768px) {
@@ -1456,12 +1455,6 @@ body {
   display: block;
   top: 12px;
   right: 20px;
-}
-
-@media (max-width: 600px) {
-  #sidebar .close-btn {
-    display: block;
-  }
 }
 
 #sidebar #sidebar-content {
