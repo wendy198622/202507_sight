@@ -470,6 +470,17 @@
               }
           }
 
+          // 樓層分隔標示（如「2F」「3F」）：純文字標示，不是座位資料，不參與 hitTest，不能被點選
+          SEAT_MAP_FLOOR_LABELS.forEach(fl => {
+              if (fl.h * view.scale <= 8) return;
+              const label = fl.id.split('-')[2];
+              ctx.fillStyle = "#231815";
+              ctx.font = `${Math.min(fl.h * 0.5, 12)}px sans-serif`;
+              ctx.textAlign = "center";
+              ctx.textBaseline = "middle";
+              ctx.fillText(label, fl.x + fl.w / 2, fl.y + fl.h / 2);
+          });
+
           if (view.scale > 1.0) {
               ctx.font = "7px sans-serif";
               ctx.fillStyle = "#c0392b";
