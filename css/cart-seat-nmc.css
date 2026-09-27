@@ -1643,3 +1643,23 @@ body {
   padding: 0;
 }
 /*# sourceMappingURL=cart-seat-nmc.css.map */
+
+/* 座位圖載入與互動狀態提示 */
+#seat-map-status {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 5;
+  max-width: min(480px, calc(100% - 24px));
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .94);
+  color: #555;
+  font-size: 13px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .12);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  #seat-map-status { left: 8px; bottom: 8px; font-size: 11px; }
+}

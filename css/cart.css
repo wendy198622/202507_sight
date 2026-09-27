@@ -1515,7 +1515,7 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .cart_ticket .cart_ticket_detail .group .cart_ticket_item > div, .order_ticket .cart_ticket_detail .group .cart_ticket_item > div {
-  width: calc((100% - 50px) / 5);
+  width: calc((100% - 50px) / 6);
 }
 
 @media (max-width: 600px) {
@@ -1709,7 +1709,7 @@ footer .footer_brand_frame .footer_social .item a {
 }
 
 .cart_ticket .cart_order_detail .group .cart_ticket_item > div, .order_ticket .cart_order_detail .group .cart_ticket_item > div {
-  width: calc((100% - 50px) / 5);
+  width: calc((100% - 50px) / 6);
 }
 
 @media (max-width: 600px) {

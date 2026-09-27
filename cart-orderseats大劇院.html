@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <title>縱觀藝術售票系統</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/cart-seat-nmc.css" />
+  <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <header id="header"></header>
+
+  <section>
+    <div class="event_frame">
+      <div class="container">
+        <div class="event_info">
+              <h4 class="event_info_name">《雙城脈動》薩克斯風音樂會</h4>
+              <h4 class="event_info_en-name">《Echoes of Two Cities》Saxophone Concert by NIKITA ZIMIN and MATSUSHITA YO</h5>
+        </div>
+        <div class="event_info">
+              <h4 class="event_info_date">時間：2025 年 12 月 31 日 (三)</h4>
+          <h4 class="event_info_place">地點：<span>大劇院</span></h4>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="event_seat">
+      <div id="seat-map-container">
+        <div id="map-legend" style="opacity:0;visibility:hidden"></div>
+        <div class="my-controls map-controls" aria-label="座位圖控制">
+          <button id="zoom-in-btn" type="button" title="放大"><span class="material-icons">add</span></button>
+          <button id="zoom-out-btn" type="button" title="縮小"><span class="material-icons">remove</span></button>
+          <button id="reset-btn" type="button" title="重置"><span class="material-icons">replay</span></button>
+        </div>
+        <canvas id="seats-photo" aria-label="大劇院座位圖"></canvas>
+        <div id="seat-map-status" role="status">正在載入座位圖…</div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer"></footer>
+
+  <button id="cart-toggle-btn" class="cart-toggle-btn" type="button" onclick="toggleSidebar()" title="購物車">
+    <span class="material-icons">shopping_cart</span>
+    <span id="cart-toggle-count" class="cart-toggle-count" style="display:none">0</span>
+  </button>
+
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <span>購物車</span>
+      <span class="close-btn" onclick="toggleSidebar()">✖</span>
+    </div>
+    <div id="sidebar-content">
+      <p style="text-align:center;color:#999;margin-top:50px">尚未選擇座位</p>
+    </div>
+    <div class="sidebar-footer">
+      <div class="total-row"><span>總金額</span><span class="total-price" id="total-price">待活動設定</span></div>
+      <button class="btn-checkout" id="btn-checkout" disabled type="button">前往結帳</button>
+    </div>
+  </div>
+
+  <script src="js/seatmap-grand-theatre-data.js?v=seat-ids-floor-row-token-20260927"></script>
+  <script src="js/seatmap-grand-theatre-svg-source.js?v=5r-xminus50-yplus30-20260927"></script>
+  <script src="js/cart-orderseats-grand-theatre.js?v=cart-floor-row-token-20260927"></script>
+  <script>
+    $(function () {
+      $("#header").load("page/header.html");
+      $("#footer").load("page/footer.html");
+      $(window).on("scroll", function () {
+        $("#header").toggleClass("fixed", window.scrollY > 10);
+      });
+    });
+  </script>
+</body>
+</html>

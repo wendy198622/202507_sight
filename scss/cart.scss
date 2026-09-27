@@ -349,7 +349,7 @@
                     justify-content: space-between;
                 }
                 > div{
-                    width: calc((100% - 50px) / 5);
+                    width: calc((100% - 50px) / 6);
                     // outline: 1px solid red;
                     @media (max-width: 600px){
                         width: 100%;
@@ -519,7 +519,7 @@
                     justify-content: space-between;
                 }
                 > div{
-                    width: calc((100% - 50px) / 5);
+                    width: calc((100% - 50px) / 6);
                     // outline: 1px solid red;
                     @media (max-width: 600px){
                         width: 100%;
